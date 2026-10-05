@@ -1,0 +1,4 @@
+/* Small, restrained interactions for the canteen POS. */
+:root{--motion-ease:cubic-bezier(.2,.7,.2,1)}
+.nav-item,.product-card,button,.quick-action{transition:background-color .18s ease,border-color .18s ease,box-shadow .18s ease,transform .18s ease}
+.nav-item:hover,.product-card:hover,button:not(:disabled):hover,.quick-action:hover{transform:translateY(-1px)}

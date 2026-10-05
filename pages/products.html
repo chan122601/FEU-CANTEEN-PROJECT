@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products | CONFIT STORE</title>
+    <title>Products | FEU CANTEEN</title>
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/gonzcore_motion.css">
+    <link rel="stylesheet" href="../css/canteen_motion.css">
 
     <style>
         .products-page {
@@ -45,8 +45,8 @@
             justify-content: center;
             gap: 8px;
             border-radius: 10px;
-            background: linear-gradient(135deg, #ffffff, #c4b5fd);
-            color: #171323;
+            background: linear-gradient(135deg, #ffffff, #D4AF37);
+            color: #0B5D3B;
             font-size: 11px;
             font-weight: 800;
             cursor: pointer;
@@ -55,7 +55,7 @@
 
         .add-product-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(196,181,253,0.18);
+            box-shadow: 0 12px 30px rgba(212,175,55,0.18);
         }
 
         .product-stats {
@@ -70,7 +70,7 @@
             border: 1px solid rgba(255,255,255,0.08);
             border-radius: 15px;
             background: rgba(255,255,255,0.045);
-            backdrop-filter: blur(18px);
+
         }
 
         .product-stat-label {
@@ -97,7 +97,7 @@
             border: 1px solid rgba(255,255,255,0.08);
             border-radius: 18px;
             background: rgba(255,255,255,0.045);
-            backdrop-filter: blur(18px);
+
         }
 
         .products-toolbar {
@@ -176,9 +176,9 @@
 
         .product-page-button:hover,
         .product-page-button.active {
-            background: rgba(196,181,253,0.12);
-            border-color: rgba(196,181,253,0.25);
-            color: #c4b5fd;
+            background: rgba(212,175,55,0.12);
+            border-color: rgba(212,175,55,0.25);
+            color: #D4AF37;
         }
 
         .product-page-button:disabled {
@@ -192,7 +192,7 @@
             border: 1px solid rgba(255,255,255,0.08);
             border-radius: 18px;
             background: rgba(255,255,255,0.045);
-            backdrop-filter: blur(18px);
+
         }
 
         .category-management-header {
@@ -243,7 +243,7 @@
             border: 1px solid rgba(255,255,255,0.09);
             border-radius: 9px;
             background: rgba(255,255,255,0.04);
-            color: #c4b5fd;
+            color: #D4AF37;
             font-size: 10px;
             font-weight: 700;
             cursor: pointer;
@@ -252,8 +252,8 @@
 
         .category-add-button {
             border: none;
-            background: linear-gradient(135deg, #ffffff, #c4b5fd);
-            color: #171323;
+            background: linear-gradient(135deg, #ffffff, #D4AF37);
+            color: #0B5D3B;
         }
 
         .category-add-button:hover,
@@ -264,8 +264,8 @@
         }
 
         .category-add-button:hover {
-            background: linear-gradient(135deg, #ffffff, #c4b5fd);
-            color: #171323;
+            background: linear-gradient(135deg, #ffffff, #D4AF37);
+            color: #0B5D3B;
         }
 
         .category-list {
@@ -355,7 +355,7 @@
             background:
                 radial-gradient(
                     circle at 50% 35%,
-                    rgba(196,181,253,0.16),
+                    rgba(212,175,55,0.16),
                     transparent 55%
                 ),
                 rgba(255,255,255,0.045);
@@ -385,8 +385,8 @@
             display: inline-flex;
             padding: 5px 8px;
             border-radius: 7px;
-            background: rgba(196,181,253,0.08);
-            color: #c4b5fd;
+            background: rgba(212,175,55,0.08);
+            color: #D4AF37;
             font-size: 8px;
             font-weight: 700;
             text-transform: capitalize;
@@ -472,7 +472,7 @@
             justify-content: center;
             padding: 20px;
             background: rgba(2,4,10,0.72);
-            backdrop-filter: blur(12px);
+
             z-index: 1000;
         }
 
@@ -568,7 +568,7 @@
 
         .form-group input:focus,
         .form-group select:focus {
-            border-color: rgba(196,181,253,0.4);
+            border-color: rgba(212,175,55,0.4);
         }
 
         .form-group select {
@@ -625,8 +625,8 @@
 
         .save-button {
             border: none;
-            background: linear-gradient(135deg, #ffffff, #c4b5fd);
-            color: #171323;
+            background: linear-gradient(135deg, #ffffff, #D4AF37);
+            color: #0B5D3B;
         }
 
         @media (max-width: 1000px) {
@@ -696,83 +696,61 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="../css/canteen_theme.css">
 </head>
 
 <body>
 
-    <div class="background">
-        <div class="glow glow-one"></div>
-        <div class="glow glow-two"></div>
-        <div class="glow glow-three"></div>
-        <div id="particles"></div>
-    </div>
+
 
     <aside class="sidebar">
 
         <div class="brand">
-            <div class="brand-mark">C</div>
+            <div class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="7.7"/><circle cx="12" cy="12" r="5.2"/><path d="M3 3v5m-1.5-5v3M4.5 3v3M3 8v13M20 3c-2 2-2.5 5-2.5 8h3V3zm0 8v10"/></svg></div>
 
             <div>
-                <h1>CONFIT</h1>
+                <h1>FEU CANTEEN</h1><span>POINT OF SALE SYSTEM</span>
             </div>
         </div>
 
         <nav class="navigation">
 
             <a href="../index.html" class="nav-item">
-                <span class="nav-icon">⌂</span>
+                <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-6v-7h-4v7H4a1 1 0 0 1-1-1z"/></svg></span>
                 <span>Dashboard</span>
             </a>
 
             <a href="pos.html" class="nav-item">
-                <span class="nav-icon">▣</span>
+                <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.2 11.1a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 1.9-1.4L22 8H6"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg></span>
                 <span>POS</span>
             </a>
 
             <a href="products.html" class="nav-item active">
-                <span class="nav-icon">◇</span>
+                <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h18M5 8c.4 6 3.1 9 7 9s6.6-3 7-9"/><path d="M5 5h14M7 12h10M9 15h6"/></svg></span>
                 <span>Products</span>
             </a>
 
             <a href="inventory.html" class="nav-item">
-                <span class="nav-icon">▤</span>
+                <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 9 4.5v9L12 21l-9-4.5v-9z"/><path d="m3.5 7.7 8.5 4.5 8.5-4.5M12 12.2V21"/></svg></span>
                 <span>Inventory</span>
             </a>
 
             <a href="sales.html" class="nav-item">
-                <span class="nav-icon">◈</span>
+                <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-2-1.5-2 1.5-2-1.5-2 1.5-2-1.5L6 21z"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></span>
                 <span>Sales</span>
             </a>
 
             <a href="customers.html" class="nav-item">
-                <span class="nav-icon">♙</span>
+                <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20v-1a6 6 0 0 1 12 0v1zM16 5.5a3 3 0 0 1 0 5.8M18 14a4.5 4.5 0 0 1 3 4.3V20h-3"/></svg></span>
                 <span>Customers</span>
             </a>
 
             <a href="reports.html" class="nav-item">
-                <span class="nav-icon">◫</span>
+                <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V11h4v9M10 20V5h4v15M16 20v-7h4v7M3 20h18"/></svg></span>
                 <span>Reports</span>
             </a>
-
-        </nav>
-
-        <div class="sidebar-bottom">
-
-            <a href="settings.html" class="nav-item">
-                <span class="nav-icon">⚙</span>
-                <span>Settings</span>
-            </a>
-
-            <div class="system-status">
-                <span class="status-dot"></span>
-
-                <div>
-                    <strong>Offline Mode</strong>
-                    <small>Data stored locally</small>
-                </div>
-            </div>
-
-        </div>
+<a href="settings.html" class="nav-item"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="7.5"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2m-4.34-9.66 1.42 1.42m-14.16 14.16 1.42 1.42m11.32 0 1.42-1.42M4.34 4.34 5.76 5.76"/></svg></span><span>Settings</span></a>
+</nav>
 
     </aside>
 
@@ -781,26 +759,24 @@
         <header class="topbar">
 
             <div class="mobile-brand">
-                <strong>CONFIT</strong>
+                <strong>FEU CANTEEN</strong>
             </div>
 
             <div class="topbar-right">
 
                 <div class="live-time">
                     <span class="live-dot"></span>
-                    <span id="liveTime">00:00:00</span>
+                    <span id="liveTime">--:--:-- --</span>
                 </div>
 
                 <div class="profile">
 
-                    <div class="profile-avatar">
-                        C
-                    </div>
+                    <div class="profile-avatar"><span class="profile-avatar-text">FEU</span></div>
 
                     <div class="profile-info">
-                        <strong>Administrator</strong>
+                        <strong>Canteen Owner</strong>
                         <span>Owner</span>
-                    </div>
+                    </div><span class="profile-chevron" aria-hidden="true">&#8964;</span>
 
                 </div>
 
@@ -815,7 +791,7 @@
                 <div>
 
                     <span class="eyebrow">
-                        CONFIT STORE
+                        FEU CANTEEN
                     </span>
 
                     <h2>
@@ -823,7 +799,7 @@
                     </h2>
 
                     <p>
-                        Add, edit and manage the clothing products available in your store.
+                        Add, edit and manage the canteen products available in your store.
                     </p>
 
                 </div>
@@ -916,7 +892,7 @@
                         <span class="eyebrow">PRODUCT CATALOG</span>
                         <h3>Category Management</h3>
                     </div>
-                    <span class="category-management-note">Administrator only</span>
+                    <span class="category-management-note">Owner only</span>
                 </div>
 
                 <form class="category-add-form" id="categoryForm">
@@ -967,7 +943,7 @@
         </section>
 
         <footer>
-            <span>Powered by Opticore</span>
+            <span>Powered by FEU Canteen</span>
             <span>POS SYSTEM</span>
         </footer>
 
@@ -993,7 +969,7 @@
                     </h3>
 
                     <p>
-                        Enter the information for this clothing product.
+                        Enter the information for this canteen product.
                     </p>
 
                 </div>
@@ -1021,7 +997,7 @@
                         <input
                             type="text"
                             id="productName"
-                            placeholder="Example: Oversized Black Shirt"
+                            placeholder="Example: Chicken Rice Meal"
                             required
                         >
 
@@ -1076,13 +1052,13 @@
                     <div class="form-group">
 
                         <label for="productSize">
-                            Size
+                            Serving Size
                         </label>
 
                         <input
                             type="text"
                             id="productSize"
-                            placeholder="S, M, L, XL"
+                            placeholder="Regular, Large"
                         >
 
                     </div>
@@ -1090,13 +1066,13 @@
                     <div class="form-group">
 
                         <label for="productColor">
-                            Color
+                            Preparation Notes
                         </label>
 
                         <input
                             type="text"
                             id="productColor"
-                            placeholder="Black"
+                            placeholder="e.g. spicy, no onions"
                         >
 
                     </div>
@@ -1155,8 +1131,8 @@
     <script src="../js/app.js"></script>
 
     <script>
-        const STORAGE_KEY = "gonzcoreClothingInventory";
-        const CATEGORIES_KEY = "gonzcoreClothingCategories";
+        const STORAGE_KEY = "feuCanteenInventory";
+        const CATEGORIES_KEY = "feuCanteenCategories";
 
         let products = [];
         let categories = [];
@@ -1166,96 +1142,21 @@
         const PRODUCTS_PER_PAGE = 50;
 
         const defaultProducts = [
-            {
-                id: 1,
-                name: "Classic Oversized Tee",
-                category: "tops",
-                price: 499,
-                stock: 12,
-                size: "S, M, L, XL",
-                color: "White",
-                image: "👕"
-            },
-            {
-                id: 2,
-                name: "Premium Black Hoodie",
-                category: "tops",
-                price: 899,
-                stock: 8,
-                size: "M, L, XL",
-                color: "Black",
-                image: "🧥"
-            },
-            {
-                id: 3,
-                name: "Streetwear Cargo Pants",
-                category: "bottoms",
-                price: 1099,
-                stock: 6,
-                size: "S, M, L",
-                color: "Black",
-                image: "👖"
-            },
-            {
-                id: 4,
-                name: "Classic Denim Jeans",
-                category: "bottoms",
-                price: 1299,
-                stock: 4,
-                size: "28, 30, 32, 34",
-                color: "Blue",
-                image: "👖"
-            },
-            {
-                id: 5,
-                name: "Urban Runner Sneakers",
-                category: "shoes",
-                price: 1799,
-                stock: 7,
-                size: "39, 40, 41, 42",
-                color: "White",
-                image: "👟"
-            },
-            {
-                id: 6,
-                name: "Minimal Crossbody Bag",
-                category: "bags",
-                price: 699,
-                stock: 9,
-                size: "One Size",
-                color: "Black",
-                image: "👜"
-            },
-            {
-                id: 7,
-                name: "Everyday Cap",
-                category: "accessories",
-                price: 299,
-                stock: 15,
-                size: "One Size",
-                color: "Black",
-                image: "🧢"
-            },
-            {
-                id: 8,
-                name: "Urban Sunglasses",
-                category: "accessories",
-                price: 399,
-                stock: 5,
-                size: "One Size",
-                color: "Black",
-                image: "🕶️"
-            },
-            {
-                id: 9,
-                name: "Essential Polo Shirt",
-                category: "tops",
-                price: 599,
-                stock: 10,
-                size: "S, M, L, XL",
-                color: "Navy",
-                image: "👕"
-            }
+            { id: 1, name: 'Chicken Rice Meal', category: 'Meals', price: 85, stock: 18, size: "Regular", color: "Fresh", image: "\u{1F35B}" },
+            { id: 2, name: 'Pork Adobo Rice', category: 'Meals', price: 75, stock: 16, size: "Regular", color: "Fresh", image: "\u{1F372}" },
+            { id: 3, name: 'Fried Chicken Rice', category: 'Meals', price: 80, stock: 12, size: "Regular", color: "Fresh", image: "\u{1F357}" },
+            { id: 4, name: 'Siomai Rice', category: 'Meals', price: 65, stock: 20, size: "Regular", color: "Fresh", image: "\u{1F95F}" },
+            { id: 5, name: 'French Fries', category: 'Snacks', price: 45, stock: 20, size: "Regular", color: "Fresh", image: "\u{1F35F}" },
+            { id: 6, name: 'Siomai', category: 'Snacks', price: 40, stock: 24, size: "Regular", color: "Fresh", image: "\u{1F95F}" },
+            { id: 7, name: 'Sandwich', category: 'Snacks', price: 50, stock: 15, size: "Regular", color: "Fresh", image: "\u{1F96A}" },
+            { id: 8, name: 'Burger', category: 'Snacks', price: 55, stock: 10, size: "Regular", color: "Fresh", image: "\u{1F354}" },
+            { id: 9, name: 'Bottled Water', category: 'Drinks', price: 20, stock: 35, size: "Regular", color: "Fresh", image: "\u{1F4A7}" },
+            { id: 10, name: 'Soft Drink', category: 'Drinks', price: 30, stock: 24, size: "Regular", color: "Fresh", image: "\u{1F964}" },
+            { id: 11, name: 'Iced Tea', category: 'Drinks', price: 35, stock: 18, size: "Regular", color: "Fresh", image: "\u{1F9CB}" },
+            { id: 12, name: 'Iced Coffee', category: 'Coffee', price: 55, stock: 7, size: "Regular", color: "Fresh", image: "\u{2615}" },
+            { id: 13, name: 'Chocolate Cake', category: 'Desserts', price: 60, stock: 9, size: "Regular", color: "Fresh", image: "\u{1F370}" },
+            { id: 14, name: 'Banana Bread', category: 'Desserts', price: 45, stock: 12, size: "Regular", color: "Fresh", image: "\u{1F35E}" },
+            { id: 15, name: 'Donut', category: 'Desserts', price: 35, stock: 16, size: "Regular", color: "Fresh", image: "\u{1F369}" }
         ];
 
         document.addEventListener("DOMContentLoaded", function() {
@@ -1302,7 +1203,7 @@
             const discoveredCategories = products
                 .map(function(product) { return String(product.category || "").trim(); })
                 .filter(Boolean);
-            const defaults = ["tops", "bottoms", "shoes", "bags", "accessories"];
+            const defaults = ["Meals", "Snacks", "Drinks", "Coffee", "Desserts"];
             categories = [];
 
             storedCategories.concat(defaults, discoveredCategories).forEach(function(category) {
@@ -1325,20 +1226,20 @@
 
         function getCurrentSession() {
             try {
-                return JSON.parse(localStorage.getItem("gonzcoreClothingSession") || "null");
+                return JSON.parse(localStorage.getItem("feuCanteenSession") || "null");
             } catch (error) {
                 return null;
             }
         }
 
-        function isAdministrator() {
+        function isOwner() {
             const session = getCurrentSession();
             return !!session && String(session.role || "").toLowerCase() === "administrator";
         }
 
         function applyCategoryPermissions() {
             const management = document.getElementById("categoryManagement");
-            if (management && !isAdministrator()) {
+            if (management && !isOwner()) {
                 management.hidden = true;
             }
         }
@@ -1381,9 +1282,10 @@
                 return;
             }
 
+            const categoryIcons = {Meals:"🍛",Snacks:"🍟",Drinks:"🥤",Coffee:"☕",Desserts:"🍰"};
             container.innerHTML = categories.map(function(category) {
                 return '<div class="category-item">' +
-                    '<span>' + escapeHTML(category) + '</span>' +
+                    '<span><span class="category-icon" aria-hidden="true">' + (categoryIcons[category] || "🍴") + '</span> ' + escapeHTML(category) + '</span>' +
                     '<div class="category-item-actions">' +
                     '<button class="category-action-button" type="button" data-category-action="rename" data-category="' + escapeHTML(category) + '">Rename</button>' +
                     '<button class="category-action-button" type="button" data-category-action="delete" data-category="' + escapeHTML(category) + '">Delete</button>' +
@@ -1450,7 +1352,7 @@
                 .getElementById("categoryList")
                 .addEventListener("click", function(event) {
                     const button = event.target.closest("[data-category-action]");
-                    if (!button || !isAdministrator()) return;
+                    if (!button || !isOwner()) return;
 
                     const category = button.getAttribute("data-category");
                     if (button.getAttribute("data-category-action") === "rename") {
@@ -1467,7 +1369,7 @@
 
         function addCategory(event) {
             event.preventDefault();
-            if (!isAdministrator()) return;
+            if (!isOwner()) return;
 
             const input = document.getElementById("categoryName");
             const category = input.value.trim();
@@ -1488,7 +1390,7 @@
         }
 
         function renameCategory(category) {
-            if (!isAdministrator()) return;
+            if (!isOwner()) return;
 
             const item = Array.from(document.querySelectorAll(".category-item")).find(function(element) {
                 return element.querySelector('[data-category-action="rename"]')?.getAttribute("data-category") === category;
@@ -1508,7 +1410,7 @@
         }
 
         function commitCategoryRename(category, renamed) {
-            if (!isAdministrator()) return;
+            if (!isOwner()) return;
 
             const nextName = String(renamed || "").trim();
             if (!nextName || nextName.toLowerCase() === category.toLowerCase()) {
@@ -1540,7 +1442,7 @@
         }
 
         function deleteCategory(category) {
-            if (!isAdministrator()) return;
+            if (!isOwner()) return;
 
             const inUse = products.some(function(product) {
                 return product.category === category;
@@ -1632,7 +1534,7 @@
                         >
                     `;
                 } else {
-                    imageHTML = product.image || "👕";
+                    imageHTML = product.image || "🍽️";
                 }
 
                 rows += `
@@ -1649,9 +1551,7 @@
                                     </strong>
 
                                     <span>
-                                        ${escapeHTML(product.color || "No color")}
-                                        •
-                                        ${escapeHTML(product.size || "No size")}
+                                        Serving size: ${escapeHTML(product.size || "Regular")}
                                     </span>
                                 </div>
                             </div>
@@ -1947,7 +1847,7 @@
                 stock: stock,
                 size: size,
                 color: color,
-                image: uploadedImage || "👕"
+                image: uploadedImage || "🍽️"
             };
 
             const wasEditing = editingProductId !== null;

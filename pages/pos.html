@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CONFIT STORE</title>
+    <title>FEU CANTEEN</title>
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/gonzcore_motion.css">
+    <link rel="stylesheet" href="../css/canteen_motion.css">
 
     <style>
         .pos-page {
@@ -45,7 +45,7 @@
             border: 1px solid rgba(255,255,255,0.08);
             border-radius: 18px;
             background: rgba(255,255,255,0.045);
-            backdrop-filter: blur(18px);
+
         }
 
         .pos-toolbar {
@@ -100,7 +100,7 @@
 
         .product-card:hover {
             transform: translateY(-5px);
-            border-color: rgba(196,181,253,0.35);
+            border-color: rgba(212,175,55,0.35);
             background: rgba(255,255,255,0.07);
             box-shadow: 0 15px 35px rgba(0,0,0,0.18);
         }
@@ -117,7 +117,7 @@
             background:
                 radial-gradient(
                     circle at 50% 35%,
-                    rgba(196,181,253,0.18),
+                    rgba(212,175,55,0.18),
                     transparent 55%
                 ),
                 rgba(255,255,255,0.045);
@@ -187,7 +187,7 @@
             border: 1px solid rgba(255,255,255,0.08);
             border-radius: 18px;
             background: rgba(255,255,255,0.045);
-            backdrop-filter: blur(18px);
+
         }
 
         .cart-header {
@@ -210,8 +210,8 @@
             place-items: center;
             padding: 0 8px;
             border-radius: 50px;
-            background: rgba(196,181,253,0.12);
-            color: #c4b5fd;
+            background: rgba(212,175,55,0.12);
+            color: #D4AF37;
             font-size: 10px;
             font-weight: 800;
         }
@@ -378,8 +378,8 @@
             margin-top: 15px;
             border: none;
             border-radius: 10px;
-            background: linear-gradient(135deg, #ffffff, #c4b5fd);
-            color: #171323;
+            background: linear-gradient(135deg, #ffffff, #D4AF37);
+            color: #0B5D3B;
             font-size: 10px;
             font-weight: 800;
             cursor: pointer;
@@ -388,7 +388,7 @@
 
         .checkout-button:hover:not(:disabled) {
             transform: translateY(-2px);
-            box-shadow: 0 12px 30px rgba(196,181,253,0.18);
+            box-shadow: 0 12px 30px rgba(212,175,55,0.18);
         }
 
         .checkout-button:disabled {
@@ -405,7 +405,7 @@
             padding: 20px;
             overflow-y: auto;
             background: rgba(2,4,10,0.75);
-            backdrop-filter: blur(12px);
+
             z-index: 1000;
         }
 
@@ -442,9 +442,9 @@
         .payment-total {
             margin: 22px 0;
             padding: 17px;
-            border: 1px solid rgba(196,181,253,0.12);
+            border: 1px solid rgba(212,175,55,0.12);
             border-radius: 12px;
-            background: rgba(196,181,253,0.05);
+            background: rgba(212,175,55,0.05);
             text-align: center;
         }
 
@@ -485,7 +485,7 @@
         }
 
         .cash-input:focus {
-            border-color: rgba(196,181,253,0.4);
+            border-color: rgba(212,175,55,0.4);
         }
 
         .change-display {
@@ -526,8 +526,8 @@
 
         .complete-payment {
             border: none;
-            background: linear-gradient(135deg, #ffffff, #c4b5fd);
-            color: #171323;
+            background: linear-gradient(135deg, #ffffff, #D4AF37);
+            color: #0B5D3B;
         }
 
         .complete-payment:disabled {
@@ -555,25 +555,25 @@
         }
 
         .payment-method-button:hover {
-            border-color: rgba(196,181,253,0.28);
-            background: rgba(196,181,253,0.07);
+            border-color: rgba(212,175,55,0.28);
+            background: rgba(212,175,55,0.07);
             color: #ffffff;
         }
 
         .payment-method-button.active {
-            border-color: rgba(196,181,253,0.45);
-            background: rgba(196,181,253,0.12);
+            border-color: rgba(212,175,55,0.45);
+            background: rgba(212,175,55,0.12);
             color: #ffffff;
-            box-shadow: 0 8px 25px rgba(196,181,253,0.08);
+            box-shadow: 0 8px 25px rgba(212,175,55,0.08);
         }
 
         .gcash-panel {
             display: none;
             margin-top: 4px;
             padding: 15px;
-            border: 1px solid rgba(196,181,253,0.12);
+            border: 1px solid rgba(212,175,55,0.12);
             border-radius: 12px;
-            background: rgba(196,181,253,0.04);
+            background: rgba(212,175,55,0.04);
         }
 
         .gcash-panel.show {
@@ -647,17 +647,14 @@
 
         .receipt-modal {
             width: min(430px, 100%);
-            max-height: 90vh;
+            max-height: calc(100vh - 32px);
             overflow-y: auto;
-            padding: 25px;
-            border: 1px solid rgba(255,255,255,0.10);
-            border-radius: 20px;
-            background: linear-gradient(
-                135deg,
-                rgba(25,28,45,0.98),
-                rgba(14,17,30,0.98)
-            );
-            box-shadow: 0 30px 80px rgba(0,0,0,0.45);
+            padding: 24px;
+            border: 1px solid #DCE6E1;
+            border-radius: 16px;
+            background: #FFFFFF;
+            color: #1F2937;
+            box-shadow: 0 20px 60px rgba(15,55,37,.18);
         }
 
         .receipt-success {
@@ -667,30 +664,32 @@
             place-items: center;
             margin: 0 auto 12px;
             border-radius: 50%;
-            background: rgba(110,231,183,0.10);
-            color: #6ee7b7;
+            background: #EAF5EF;
+            color: #0B5D3B;
             font-size: 25px;
         }
 
         .receipt-title {
             text-align: center;
-            font-family: "Playfair Display", Georgia, serif;
-            font-size: 25px;
+            color: #1F2937;
+            font-family: Inter,"Segoe UI",Arial,sans-serif;
+            font-size: 28px;
+            font-weight: 700;
         }
 
         .receipt-subtitle {
             margin-top: 5px;
             text-align: center;
-            color: #70798d;
-            font-size: 10px;
+            color: #64748B;
+            font-size: 14px;
         }
 
         .receipt-content {
             margin-top: 20px;
             padding: 15px;
-            border: 1px solid rgba(255,255,255,0.07);
+            border: 1px solid #DCE6E1;
             border-radius: 11px;
-            background: rgba(255,255,255,0.025);
+            background: #F8FAF9;
         }
 
         .receipt-line {
@@ -698,9 +697,9 @@
             justify-content: space-between;
             gap: 15px;
             padding: 7px 0;
-            border-bottom: 1px dashed rgba(255,255,255,0.07);
-            color: #8d96aa;
-            font-size: 9px;
+            border-bottom: 1px dashed #DCE6E1;
+            color: #475569;
+            font-size: 13px;
         }
 
         .receipt-line:last-child {
@@ -708,7 +707,9 @@
         }
 
         .receipt-line strong {
-            color: #ffffff;
+            color: #1F2937;
+            font-size: 13px;
+            font-weight: 600;
             text-align: right;
         }
 
@@ -717,10 +718,16 @@
             justify-content: space-between;
             margin-top: 10px;
             padding-top: 12px;
-            border-top: 1px solid rgba(255,255,255,0.08);
-            color: #ffffff;
-            font-size: 13px;
-            font-weight: 800;
+            border-top: 1px solid #C8D9CF;
+            color: #0B5D3B;
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .receipt-total strong {
+            color: #0B5D3B;
+            font-size: 18px;
+            font-weight: 750;
         }
 
         .receipt-items {
@@ -736,28 +743,36 @@
 
         .receipt-button {
             flex: 1;
-            height: 42px;
+            height: 44px;
             border-radius: 9px;
-            font-size: 10px;
-            font-weight: 700;
+            font-size: 14px;
+            font-weight: 650;
             cursor: pointer;
+            transition: transform .18s ease, background-color .18s ease, border-color .18s ease, color .18s ease;
         }
 
         .print-button {
-            border: 1px solid rgba(255,255,255,0.09);
-            background: rgba(255,255,255,0.04);
-            color: #c1c7d4;
+            border: 1px solid #BFD5C7;
+            background: #FFFFFF;
+            color: #0B5D3B;
         }
 
         .print-button:hover {
-            background: rgba(255,255,255,0.09);
-            color: #ffffff;
+            transform: translateY(-1px);
+            background: #EAF5EF;
+            color: #064E3B;
         }
 
         .done-button {
-            border: none;
-            background: linear-gradient(135deg, #ffffff, #c4b5fd);
-            color: #171323;
+            border: 1px solid #0B5D3B;
+            background: #0B5D3B;
+            color: #FFFFFF;
+        }
+
+        .done-button:hover {
+            transform: translateY(-1px);
+            background: #064E3B;
+            border-color: #064E3B;
         }
 
         .no-products {
@@ -830,10 +845,10 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            border: 1px solid rgba(196,181,253,0.16);
+            border: 1px solid rgba(212,175,55,0.16);
             border-radius: 9px;
-            background: rgba(196,181,253,0.06);
-            color: #c4b5fd;
+            background: rgba(212,175,55,0.06);
+            color: #D4AF37;
             font-size: 9px;
             font-weight: 700;
             text-decoration: none;
@@ -841,7 +856,7 @@
         }
 
         .customer-link:hover {
-            background: rgba(196,181,253,0.12);
+            background: rgba(212,175,55,0.12);
             color: #ffffff;
         }
 
@@ -1204,83 +1219,303 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="../css/canteen_theme.css">
+    <style>
+        #paymentModal {
+            padding: 16px !important;
+            background: rgba(15,23,42,.48) !important;
+        }
+
+        #paymentModal .payment-modal {
+            width: min(470px,100%) !important;
+            max-height: calc(100vh - 32px) !important;
+            overflow-y: auto !important;
+            padding: 26px !important;
+            border: 1px solid #DCE6E1 !important;
+            border-radius: 16px !important;
+            background: #FFFFFF !important;
+            color: #1F2937 !important;
+            box-shadow: 0 22px 58px rgba(15,55,37,.2) !important;
+        }
+
+        #paymentModal .eyebrow {
+            color: #137A4B !important;
+            font-size: 11px !important;
+            font-weight: 700 !important;
+            letter-spacing: .12em !important;
+        }
+
+        #paymentModal .modal-title {
+            margin-top: 7px;
+            color: #1F2937 !important;
+            font-family: Inter,"Segoe UI",Arial,sans-serif !important;
+            font-size: 34px !important;
+            font-weight: 700 !important;
+            line-height: 1.15;
+        }
+
+        #paymentModal .modal-subtitle {
+            margin-top: 7px !important;
+            color: #64748B !important;
+            font-size: 14px !important;
+            line-height: 1.5;
+        }
+
+        #paymentModal .payment-total {
+            margin: 20px 0 !important;
+            padding: 17px 18px !important;
+            border: 1px solid #E5D8A8 !important;
+            border-radius: 14px !important;
+            background: #F8FAF7 !important;
+            text-align: left;
+        }
+
+        #paymentModal .payment-total span {
+            color: #0B5D3B !important;
+            font-size: 12px !important;
+            font-weight: 700 !important;
+            letter-spacing: .08em;
+        }
+
+        #paymentModal .payment-total strong {
+            margin-top: 5px !important;
+            color: #0B5D3B !important;
+            font-size: 36px !important;
+            font-weight: 750 !important;
+            line-height: 1.15;
+        }
+
+        #paymentModal .payment-label {
+            margin-bottom: 8px !important;
+            color: #0B5D3B !important;
+            font-size: 12px !important;
+            font-weight: 700 !important;
+            letter-spacing: .08em !important;
+        }
+
+        #paymentModal .payment-methods {
+            gap: 10px !important;
+            margin-bottom: 17px !important;
+        }
+
+        #paymentModal .payment-method-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            min-width: 0;
+            height: 46px !important;
+            border: 1px solid #DCE6E1 !important;
+            border-radius: 10px !important;
+            background: #FFFFFF !important;
+            color: #1F2937 !important;
+            font-size: 14px !important;
+            font-weight: 650 !important;
+            transition: transform .15s ease, background-color .15s ease, border-color .15s ease, color .15s ease, box-shadow .15s ease;
+        }
+
+        #paymentModal .payment-method-button:hover {
+            transform: translateY(-1px);
+            border-color: #A9C9B5 !important;
+            background: #F7FAF8 !important;
+            color: #0B5D3B !important;
+        }
+
+        #paymentModal .payment-method-button.active {
+            border-color: #137A4B !important;
+            background: #EAF5EF !important;
+            color: #0B5D3B !important;
+            box-shadow: inset 0 0 0 1px rgba(19,122,75,.08);
+        }
+
+        #paymentModal .payment-method-icon,
+        #paymentModal .payment-method-icon svg {
+            display: block;
+            width: 19px;
+            height: 19px;
+            flex: 0 0 19px;
+        }
+
+        #paymentModal .currency-input {
+            display: flex;
+            align-items: center;
+            min-height: 48px;
+            border: 1px solid #DCE6E1;
+            border-radius: 9px;
+            background: #FFFFFF;
+            transition: border-color .15s ease, box-shadow .15s ease;
+        }
+
+        #paymentModal .currency-input:focus-within {
+            border-color: #137A4B;
+            box-shadow: 0 0 0 3px rgba(19,122,75,.11);
+        }
+
+        #paymentModal .currency-input > span {
+            padding-left: 13px;
+            color: #1F2937;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        #paymentModal .cash-input {
+            width: 100%;
+            height: 46px !important;
+            min-width: 0;
+            padding: 0 12px !important;
+            border: 0 !important;
+            border-radius: 9px !important;
+            outline: 0 !important;
+            background: transparent !important;
+            color: #1F2937 !important;
+            font: 600 18px/1.2 Inter,"Segoe UI",Arial,sans-serif !important;
+            box-shadow: none !important;
+        }
+
+        #paymentModal #gcashReference.cash-input {
+            border: 1px solid #DCE6E1 !important;
+            background: #FFFFFF !important;
+            font-size: 15px !important;
+        }
+
+        #paymentModal .cash-input::placeholder { color: #64748B !important; opacity: 1; }
+        #paymentModal input[type="number"]::-webkit-inner-spin-button,
+        #paymentModal input[type="number"]::-webkit-outer-spin-button { margin: 0; appearance: none; }
+        #paymentModal input[type="number"] { appearance: textfield; }
+
+        #paymentModal .change-display {
+            align-items: center;
+            margin-top: 12px !important;
+            padding: 12px 14px !important;
+            border: 1px solid #E3ECE6;
+            border-radius: 9px !important;
+            background: #F7FAF8 !important;
+            color: #1F2937 !important;
+        }
+
+        #paymentModal .change-display span { color: #1F2937 !important; font-size: 14px !important; font-weight: 600; }
+        #paymentModal .change-display strong { color: #0B5D3B !important; font-size: 18px !important; font-weight: 700 !important; }
+        #paymentModal .gcash-panel { border-color: #E5D8A8 !important; background: #F8FAF7 !important; }
+        #paymentModal .gcash-account-info strong { color: #1F2937 !important; font-size: 15px !important; }
+        #paymentModal .gcash-account-info span,
+        #paymentModal .gcash-note { color: #64748B !important; font-size: 13px !important; }
+
+        #paymentModal .payment-actions {
+            position: sticky;
+            bottom: 0;
+            z-index: 2;
+            gap: 10px !important;
+            margin-top: 19px !important;
+            padding: 10px 0 2px;
+            background: #FFFFFF;
+        }
+        #paymentModal .payment-button {
+            min-width: 0;
+            height: 44px !important;
+            border-radius: 10px !important;
+            font-size: 15px !important;
+            font-weight: 700 !important;
+            transition: transform .18s ease, background-color .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease;
+        }
+
+        #paymentModal .cancel-payment {
+            border: 1px solid #C8D9CF !important;
+            background: #FFFFFF !important;
+            color: #0B5D3B !important;
+        }
+
+        #paymentModal .cancel-payment:hover {
+            background: #EAF5EF !important;
+            border-color: #A9C9B5 !important;
+        }
+
+        #paymentModal .complete-payment {
+            border: 1px solid #0B5D3B !important;
+            background: #0B5D3B !important;
+            color: #FFFFFF !important;
+        }
+
+        #paymentModal .complete-payment:hover:not(:disabled) {
+            transform: translateY(-1px);
+            border-color: #08472F !important;
+            background: #08472F !important;
+            box-shadow: 0 5px 12px rgba(11,93,59,.14);
+        }
+
+        #paymentModal .complete-payment:disabled {
+            border-color: #D6E2DA !important;
+            background: #E8EEEA !important;
+            color: #586B60 !important;
+            opacity: 1 !important;
+            cursor: not-allowed;
+        }
+
+        #paymentModal button:focus-visible,
+        #paymentModal input:focus-visible { outline: 3px solid rgba(212,175,55,.55); outline-offset: 2px; }
+
+        @media (max-width: 480px) {
+            #paymentModal { padding: 12px !important; }
+            #paymentModal .payment-modal { max-height: calc(100vh - 24px) !important; padding: 20px !important; }
+            #paymentModal .modal-title { font-size: 30px !important; }
+            #paymentModal .payment-total strong { font-size: 33px !important; }
+            #paymentModal .payment-button { font-size: 14px !important; }
+        }
+
+    </style>
 </head>
 
 <body>
 
-    <div class="background">
-        <div class="glow glow-one"></div>
-        <div class="glow glow-two"></div>
-        <div class="glow glow-three"></div>
-        <div id="particles"></div>
-    </div>
+
 
     <aside class="sidebar">
 
         <div class="brand">
-            <div class="brand-mark">C</div>
+            <div class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="7.7"/><circle cx="12" cy="12" r="5.2"/><path d="M3 3v5m-1.5-5v3M4.5 3v3M3 8v13M20 3c-2 2-2.5 5-2.5 8h3V3zm0 8v10"/></svg></div>
 
             <div>
-                <h1>CONFIT</h1>
+                <h1>FEU CANTEEN</h1><span>POINT OF SALE SYSTEM</span>
             </div>
         </div>
 
         <nav class="navigation">
 
             <a href="../index.html" class="nav-item">
-                <span class="nav-icon">⌂</span>
+                <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-6v-7h-4v7H4a1 1 0 0 1-1-1z"/></svg></span>
                 <span>Dashboard</span>
             </a>
 
             <a href="pos.html" class="nav-item active">
-                <span class="nav-icon">▣</span>
+                <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.2 11.1a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 1.9-1.4L22 8H6"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg></span>
                 <span>POS</span>
             </a>
 
             <a href="products.html" class="nav-item">
-                <span class="nav-icon">◇</span>
+                <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h18M5 8c.4 6 3.1 9 7 9s6.6-3 7-9"/><path d="M5 5h14M7 12h10M9 15h6"/></svg></span>
                 <span>Products</span>
             </a>
 
             <a href="inventory.html" class="nav-item">
-                <span class="nav-icon">▤</span>
+                <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 9 4.5v9L12 21l-9-4.5v-9z"/><path d="m3.5 7.7 8.5 4.5 8.5-4.5M12 12.2V21"/></svg></span>
                 <span>Inventory</span>
             </a>
 
             <a href="sales.html" class="nav-item">
-                <span class="nav-icon">◈</span>
+                <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-2-1.5-2 1.5-2-1.5-2 1.5-2-1.5L6 21z"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></span>
                 <span>Sales</span>
             </a>
 
             <a href="customers.html" class="nav-item">
-                <span class="nav-icon">♙</span>
+                <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20v-1a6 6 0 0 1 12 0v1zM16 5.5a3 3 0 0 1 0 5.8M18 14a4.5 4.5 0 0 1 3 4.3V20h-3"/></svg></span>
                 <span>Customers</span>
             </a>
 
             <a href="reports.html" class="nav-item">
-                <span class="nav-icon">◫</span>
+                <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V11h4v9M10 20V5h4v15M16 20v-7h4v7M3 20h18"/></svg></span>
                 <span>Reports</span>
             </a>
-
-        </nav>
-
-        <div class="sidebar-bottom">
-
-            <a href="settings.html" class="nav-item">
-                <span class="nav-icon">⚙</span>
-                <span>Settings</span>
-            </a>
-
-            <div class="system-status">
-                <span class="status-dot"></span>
-
-                <div>
-                    <strong>System Online</strong>
-                    <small>Connected to server</small>
-                </div>
-            </div>
-
-        </div>
+<a href="settings.html" class="nav-item"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="7.5"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2m-4.34-9.66 1.42 1.42m-14.16 14.16 1.42 1.42m11.32 0 1.42-1.42M4.34 4.34 5.76 5.76"/></svg></span><span>Settings</span></a>
+</nav>
 
     </aside>
 
@@ -1289,26 +1524,24 @@
         <header class="topbar">
 
             <div class="mobile-brand">
-                <strong>CONFIT</strong>
+                <strong>FEU CANTEEN</strong>
             </div>
 
             <div class="topbar-right">
 
                 <div class="live-time">
                     <span class="live-dot"></span>
-                    <span id="liveTime">00:00:00</span>
+                    <span id="liveTime">--:--:-- --</span>
                 </div>
 
                 <div class="profile">
 
-                    <div class="profile-avatar">
-                        C
-                    </div>
+                    <div class="profile-avatar"><span class="profile-avatar-text">FEU</span></div>
 
                     <div class="profile-info">
-                        <strong>Administrator</strong>
+                        <strong>Canteen Owner</strong>
                         <span>Owner</span>
-                    </div>
+                    </div><span class="profile-chevron" aria-hidden="true">&#8964;</span>
 
                 </div>
 
@@ -1323,7 +1556,7 @@
                 <div>
 
                     <span class="eyebrow">
-                        CONFIT STORE
+                        FEU CANTEEN
                     </span>
 
                     <h2>
@@ -1331,16 +1564,27 @@
                     </h2>
 
                     <p>
-                        Select clothing items and create a new transaction.
+                        Select canteen products and create a new transaction.
                     </p>
 
                 </div>
 
             </div>
 
+            <div style="display:flex;justify-content:flex-end;margin:0 0 12px"><button type="button" class="secondary-button" onclick="window.open('customer-display.html','feuCustomerDisplay','width=900,height=700')">Open Customer Display</button></div>
+
             <div class="pos-layout">
 
                 <section class="pos-products">
+
+                    <div class="pos-categories" role="group" aria-label="Food categories">
+                        <button type="button" class="pos-category-button active" data-category="all">All</button>
+                        <button type="button" class="pos-category-button" data-category="Meals">Meals</button>
+                        <button type="button" class="pos-category-button" data-category="Snacks">Snacks</button>
+                        <button type="button" class="pos-category-button" data-category="Drinks">Drinks</button>
+                        <button type="button" class="pos-category-button" data-category="Coffee">Coffee</button>
+                        <button type="button" class="pos-category-button" data-category="Desserts">Desserts</button>
+                    </div>
 
                     <div class="pos-toolbar">
 
@@ -1356,11 +1600,11 @@
                             class="category-select"
                         >
                             <option value="all">All Categories</option>
-                            <option value="tops">Tops</option>
-                            <option value="bottoms">Bottoms</option>
-                            <option value="shoes">Shoes</option>
-                            <option value="bags">Bags</option>
-                            <option value="accessories">Accessories</option>
+                            <option value="Meals">Meals</option>
+                            <option value="Snacks">Snacks</option>
+                            <option value="Drinks">Drinks</option>
+                            <option value="Coffee">Coffee</option>
+                            <option value="Desserts">Desserts</option>
                         </select>
 
                     </div>
@@ -1380,6 +1624,7 @@
                             Current Order
                         </h3>
 
+                        <button type="button" id="clearCartButton" class="clear-cart-button">Clear cart</button>
                         <div
                             id="cartCount"
                             class="cart-count"
@@ -1445,7 +1690,7 @@
         </section>
 
         <footer>
-            <span>Powered by Opticore</span>
+            <span>Powered by FEU Canteen</span>
             <span>POS SYSTEM</span>
         </footer>
 
@@ -1485,20 +1730,29 @@
             <label class="payment-label">Payment Method</label>
 
             <div class="payment-methods">
-                <button id="cashPaymentButton" class="payment-method-button active" type="button">💵 Cash</button>
-                <button id="gcashPaymentButton" class="payment-method-button" type="button">📱 GCash</button>
+                <button id="cashPaymentButton" class="payment-method-button active" type="button">
+                    <span class="payment-method-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18M7 15h3"/><circle cx="16" cy="14" r="2"/></svg></span>
+                    <span>Cash</span>
+                </button>
+                <button id="gcashPaymentButton" class="payment-method-button" type="button">
+                    <span class="payment-method-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18m-5 5h2"/><circle cx="16" cy="14" r=".8" fill="currentColor" stroke="none"/></svg></span>
+                    <span>GCash</span>
+                </button>
             </div>
 
             <div id="cashPaymentPanel">
                 <label class="payment-label" for="cashReceived">Cash Received</label>
-                <input
-                    type="number"
-                    id="cashReceived"
-                    class="cash-input"
-                    min="0"
-                    step="0.01"
-                    placeholder="0.00"
-                >
+                <div class="currency-input">
+                    <span aria-hidden="true">₱</span>
+                    <input
+                        type="number"
+                        id="cashReceived"
+                        class="cash-input"
+                        min="0"
+                        step="0.01"
+                        placeholder="0.00"
+                    >
+                </div>
 
                 <div class="change-display">
                     <span>Change</span>
@@ -1606,12 +1860,12 @@
     <script src="../js/app.js"></script>
 
     <script>
-        const PRODUCT_STORAGE_KEY = "gonzcoreClothingInventory";
-        const SALES_STORAGE_KEY = "gonzcoreClothingSales";
-        const CUSTOMER_STORAGE_KEY = "gonzcoreClothingCustomers";
-        const SETTINGS_STORAGE_KEY = "gonzcoreClothingSettings";
+        const PRODUCT_STORAGE_KEY = "feuCanteenInventory";
+        const SALES_STORAGE_KEY = "feuCanteenSales";
+        const CUSTOMER_STORAGE_KEY = "feuCanteenCustomers";
+        const SETTINGS_STORAGE_KEY = "feuCanteenSettings";
 
-        let clothingProducts = [];
+        let canteenProducts = [];
         let customers = [];
         let currentProducts = [];
         let cart = [];
@@ -1622,20 +1876,26 @@
         document.addEventListener("DOMContentLoaded", function() {
 
             loadProducts();
+            try { cart = JSON.parse(localStorage.getItem("feuCanteenCart") || "[]"); if (!Array.isArray(cart)) cart = []; } catch (error) { cart = []; }
             loadCustomers();
             loadSettings();
 
             displayProducts(currentProducts);
 
             displayCart();
+            document.getElementById("clearCartButton").addEventListener("click", clearCart);
 
             document
                 .getElementById("productSearch")
                 .addEventListener("input", filterProducts);
 
-            document
-                .getElementById("categoryFilter")
-                .addEventListener("change", filterProducts);
+            document.getElementById("categoryFilter").addEventListener("change", filterProducts);
+            document.querySelectorAll(".pos-category-button").forEach(function(button) {
+                button.addEventListener("click", function() {
+                    document.getElementById("categoryFilter").value = button.dataset.category;
+                    filterProducts();
+                });
+            });
 
             document
                 .getElementById("customerSelect")
@@ -1699,13 +1959,13 @@
 
                 loadProducts();
 
-                currentProducts = [...clothingProducts];
+                currentProducts = [...canteenProducts];
 
                 filterProducts();
 
                 cart = cart.filter(function(item) {
 
-                    return clothingProducts.some(function(product) {
+                    return canteenProducts.some(function(product) {
                         return product.id === item.id;
                     });
 
@@ -1739,11 +1999,11 @@
                 allowOutOfStock: false,
                 lowStockWarning: true,
                 lowStockThreshold: 5,
-                storeName: "CONFIT",
+                storeName: "FEU CANTEEN",
                 storePhone: "",
                 storeEmail: "",
                 storeAddress: "",
-                receiptFooter: "Thank you for shopping with CONFIT!",
+                receiptFooter: "Thank you for shopping with FEU CANTEEN!",
                 showCustomer: true,
                 showPaymentMethod: true,
                 showGcashReference: true
@@ -1909,7 +2169,7 @@
 
             if (!saved) {
 
-                clothingProducts = [];
+                canteenProducts = [];
                 currentProducts = [];
 
                 return;
@@ -1917,19 +2177,19 @@
 
             try {
 
-                clothingProducts = JSON.parse(saved);
+                canteenProducts = JSON.parse(saved);
 
-                if (!Array.isArray(clothingProducts)) {
-                    clothingProducts = [];
+                if (!Array.isArray(canteenProducts)) {
+                    canteenProducts = [];
                 }
 
             } catch (error) {
 
-                clothingProducts = [];
+                canteenProducts = [];
 
             }
 
-            currentProducts = [...clothingProducts];
+            currentProducts = [...canteenProducts];
         }
 
         function displayProducts(products) {
@@ -1956,7 +2216,9 @@
 
                 card.className = "product-card";
 
-                const stock = Number(product.stock || 0);
+                const savedStock = Number(product.stock || 0);
+                const reserved = cart.reduce(function(total, item) { return total + (String(item.id) === String(product.id) ? Number(item.quantity || 0) : 0); }, 0);
+                const stock = Math.max(0, savedStock - reserved);
 
                 let stockClass = "";
 
@@ -1966,7 +2228,7 @@
                     stockClass = "low";
                 }
 
-                let imageHTML = product.image || "👕";
+                let imageHTML = product.image || "🍽️";
 
                 if (
                     typeof product.image === "string" &&
@@ -1996,9 +2258,7 @@
                     </div>
 
                     <div class="product-details">
-                        ${escapeHTML(product.color || "No color")}
-                        ${product.color && product.size ? " • " : ""}
-                        ${escapeHTML(product.size || "One size")}
+                        Serving size: ${escapeHTML(product.size || "Regular")}${product.color && product.color !== "Fresh" ? " • " + escapeHTML(product.color) : ""}
                     </div>
 
                     <div class="product-bottom">
@@ -2008,12 +2268,14 @@
                         </strong>
 
                         <span class="product-stock ${stockClass}">
-                            ${stock > 0 ? stock + " left" : "Out of stock"}
+                            ${stock > 0 ? stock + " left" : "OUT OF STOCK"}
                         </span>
-
                     </div>
+                    <button type="button" class="add-product-button" ${stock <= 0 ? "disabled" : ""}>Add to Cart</button>
                 `;
 
+                const addButton = card.querySelector(".add-product-button");
+                addButton.addEventListener("click", function(event) { event.stopPropagation(); addToCart(product.id); });
                 if (stock > 0 || posSettings.allowOutOfStock) {
 
                     card.addEventListener("click", function() {
@@ -2041,11 +2303,12 @@
                 .toLowerCase()
                 .trim();
 
-            const category = document
-                .getElementById("categoryFilter")
-                .value;
+            const category = document.getElementById("categoryFilter").value;
+            document.querySelectorAll(".pos-category-button").forEach(function(button) {
+                button.classList.toggle("active", button.dataset.category === category);
+            });
 
-            currentProducts = clothingProducts.filter(function(product) {
+            currentProducts = canteenProducts.filter(function(product) {
 
                 const matchesSearch =
                     String(product.name || "")
@@ -2065,7 +2328,7 @@
 
         function addToCart(id) {
 
-            const product = clothingProducts.find(function(item) {
+            const product = canteenProducts.find(function(item) {
                 return String(item.id) === String(id);
             });
 
@@ -2130,7 +2393,7 @@
                 return;
             }
 
-            const product = clothingProducts.find(function(product) {
+            const product = canteenProducts.find(function(product) {
                 return String(product.id) === String(id);
             });
 
@@ -2170,8 +2433,12 @@
             displayCart();
         }
 
-        function displayCart() {
+        function clearCart() { cart = []; displayCart(); }
 
+        function displayCart() {
+            if (currentProducts.length) displayProducts(currentProducts);
+            localStorage.setItem("feuCanteenCart", JSON.stringify(cart));
+            localStorage.setItem("feuCanteenCurrentOrder", JSON.stringify(cart.map(function(item) { return {name:item.name, quantity:item.quantity, price:Number(item.price), subtotal:Number(item.price)*Number(item.quantity)}; })));
             const container =
                 document.getElementById("cartItems");
 
@@ -2187,7 +2454,7 @@
                     <div class="empty-cart">
 
                         <div class="empty-cart-icon">
-                            ◈
+                            🛒
                         </div>
 
                         <strong>
@@ -2210,7 +2477,7 @@
 
             cart.forEach(function(item) {
 
-                let imageHTML = item.image || "👕";
+                let imageHTML = item.image || "🍽️";
 
                 if (
                     typeof item.image === "string" &&
@@ -2247,9 +2514,7 @@
                         </div>
 
                         <div class="cart-item-meta">
-                            ${escapeHTML(item.color || "")}
-                            ${item.color && item.size ? " • " : ""}
-                            ${escapeHTML(item.size || "")}
+                            ${item.size ? "Serving size: " + escapeHTML(item.size) : ""}${item.color && item.color !== "Fresh" ? " • " + escapeHTML(item.color) : ""}
                         </div>
 
                         <div class="cart-item-price">
@@ -2385,10 +2650,11 @@
 
             setTimeout(function() {
                 if (paymentMethod === "Cash") {
-                    document.getElementById("cashReceived").focus();
+                    document.getElementById("cashReceived").focus({ preventScroll: true });
                 } else {
-                    document.getElementById("gcashReference").focus();
+                    document.getElementById("gcashReference").focus({ preventScroll: true });
                 }
+                document.querySelector("#paymentModal .payment-modal").scrollTop = 0;
             }, 100);
         }
 
@@ -2455,7 +2721,7 @@
         function getCurrentStaffSession() {
             try {
                 return JSON.parse(
-                    localStorage.getItem("gonzcoreClothingSession") || "null"
+                    localStorage.getItem("feuCanteenSession") || "null"
                 ) || {};
             } catch (error) {
                 return {};
@@ -2499,7 +2765,7 @@
             const staffSession = getCurrentStaffSession();
 
             const transaction =
-                "GC-" +
+                "FC-" +
                 now.getFullYear() +
                 String(now.getMonth() + 1).padStart(2, "0") +
                 String(now.getDate()).padStart(2, "0") +
@@ -2574,7 +2840,7 @@
 
                 loadProducts();
 
-                currentProducts = [...clothingProducts];
+                currentProducts = [...canteenProducts];
 
                 displayProducts(currentProducts);
 
@@ -2592,7 +2858,7 @@
 
             loadProducts();
 
-            currentProducts = [...clothingProducts];
+            currentProducts = [...canteenProducts];
 
             displayProducts(currentProducts);
 
@@ -2655,7 +2921,7 @@
 
             });
 
-            clothingProducts = latestProducts;
+            canteenProducts = latestProducts;
 
             localStorage.setItem(
                 PRODUCT_STORAGE_KEY,
@@ -2917,7 +3183,7 @@
             const sale = JSON.parse(
                 JSON.stringify(lastSale)
             );
-            const storeName = escapeHTML(posSettings.storeName || "CONFIT STORE");
+            const storeName = escapeHTML(posSettings.storeName || "FEU CANTEEN");
             const storeDetails = [posSettings.storeAddress, posSettings.storePhone, posSettings.storeEmail].filter(Boolean).map(escapeHTML).join("<br>");
             const customerLine = posSettings.showCustomer !== false ? `<div style="display:flex;justify-content:space-between;gap:20px;padding:4px 0;"><span>Customer</span><strong>${escapeHTML(sale.customerName || "Walk-in Customer")}</strong></div>` : "";
             const paymentLine = posSettings.showPaymentMethod !== false ? `<div style="display:flex;justify-content:space-between;gap:20px;padding:5px 0;"><span>Payment Method</span><strong>${escapeHTML(sale.paymentMethod || "Cash")}</strong></div>` : "";
@@ -3006,7 +3272,7 @@
                     </div>
 
                     <div style="margin-top:25px;padding-top:15px;border-top:2px dashed #111111;text-align:center;font-size:11px;color:#555555;line-height:1.6;">
-                        <strong>${escapeHTML(posSettings.receiptFooter || "Thank you for shopping with CONFIT!")}</strong>
+                        <strong>${escapeHTML(posSettings.receiptFooter || "Thank you for shopping with FEU CANTEEN!")}</strong>
                         <br>
                     </div>
                 </div>

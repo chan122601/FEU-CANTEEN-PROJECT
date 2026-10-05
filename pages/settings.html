@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Settings - CONFIT</title>
+<title>Settings - FEU CANTEEN</title>
 <link rel="stylesheet" href="../css/style.css">
-<link rel="stylesheet" href="../css/gonzcore_motion.css">
+<link rel="stylesheet" href="../css/canteen_motion.css">
 <style>
-.settings-page{max-width:1500px;margin:auto;padding:38px 42px 30px}.settings-heading{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;animation:reveal .7s ease both}.settings-heading h2{margin-top:8px;font-family:"Playfair Display",Georgia,serif;font-size:38px;letter-spacing:-1px}.settings-heading p{margin-top:7px;color:#8d96aa;font-size:12px}.settings-actions{display:flex;gap:9px}.settings-button,.data-button,.reset-button,.save-button{cursor:pointer;transition:.3s ease}.settings-button{height:42px;padding:0 16px;border:1px solid rgba(255,255,255,.09);border-radius:10px;background:rgba(255,255,255,.045);color:#c1c7d4;font-size:10px;font-weight:700}.settings-button:hover,.data-button:hover,.reset-button:hover{color:#fff;background:rgba(255,255,255,.09);transform:translateY(-3px)}.settings-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px}.settings-card{padding:22px;border:1px solid rgba(255,255,255,.08);border-radius:18px;background:rgba(255,255,255,.045);backdrop-filter:blur(18px);transition:.3s ease}.settings-card:hover{border-color:rgba(196,181,253,.16);transform:translateY(-2px);box-shadow:0 18px 45px rgba(0,0,0,.12)}.settings-card.full{grid-column:1/-1}.settings-card-header{display:flex;align-items:center;gap:12px;margin-bottom:20px}.settings-icon{width:42px;height:42px;display:grid;place-items:center;border-radius:12px;background:rgba(196,181,253,.08);border:1px solid rgba(196,181,253,.12);color:#c4b5fd;font-size:17px;transition:.3s ease}.settings-card:hover .settings-icon{transform:rotate(5deg) scale(1.05);box-shadow:0 0 25px rgba(196,181,253,.1)}.settings-card-header h3{font-family:"Playfair Display",Georgia,serif;font-size:21px}.settings-card-header span{display:block;margin-top:3px;color:#687186;font-size:9px}.settings-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.settings-field{display:flex;flex-direction:column;gap:7px}.settings-field.full{grid-column:1/-1}.settings-field label{color:#7d869a;font-size:9px;font-weight:700;letter-spacing:.8px;text-transform:uppercase}.settings-field input,.settings-field textarea,.settings-field select{width:100%;height:42px;padding:0 12px;border:1px solid rgba(255,255,255,.09);border-radius:9px;outline:none;background:rgba(255,255,255,.035);color:#fff;font-family:Inter,Arial,sans-serif;font-size:10px;transition:.3s ease}.settings-field textarea{height:80px;padding:12px;resize:vertical}.settings-field input:focus,.settings-field textarea:focus,.settings-field select:focus{border-color:rgba(196,181,253,.35);background:rgba(255,255,255,.055);box-shadow:0 0 0 3px rgba(196,181,253,.04)}.payment-options{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:14px}.payment-option{display:flex;align-items:center;gap:10px;padding:13px;border:1px solid rgba(255,255,255,.07);border-radius:11px;background:rgba(255,255,255,.025);transition:.3s ease}.payment-option:hover{background:rgba(255,255,255,.05);transform:translateY(-2px)}.payment-option input{accent-color:#c4b5fd}.payment-option strong{display:block;color:#e7e9ef;font-size:10px}.payment-option span{display:block;margin-top:3px;color:#626b7f;font-size:8px}.toggle-list{display:flex;flex-direction:column;gap:9px}.toggle-row{display:flex;justify-content:space-between;align-items:center;gap:15px;padding:13px;border:1px solid rgba(255,255,255,.055);border-radius:11px;background:rgba(255,255,255,.025);transition:.3s ease}.toggle-row:hover{background:rgba(255,255,255,.05)}.toggle-text strong{display:block;color:#e7e9ef;font-size:10px}.toggle-text span{display:block;margin-top:3px;color:#626b7f;font-size:8px}.switch{position:relative;width:40px;height:22px;flex-shrink:0}.switch input{display:none}.switch-slider{position:absolute;inset:0;border-radius:20px;background:#282c39;border:1px solid rgba(255,255,255,.08);cursor:pointer;transition:.3s ease}.switch-slider:before{content:"";position:absolute;width:16px;height:16px;left:2px;top:2px;border-radius:50%;background:#777f91;transition:.3s ease}.switch input:checked+.switch-slider{background:rgba(196,181,253,.25);border-color:rgba(196,181,253,.35)}.switch input:checked+.switch-slider:before{transform:translateX(18px);background:#c4b5fd;box-shadow:0 0 12px rgba(196,181,253,.5)}.qr-area{margin-top:13px;min-height:135px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;border:1px dashed rgba(255,255,255,.1);border-radius:12px;background:rgba(255,255,255,.02);color:#626b7f;font-size:9px}.qr-preview{display:none;width:105px;height:105px;object-fit:contain;border-radius:8px}.upload-button{display:inline-flex;align-items:center;justify-content:center;min-height:34px;padding:0 12px;border:1px solid rgba(255,255,255,.09);border-radius:8px;background:rgba(255,255,255,.045);color:#c4b5fd;font-size:9px;font-weight:700;cursor:pointer;transition:.3s ease}.upload-button:hover{background:rgba(255,255,255,.09);transform:translateY(-2px)}.hidden-file{display:none}.data-actions{display:flex;flex-wrap:wrap;gap:9px}.data-button{min-height:38px;padding:0 13px;border:1px solid rgba(255,255,255,.08);border-radius:9px;background:rgba(255,255,255,.04);color:#aeb6c7;font-size:9px;font-weight:700}.data-button.danger{color:#fda4af;border-color:rgba(244,63,94,.14)}.data-button.danger:hover{background:rgba(244,63,94,.08)}.system-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.system-item{padding:14px;border:1px solid rgba(255,255,255,.055);border-radius:10px;background:rgba(255,255,255,.025)}.system-item span{display:block;color:#626b7f;font-size:8px;text-transform:uppercase;letter-spacing:.7px}.system-item strong{display:block;margin-top:7px;color:#e7e9ef;font-size:10px}.save-area{display:flex;justify-content:flex-end;gap:9px;margin-top:18px;animation:reveal .8s ease both}.save-button{min-height:43px;padding:0 18px;border:none;border-radius:9px;background:#f8fafc;color:#151221;font-size:10px;font-weight:800}.save-button:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(255,255,255,.12)}.reset-button{min-height:43px;padding:0 18px;border:1px solid rgba(255,255,255,.09);border-radius:9px;background:rgba(255,255,255,.04);color:#aeb6c7;font-size:10px;font-weight:700}.toast{position:fixed;right:28px;bottom:28px;z-index:100;padding:12px 16px;border:1px solid rgba(255,255,255,.09);border-radius:10px;background:rgba(17,20,31,.92);backdrop-filter:blur(18px);color:#dce1eb;font-size:9px;opacity:0;transform:translateY(15px);pointer-events:none;transition:.3s ease}.toast.show{opacity:1;transform:translateY(0)}
+.settings-page{max-width:1500px;margin:auto;padding:38px 42px 30px}.settings-heading{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;animation:reveal .7s ease both}.settings-heading h2{margin-top:8px;font-family:"Playfair Display",Georgia,serif;font-size:38px;letter-spacing:-1px}.settings-heading p{margin-top:7px;color:#8d96aa;font-size:12px}.settings-actions{display:flex;gap:9px}.settings-button,.data-button,.reset-button,.save-button{cursor:pointer;transition:.3s ease}.settings-button{height:42px;padding:0 16px;border:1px solid rgba(255,255,255,.09);border-radius:10px;background:rgba(255,255,255,.045);color:#c1c7d4;font-size:10px;font-weight:700}.settings-button:hover,.data-button:hover,.reset-button:hover{color:#fff;background:rgba(255,255,255,.09);transform:translateY(-3px)}.settings-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px}.settings-card{padding:22px;border:1px solid rgba(255,255,255,.08);border-radius:18px;background:rgba(255,255,255,.045);transition:.3s ease}.settings-card:hover{border-color:rgba(212,175,55,.16);transform:translateY(-2px);box-shadow:0 18px 45px rgba(0,0,0,.12)}.settings-card.full{grid-column:1/-1}.settings-card-header{display:flex;align-items:center;gap:12px;margin-bottom:20px}.settings-icon{width:42px;height:42px;display:grid;place-items:center;border-radius:12px;background:rgba(212,175,55,.08);border:1px solid rgba(212,175,55,.12);color:#D4AF37;font-size:17px;transition:.3s ease}.settings-card:hover .settings-icon{transform:rotate(5deg) scale(1.05);box-shadow:0 0 25px rgba(212,175,55,.1)}.settings-card-header h3{font-family:"Playfair Display",Georgia,serif;font-size:21px}.settings-card-header span{display:block;margin-top:3px;color:#687186;font-size:9px}.settings-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.settings-field{display:flex;flex-direction:column;gap:7px}.settings-field.full{grid-column:1/-1}.settings-field label{color:#7d869a;font-size:9px;font-weight:700;letter-spacing:.8px;text-transform:uppercase}.settings-field input,.settings-field textarea,.settings-field select{width:100%;height:42px;padding:0 12px;border:1px solid rgba(255,255,255,.09);border-radius:9px;outline:none;background:rgba(255,255,255,.035);color:#fff;font-family:Inter,Arial,sans-serif;font-size:10px;transition:.3s ease}.settings-field textarea{height:80px;padding:12px;resize:vertical}.settings-field input:focus,.settings-field textarea:focus,.settings-field select:focus{border-color:rgba(212,175,55,.35);background:rgba(255,255,255,.055);box-shadow:0 0 0 3px rgba(212,175,55,.04)}.payment-options{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:14px}.payment-option{display:flex;align-items:center;gap:10px;padding:13px;border:1px solid rgba(255,255,255,.07);border-radius:11px;background:rgba(255,255,255,.025);transition:.3s ease}.payment-option:hover{background:rgba(255,255,255,.05);transform:translateY(-2px)}.payment-option input{accent-color:#D4AF37}.payment-option strong{display:block;color:#e7e9ef;font-size:10px}.payment-option span{display:block;margin-top:3px;color:#626b7f;font-size:8px}.toggle-list{display:flex;flex-direction:column;gap:9px}.toggle-row{display:flex;justify-content:space-between;align-items:center;gap:15px;padding:13px;border:1px solid rgba(255,255,255,.055);border-radius:11px;background:rgba(255,255,255,.025);transition:.3s ease}.toggle-row:hover{background:rgba(255,255,255,.05)}.toggle-text strong{display:block;color:#e7e9ef;font-size:10px}.toggle-text span{display:block;margin-top:3px;color:#626b7f;font-size:8px}.switch{position:relative;width:40px;height:22px;flex-shrink:0}.switch input{display:none}.switch-slider{position:absolute;inset:0;border-radius:20px;background:#282c39;border:1px solid rgba(255,255,255,.08);cursor:pointer;transition:.3s ease}.switch-slider:before{content:"";position:absolute;width:16px;height:16px;left:2px;top:2px;border-radius:50%;background:#777f91;transition:.3s ease}.switch input:checked+.switch-slider{background:rgba(212,175,55,.25);border-color:rgba(212,175,55,.35)}.switch input:checked+.switch-slider:before{transform:translateX(18px);background:#D4AF37;box-shadow:0 0 12px rgba(212,175,55,.5)}.qr-area{margin-top:13px;min-height:135px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;border:1px dashed rgba(255,255,255,.1);border-radius:12px;background:rgba(255,255,255,.02);color:#626b7f;font-size:9px}.qr-preview{display:none;width:105px;height:105px;object-fit:contain;border-radius:8px}.upload-button{display:inline-flex;align-items:center;justify-content:center;min-height:34px;padding:0 12px;border:1px solid rgba(255,255,255,.09);border-radius:8px;background:rgba(255,255,255,.045);color:#D4AF37;font-size:9px;font-weight:700;cursor:pointer;transition:.3s ease}.upload-button:hover{background:rgba(255,255,255,.09);transform:translateY(-2px)}.hidden-file{display:none}.data-actions{display:flex;flex-wrap:wrap;gap:9px}.data-button{min-height:38px;padding:0 13px;border:1px solid rgba(255,255,255,.08);border-radius:9px;background:rgba(255,255,255,.04);color:#aeb6c7;font-size:9px;font-weight:700}.data-button.danger{color:#fda4af;border-color:rgba(244,63,94,.14)}.data-button.danger:hover{background:rgba(244,63,94,.08)}.system-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.system-item{padding:14px;border:1px solid rgba(255,255,255,.055);border-radius:10px;background:rgba(255,255,255,.025)}.system-item span{display:block;color:#626b7f;font-size:8px;text-transform:uppercase;letter-spacing:.7px}.system-item strong{display:block;margin-top:7px;color:#e7e9ef;font-size:10px}.save-area{display:flex;justify-content:flex-end;gap:9px;margin-top:18px;animation:reveal .8s ease both}.save-button{min-height:43px;padding:0 18px;border:none;border-radius:9px;background:#f8fafc;color:#151221;font-size:10px;font-weight:800}.save-button:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(255,255,255,.12)}.reset-button{min-height:43px;padding:0 18px;border:1px solid rgba(255,255,255,.09);border-radius:9px;background:rgba(255,255,255,.04);color:#aeb6c7;font-size:10px;font-weight:700}.toast{position:fixed;right:28px;bottom:28px;z-index:100;padding:12px 16px;border:1px solid rgba(255,255,255,.09);border-radius:10px;background:rgba(17,20,31,.92);color:#dce1eb;font-size:9px;opacity:0;transform:translateY(15px);pointer-events:none;transition:.3s ease}.toast.show{opacity:1;transform:translateY(0)}
 
 @media(max-width:1100px){
     .settings-grid{grid-template-columns:1fr}
@@ -37,44 +37,45 @@
     .settings-card-header h3{font-size:19px}
 }
 </style>
+    <link rel="stylesheet" href="../css/canteen_theme.css">
 </head>
 <body>
-<div class="background"><div class="glow glow-one"></div><div class="glow glow-two"></div><div class="glow glow-three"></div><div id="particles"></div></div>
+
 <aside class="sidebar">
-<div class="brand"><div class="brand-mark">C</div><div><h1>CONFIT</h1><span></span></div></div>
+<div class="brand"><div class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="7.7"/><circle cx="12" cy="12" r="5.2"/><path d="M3 3v5m-1.5-5v3M4.5 3v3M3 8v13M20 3c-2 2-2.5 5-2.5 8h3V3zm0 8v10"/></svg></div><div><h1>FEU CANTEEN</h1><span>POINT OF SALE SYSTEM</span><span></span></div></div>
 <nav class="navigation">
-<a href="../index.html" class="nav-item"><span class="nav-icon">⌂</span><span>Dashboard</span></a>
-<a href="pos.html" class="nav-item"><span class="nav-icon">▣</span><span>POS</span></a>
-<a href="products.html" class="nav-item"><span class="nav-icon">◇</span><span>Products</span></a>
-<a href="inventory.html" class="nav-item"><span class="nav-icon">▤</span><span>Inventory</span></a>
-<a href="sales.html" class="nav-item"><span class="nav-icon">◈</span><span>Sales</span></a>
-<a href="customers.html" class="nav-item"><span class="nav-icon">♙</span><span>Customers</span></a>
-<a href="reports.html" class="nav-item"><span class="nav-icon">◫</span><span>Reports</span></a>
+<a href="../index.html" class="nav-item"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-6v-7h-4v7H4a1 1 0 0 1-1-1z"/></svg></span><span>Dashboard</span></a>
+<a href="pos.html" class="nav-item"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.2 11.1a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 1.9-1.4L22 8H6"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg></span><span>POS</span></a>
+<a href="products.html" class="nav-item"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h18M5 8c.4 6 3.1 9 7 9s6.6-3 7-9"/><path d="M5 5h14M7 12h10M9 15h6"/></svg></span><span>Products</span></a>
+<a href="inventory.html" class="nav-item"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 9 4.5v9L12 21l-9-4.5v-9z"/><path d="m3.5 7.7 8.5 4.5 8.5-4.5M12 12.2V21"/></svg></span><span>Inventory</span></a>
+<a href="sales.html" class="nav-item"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-2-1.5-2 1.5-2-1.5-2 1.5-2-1.5L6 21z"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></span><span>Sales</span></a>
+<a href="customers.html" class="nav-item"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20v-1a6 6 0 0 1 12 0v1zM16 5.5a3 3 0 0 1 0 5.8M18 14a4.5 4.5 0 0 1 3 4.3V20h-3"/></svg></span><span>Customers</span></a>
+<a href="reports.html" class="nav-item"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V11h4v9M10 20V5h4v15M16 20v-7h4v7M3 20h18"/></svg></span><span>Reports</span></a>
+<a href="settings.html" class="nav-item active"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="7.5"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2m-4.34-9.66 1.42 1.42m-14.16 14.16 1.42 1.42m11.32 0 1.42-1.42M4.34 4.34 5.76 5.76"/></svg></span><span>Settings</span></a>
 </nav>
-<div class="sidebar-bottom"><a href="settings.html" class="nav-item active"><span class="nav-icon">⚙</span><span>Settings</span></a><div class="system-status"><span class="status-dot"></span><div><strong>Offline Mode</strong><small>Data stored locally</small></div></div></div>
 </aside>
 <main class="main-content">
-<header class="topbar"><div class="mobile-brand"><strong>CONFIT</strong></div><div class="topbar-right"><div class="live-time"><span class="live-dot"></span><span id="liveTime">00:00:00</span></div><div class="profile"><div class="profile-avatar">C</div><div class="profile-info"><strong>Administrator</strong><span>Owner</span></div></div></div></header>
+<header class="topbar"><div class="mobile-brand"><strong>FEU CANTEEN</strong></div><div class="topbar-right"><div class="live-time"><span class="live-dot"></span><span id="liveTime">--:--:-- --</span></div><div class="profile"><div class="profile-avatar"><span class="profile-avatar-text">FEU</span></div><div class="profile-info"><strong>Canteen Owner</strong><span>Owner</span></div><span class="profile-chevron" aria-hidden="true">&#8964;</span></div></div></header>
 <section class="settings-page">
-<div class="settings-heading"><div><span class="eyebrow">CONFIT STORE</span><h2>Settings</h2><p>Manage your store, payments, receipts and POS preferences.</p></div><div class="settings-actions"><button class="settings-button" id="refreshSettings">↻ Refresh</button></div></div>
+<div class="settings-heading"><div><span class="eyebrow">FEU CANTEEN</span><h2>Settings</h2><p>Manage your store, payments, receipts and POS preferences.</p></div><div class="settings-actions"><button class="settings-button" id="refreshSettings">↻ Refresh</button></div></div>
 <div class="settings-grid">
-<section class="settings-card"><div class="settings-card-header"><div class="settings-icon">⌂</div><div><h3>Store Information</h3><span>Business details used by the POS</span></div></div><div class="settings-form"><div class="settings-field"><label>Store Name</label><input id="storeName" type="text" placeholder="CONFIT"></div><div class="settings-field"><label>Contact Number</label><input id="storePhone" type="text" placeholder="09XXXXXXXXX"></div><div class="settings-field"><label>Email Address</label><input id="storeEmail" type="email" placeholder="contact@confit.com"></div><div class="settings-field"><label>Store Address</label><input id="storeAddress" type="text" placeholder="Store address"></div></div></section>
-<section class="settings-card"><div class="settings-card-header"><div class="settings-icon">₱</div><div><h3>Payment Settings</h3><span>Configure accepted payment methods</span></div></div><div class="payment-options"><label class="payment-option"><input id="cashEnabled" type="checkbox"><div><strong>Cash</strong><span>Accept cash payments</span></div></label><label class="payment-option"><input id="gcashEnabled" type="checkbox"><div><strong>GCash</strong><span>Accept GCash payments</span></div></label></div><div class="settings-form"><div class="settings-field"><label>GCash Account Name</label><input id="gcashName" type="text" placeholder="CONFIT"></div><div class="settings-field"><label>GCash Number</label><input id="gcashNumber" type="text" placeholder="09XXXXXXXXX"></div></div><div class="qr-area"><img id="qrPreview" class="qr-preview"><span id="qrText">No GCash QR code uploaded</span><label class="upload-button" for="qrUpload">Upload GCash QR</label><input id="qrUpload" class="hidden-file" type="file" accept="image/*"></div></section>
-<section class="settings-card"><div class="settings-card-header"><div class="settings-icon">▤</div><div><h3>Receipt Settings</h3><span>Control information shown on receipts</span></div></div><div class="toggle-list"><div class="toggle-row"><div class="toggle-text"><strong>Show Customer Name</strong><span>Display the customer on receipts</span></div><label class="switch"><input id="showCustomer" type="checkbox"><span class="switch-slider"></span></label></div><div class="toggle-row"><div class="toggle-text"><strong>Show Payment Method</strong><span>Display Cash or GCash</span></div><label class="switch"><input id="showPaymentMethod" type="checkbox"><span class="switch-slider"></span></label></div><div class="toggle-row"><div class="toggle-text"><strong>Show GCash Reference</strong><span>Display the GCash reference number</span></div><label class="switch"><input id="showGcashReference" type="checkbox"><span class="switch-slider"></span></label></div></div><div class="settings-field" style="margin-top:13px"><label>Receipt Footer</label><textarea id="receiptFooter" placeholder="Thank you for shopping with CONFIT!"></textarea></div></section>
+<section class="settings-card"><div class="settings-card-header"><div class="settings-icon">⌂</div><div><h3>Store Information</h3><span>Business details used by the POS</span></div></div><div class="settings-form"><div class="settings-field"><label>Store Name</label><input id="storeName" type="text" placeholder="FEU CANTEEN"></div><div class="settings-field"><label>Contact Number</label><input id="storePhone" type="text" placeholder="09XXXXXXXXX"></div><div class="settings-field"><label>Email Address</label><input id="storeEmail" type="email" placeholder="canteen@feu.edu.ph"></div><div class="settings-field"><label>Store Address</label><input id="storeAddress" type="text" placeholder="Store address"></div></div></section>
+<section class="settings-card"><div class="settings-card-header"><div class="settings-icon">₱</div><div><h3>Payment Settings</h3><span>Configure accepted payment methods</span></div></div><div class="payment-options"><label class="payment-option"><input id="cashEnabled" type="checkbox"><div><strong>Cash</strong><span>Accept cash payments</span></div></label><label class="payment-option"><input id="gcashEnabled" type="checkbox"><div><strong>GCash</strong><span>Accept GCash payments</span></div></label></div><div class="settings-form"><div class="settings-field"><label>GCash Account Name</label><input id="gcashName" type="text" placeholder="FEU CANTEEN"></div><div class="settings-field"><label>GCash Number</label><input id="gcashNumber" type="text" placeholder="09XXXXXXXXX"></div></div><div class="qr-area"><img id="qrPreview" class="qr-preview"><span id="qrText">No GCash QR code uploaded</span><label class="upload-button" for="qrUpload">Upload GCash QR</label><input id="qrUpload" class="hidden-file" type="file" accept="image/*"></div></section>
+<section class="settings-card"><div class="settings-card-header"><div class="settings-icon">▤</div><div><h3>Receipt Settings</h3><span>Control information shown on receipts</span></div></div><div class="toggle-list"><div class="toggle-row"><div class="toggle-text"><strong>Show Customer Name</strong><span>Display the customer on receipts</span></div><label class="switch"><input id="showCustomer" type="checkbox"><span class="switch-slider"></span></label></div><div class="toggle-row"><div class="toggle-text"><strong>Show Payment Method</strong><span>Display Cash or GCash</span></div><label class="switch"><input id="showPaymentMethod" type="checkbox"><span class="switch-slider"></span></label></div><div class="toggle-row"><div class="toggle-text"><strong>Show GCash Reference</strong><span>Display the GCash reference number</span></div><label class="switch"><input id="showGcashReference" type="checkbox"><span class="switch-slider"></span></label></div></div><div class="settings-field" style="margin-top:13px"><label>Receipt Footer</label><textarea id="receiptFooter" placeholder="Thank you for shopping with FEU CANTEEN!"></textarea></div></section>
 <section class="settings-card"><div class="settings-card-header"><div class="settings-icon">◈</div><div><h3>POS Preferences</h3><span>Control checkout behavior</span></div></div><div class="toggle-list"><div class="toggle-row"><div class="toggle-text"><strong>Confirm Before Completing Sale</strong><span>Ask before saving a transaction</span></div><label class="switch"><input id="confirmSale" type="checkbox"><span class="switch-slider"></span></label></div><div class="toggle-row"><div class="toggle-text"><strong>Allow Out-of-Stock Products</strong><span>Allow zero-stock products in POS</span></div><label class="switch"><input id="allowOutOfStock" type="checkbox"><span class="switch-slider"></span></label></div><div class="toggle-row"><div class="toggle-text"><strong>Show Low Stock Warning</strong><span>Show inventory warning messages</span></div><label class="switch"><input id="lowStockWarning" type="checkbox"><span class="switch-slider"></span></label></div></div></section>
 <section class="settings-card"><div class="settings-card-header"><div class="settings-icon">!</div><div><h3>Inventory Settings</h3><span>Configure stock alerts and calculations</span></div></div><div class="settings-form"><div class="settings-field"><label>Low Stock Threshold</label><input id="lowStockThreshold" type="number" min="0" value="5"></div><div class="settings-field"><label>Tax Rate (%)</label><input id="taxRate" type="number" min="0" max="100" step="0.01" value="0"></div><div class="settings-field"><label>Default Discount (%)</label><input id="defaultDiscount" type="number" min="0" max="100" step="0.01" value="0"></div><div class="settings-field"><label>Tax Status</label><select id="taxEnabled"><option value="false">Disabled</option><option value="true">Enabled</option></select></div></div></section>
 <section class="settings-card"><div class="settings-card-header"><div class="settings-icon">▣</div><div><h3>Data Management</h3><span>Backup and manage offline POS data</span></div></div><div class="data-actions"><button class="data-button" id="exportData">↥ Export Backup</button><button class="data-button" id="importButton">↧ Import Backup</button><button class="data-button" id="resetProducts">↻ Reset Products</button><button class="data-button danger" id="clearSales">Clear Sales</button><button class="data-button danger" id="clearCustomers">Clear Customers</button><button class="data-button danger" id="resetAll">Reset All Data</button><input id="importFile" class="hidden-file" type="file" accept=".json"></div><div style="margin-top:12px;color:#687186;font-size:9px">Last Backup: <strong id="lastBackupInfo" style="color:#aeb6c7;font-weight:600">No backup yet</strong></div><div style="margin-top:7px;color:#626b7f;font-size:9px">Offline account passwords are not exported. Existing account passwords are preserved during restore.</div></section>
-<section class="settings-card full"><div class="settings-card-header"><div class="settings-icon">i</div><div><h3>System Information</h3><span>Current CONFIT POS environment</span></div></div><div class="system-grid"><div class="system-item"><span>System</span><strong>CONFIT STORE</strong></div><div class="system-item"><span>Version</span><strong>1.0.0</strong></div><div class="system-item"><span>Mode</span><strong>Offline Mode</strong></div><div class="system-item"><span>Storage</span><strong>Local Browser</strong></div></div></section>
+<section class="settings-card full"><div class="settings-card-header"><div class="settings-icon">i</div><div><h3>System Information</h3><span>Current FEU Canteen POS environment</span></div></div><div class="system-grid"><div class="system-item"><span>System</span><strong>FEU CANTEEN</strong></div><div class="system-item"><span>Version</span><strong>1.0.0</strong></div><div class="system-item"><span>Mode</span><strong>Offline Mode</strong></div><div class="system-item"><span>Storage</span><strong>Local Browser</strong></div></div></section>
 </div>
 <div class="save-area"><button class="reset-button" id="resetSettings">Reset Settings</button><button class="save-button" id="saveSettings">Save Settings</button></div>
 </section>
-<footer><span>Powered by Opticore</span><span>POS SYSTEM</span></footer>
+<footer><span>Powered by FEU Canteen</span><span>POS SYSTEM</span></footer>
 </main>
 <div class="toast" id="toast"></div>
 <script src="../js/app.js"></script>
 <script>
-const SETTINGS_KEY="gonzcoreClothingSettings",INVENTORY_KEY="gonzcoreClothingInventory",SALES_KEY="gonzcoreClothingSales",CUSTOMERS_KEY="gonzcoreClothingCustomers";
-const defaults={storeName:"CONFIT",storePhone:"",storeEmail:"",storeAddress:"",receiptFooter:"Thank you for shopping with CONFIT!",cashEnabled:true,gcashEnabled:true,gcashName:"",gcashNumber:"",gcashQR:"",showCustomer:true,showPaymentMethod:true,showGcashReference:true,taxRate:0,defaultDiscount:0,taxEnabled:false,confirmSale:false,allowOutOfStock:false,lowStockWarning:true,lowStockThreshold:5};
+const SETTINGS_KEY="feuCanteenSettings",INVENTORY_KEY="feuCanteenInventory",SALES_KEY="feuCanteenSales",CUSTOMERS_KEY="feuCanteenCustomers";
+const defaults={storeName:"FEU CANTEEN",storePhone:"",storeEmail:"",storeAddress:"",receiptFooter:"Thank you for shopping with FEU CANTEEN!",cashEnabled:true,gcashEnabled:true,gcashName:"",gcashNumber:"",gcashQR:"",showCustomer:true,showPaymentMethod:true,showGcashReference:true,taxRate:0,defaultDiscount:0,taxEnabled:false,confirmSale:false,allowOutOfStock:false,lowStockWarning:true,lowStockThreshold:5};
 let settings={};
 function loadSettings(){try{settings={...defaults,...JSON.parse(localStorage.getItem(SETTINGS_KEY)||"{}")}}catch{settings={...defaults}};const ids=["storeName","storePhone","storeEmail","storeAddress","receiptFooter","gcashName","gcashNumber"];ids.forEach(id=>document.getElementById(id).value=settings[id]);document.getElementById("cashEnabled").checked=settings.cashEnabled;document.getElementById("gcashEnabled").checked=settings.gcashEnabled;document.getElementById("showCustomer").checked=settings.showCustomer;document.getElementById("showPaymentMethod").checked=settings.showPaymentMethod;document.getElementById("showGcashReference").checked=settings.showGcashReference;document.getElementById("confirmSale").checked=settings.confirmSale;document.getElementById("allowOutOfStock").checked=settings.allowOutOfStock;document.getElementById("lowStockWarning").checked=settings.lowStockWarning;document.getElementById("lowStockThreshold").value=settings.lowStockThreshold;document.getElementById("taxRate").value=settings.taxRate;document.getElementById("defaultDiscount").value=settings.defaultDiscount;document.getElementById("taxEnabled").value=String(settings.taxEnabled);if(settings.gcashQR)showQR(settings.gcashQR)}
 function saveSettings(){settings={storeName:document.getElementById("storeName").value.trim(),storePhone:document.getElementById("storePhone").value.trim(),storeEmail:document.getElementById("storeEmail").value.trim(),storeAddress:document.getElementById("storeAddress").value.trim(),receiptFooter:document.getElementById("receiptFooter").value.trim(),cashEnabled:document.getElementById("cashEnabled").checked,gcashEnabled:document.getElementById("gcashEnabled").checked,gcashName:document.getElementById("gcashName").value.trim(),gcashNumber:document.getElementById("gcashNumber").value.trim(),gcashQR:settings.gcashQR||"",showCustomer:document.getElementById("showCustomer").checked,showPaymentMethod:document.getElementById("showPaymentMethod").checked,showGcashReference:document.getElementById("showGcashReference").checked,taxRate:Number(document.getElementById("taxRate").value)||0,defaultDiscount:Number(document.getElementById("defaultDiscount").value)||0,taxEnabled:document.getElementById("taxEnabled").value==="true",confirmSale:document.getElementById("confirmSale").checked,allowOutOfStock:document.getElementById("allowOutOfStock").checked,lowStockWarning:document.getElementById("lowStockWarning").checked,lowStockThreshold:Number(document.getElementById("lowStockThreshold").value)||0};localStorage.setItem(SETTINGS_KEY,JSON.stringify(settings));toast("Settings saved successfully")}
@@ -84,36 +85,36 @@ document.getElementById("saveSettings").onclick=saveSettings;
 document.getElementById("refreshSettings").onclick=()=>{loadSettings();toast("Settings refreshed")};
 document.getElementById("resetSettings").onclick=()=>{if(confirm("Reset settings to their default values?")){settings={...defaults};localStorage.setItem(SETTINGS_KEY,JSON.stringify(settings));loadSettings();toast("Settings reset")}};
 document.getElementById("qrUpload").onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=e=>{settings.gcashQR=e.target.result;showQR(settings.gcashQR);toast("GCash QR loaded")};r.readAsDataURL(f)};
-document.getElementById("exportData").onclick=()=>{saveSettings();const data={settings:JSON.parse(localStorage.getItem(SETTINGS_KEY)||"{}"),products:JSON.parse(localStorage.getItem(INVENTORY_KEY)||"[]"),sales:JSON.parse(localStorage.getItem(SALES_KEY)||"[]"),customers:JSON.parse(localStorage.getItem(CUSTOMERS_KEY)||"[]")};const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="confit-pos-backup.json";a.click();URL.revokeObjectURL(url);toast("POS data exported")};
+document.getElementById("exportData").onclick=()=>{saveSettings();const data={settings:JSON.parse(localStorage.getItem(SETTINGS_KEY)||"{}"),products:JSON.parse(localStorage.getItem(INVENTORY_KEY)||"[]"),sales:JSON.parse(localStorage.getItem(SALES_KEY)||"[]"),customers:JSON.parse(localStorage.getItem(CUSTOMERS_KEY)||"[]")};const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="feu-canteen-pos-backup.json";a.click();URL.revokeObjectURL(url);toast("POS data exported")};
 document.getElementById("importButton").onclick=()=>document.getElementById("importFile").click();
 document.getElementById("importFile").onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=e=>{try{const d=JSON.parse(e.target.result);if(d.settings)localStorage.setItem(SETTINGS_KEY,JSON.stringify(d.settings));if(d.products)localStorage.setItem(INVENTORY_KEY,JSON.stringify(d.products));if(d.sales)localStorage.setItem(SALES_KEY,JSON.stringify(d.sales));if(d.customers)localStorage.setItem(CUSTOMERS_KEY,JSON.stringify(d.customers));loadSettings();toast("POS data imported")}catch{toast("Invalid backup file")}e.target.value=""};r.readAsText(f)};
 document.getElementById("clearSales").onclick=()=>{if(confirm("Delete all sales records?")){localStorage.removeItem(SALES_KEY);toast("Sales data cleared")}};
 document.getElementById("clearCustomers").onclick=()=>{if(confirm("Delete all customer records?")){localStorage.removeItem(CUSTOMERS_KEY);toast("Customer data cleared")}};
-document.getElementById("resetProducts").onclick=()=>{if(confirm("Reset products to the default CONFIT products?")){const p=[{id:1,name:"Classic Oversized Tee",category:"tops",price:499,stock:12,sizes:["S","M","L","XL"],color:"White",icon:"👕"},{id:2,name:"Premium Black Hoodie",category:"tops",price:899,stock:7,sizes:["M","L","XL"],color:"Black",icon:"🧥"},{id:3,name:"Streetwear Cargo Pants",category:"bottoms",price:1099,stock:6,sizes:["S","M","L"],color:"Black",icon:"👖"},{id:4,name:"Classic Denim Jeans",category:"bottoms",price:1299,stock:4,sizes:["28","30","32","34"],color:"Blue",icon:"👖"},{id:5,name:"Urban Runner Sneakers",category:"shoes",price:1799,stock:7,sizes:["39","40","41","42"],color:"White",icon:"👟"},{id:6,name:"Minimal Crossbody Bag",category:"bags",price:699,stock:9,sizes:["One Size"],color:"Black",icon:"👜"},{id:7,name:"Everyday Cap",category:"accessories",price:299,stock:15,sizes:["One Size"],color:"Black",icon:"🧢"},{id:8,name:"Urban Sunglasses",category:"accessories",price:399,stock:5,sizes:["One Size"],color:"Black",icon:"🕶️"},{id:9,name:"Essential Polo Shirt",category:"tops",price:599,stock:10,sizes:["S","M","L","XL"],color:"Navy",icon:"👕"}];localStorage.setItem(INVENTORY_KEY,JSON.stringify(p));toast("Products reset successfully")}};
+document.getElementById("resetProducts").onclick=()=>{if(confirm("Reset products to the default FEU Canteen products?")){const p=[{id:1,name:"Chicken Rice Meal",category:"Meals",price:85,stock:18,image:"\u{1F35B}"},{id:2,name:"Pork Adobo Rice",category:"Meals",price:75,stock:16,image:"\u{1F372}"},{id:3,name:"Fried Chicken Rice",category:"Meals",price:80,stock:12,image:"\u{1F357}"},{id:4,name:"Siomai Rice",category:"Meals",price:65,stock:20,image:"\u{1F95F}"},{id:5,name:"French Fries",category:"Snacks",price:45,stock:20,image:"\u{1F35F}"},{id:6,name:"Siomai",category:"Snacks",price:40,stock:24,image:"\u{1F95F}"},{id:7,name:"Sandwich",category:"Snacks",price:50,stock:15,image:"\u{1F96A}"},{id:8,name:"Burger",category:"Snacks",price:55,stock:10,image:"\u{1F354}"},{id:9,name:"Bottled Water",category:"Drinks",price:20,stock:35,image:"\u{1F4A7}"},{id:10,name:"Soft Drink",category:"Drinks",price:30,stock:24,image:"\u{1F964}"},{id:11,name:"Iced Tea",category:"Drinks",price:35,stock:18,image:"\u{1F9CB}"},{id:12,name:"Iced Coffee",category:"Coffee",price:55,stock:7,image:"\u{2615}"},{id:13,name:"Chocolate Cake",category:"Desserts",price:60,stock:9,image:"\u{1F370}"},{id:14,name:"Banana Bread",category:"Desserts",price:45,stock:12,image:"\u{1F35E}"},{id:15,name:"Donut",category:"Desserts",price:35,stock:16,image:"\u{1F369}"}];localStorage.setItem(INVENTORY_KEY,JSON.stringify(p));localStorage.setItem("feuCanteenCategories",JSON.stringify(["Meals","Snacks","Drinks","Coffee","Desserts"]));toast("Canteen products reset successfully")}};
 document.getElementById("resetAll").onclick=()=>{if(confirm("This will delete products, sales, customers and settings. Continue?")){localStorage.removeItem(INVENTORY_KEY);localStorage.removeItem(SALES_KEY);localStorage.removeItem(CUSTOMERS_KEY);localStorage.removeItem(SETTINGS_KEY);loadSettings();toast("All POS data has been reset")}};
 loadSettings();
 </script>
 <script>
 (function() {
-    const BACKUP_META_KEY = "gonzcoreClothingBackupMeta";
+    const BACKUP_META_KEY = "feuCanteenBackupMeta";
     const BACKUP_KEYS = [
-        "gonzcoreClothingInventory",
-        "gonzcoreClothingSales",
-        "gonzcoreClothingCustomers",
-        "gonzcoreClothingExpenses",
-        "gonzcoreClothingCashDrawer",
-        "gonzcoreClothingCashClosings",
-        "gonzcoreClothingUsers",
-        "gonzcoreClothingCategories",
-        "gonzcoreClothingStockDiscrepancies",
-        "gonzcoreClothingInventoryHistory",
-        "gonzcoreClothingSettings"
+        "feuCanteenInventory",
+        "feuCanteenSales",
+        "feuCanteenCustomers",
+        "feuCanteenExpenses",
+        "feuCanteenCashDrawer",
+        "feuCanteenCashClosings",
+        "feuCanteenUsers",
+        "feuCanteenCategories",
+        "feuCanteenStockDiscrepancies",
+        "feuCanteenInventoryHistory",
+        "feuCanteenSettings"
     ];
     const originalResetProductsHandler = document.getElementById("resetProducts").onclick;
 
-    function isAdministrator() {
+    function isOwner() {
         try {
-            const session = JSON.parse(localStorage.getItem("gonzcoreClothingSession") || "null");
+            const session = JSON.parse(localStorage.getItem("feuCanteenSession") || "null");
             return !!session && String(session.role || "").toLowerCase() === "administrator";
         } catch (error) {
             return false;
@@ -136,8 +137,8 @@ loadSettings();
             data[key] = readStorageValue(key);
         });
 
-        if (Array.isArray(data.gonzcoreClothingUsers)) {
-            data.gonzcoreClothingUsers = data.gonzcoreClothingUsers.map(function(user) {
+        if (Array.isArray(data.feuCanteenUsers)) {
+            data.feuCanteenUsers = data.feuCanteenUsers.map(function(user) {
                 const safeUser = { ...user };
                 delete safeUser.password;
                 delete safeUser.passwordHash;
@@ -148,8 +149,8 @@ loadSettings();
         }
 
         return {
-            application: "CONFIT POS",
-            backupFormat: "confit-pos-backup",
+            application: "FEU Canteen POS",
+            backupFormat: "feu-canteen-pos-backup",
             version: 1,
             exportedAt: new Date().toISOString(),
             data: data
@@ -157,8 +158,8 @@ loadSettings();
     }
 
     function downloadBackup(filename, isSafetyBackup) {
-        if (!isAdministrator()) {
-            toast("Administrator access is required.");
+        if (!isOwner()) {
+            toast("Owner access is required.");
             return false;
         }
 
@@ -179,35 +180,35 @@ loadSettings();
     }
 
     function validateBackup(payload) {
-        if (!payload || payload.application !== "CONFIT POS" || payload.backupFormat !== "confit-pos-backup" || payload.version !== 1 || !payload.data || typeof payload.data !== "object") {
+        if (!payload || payload.application !== "FEU Canteen POS" || payload.backupFormat !== "feu-canteen-pos-backup" || payload.version !== 1 || !payload.data || typeof payload.data !== "object") {
             return false;
         }
 
         const requiredKeys = BACKUP_KEYS.filter(function(key) {
-            return key !== "gonzcoreClothingCashDrawer" && key !== "gonzcoreClothingCashClosings";
+            return key !== "feuCanteenCashDrawer" && key !== "feuCanteenCashClosings";
         });
         if (!requiredKeys.every(function(key) {
             return Object.prototype.hasOwnProperty.call(payload.data, key);
         })) return false;
 
         const arrayKeys = [
-            "gonzcoreClothingInventory",
-            "gonzcoreClothingSales",
-            "gonzcoreClothingCustomers",
-            "gonzcoreClothingExpenses",
-            "gonzcoreClothingCashDrawer",
-            "gonzcoreClothingCashClosings",
-            "gonzcoreClothingUsers",
-            "gonzcoreClothingCategories",
-            "gonzcoreClothingStockDiscrepancies",
-            "gonzcoreClothingInventoryHistory"
+            "feuCanteenInventory",
+            "feuCanteenSales",
+            "feuCanteenCustomers",
+            "feuCanteenExpenses",
+            "feuCanteenCashDrawer",
+            "feuCanteenCashClosings",
+            "feuCanteenUsers",
+            "feuCanteenCategories",
+            "feuCanteenStockDiscrepancies",
+            "feuCanteenInventoryHistory"
         ];
 
         return arrayKeys.every(function(key) {
             return payload.data[key] === undefined || payload.data[key] === null || Array.isArray(payload.data[key]);
-        }) && (payload.data.gonzcoreClothingSettings === null || (
-            typeof payload.data.gonzcoreClothingSettings === "object" &&
-            !Array.isArray(payload.data.gonzcoreClothingSettings)
+        }) && (payload.data.feuCanteenSettings === null || (
+            typeof payload.data.feuCanteenSettings === "object" &&
+            !Array.isArray(payload.data.feuCanteenSettings)
         ));
     }
 
@@ -215,7 +216,7 @@ loadSettings();
         if (!Array.isArray(backupUsers)) return null;
         let currentUsers = [];
         try {
-            currentUsers = JSON.parse(localStorage.getItem("gonzcoreClothingUsers") || "[]");
+            currentUsers = JSON.parse(localStorage.getItem("feuCanteenUsers") || "[]");
         } catch (error) {
             currentUsers = [];
         }
@@ -242,14 +243,14 @@ loadSettings();
     }
 
     function restoreBackup(payload) {
-        if (!isAdministrator() || !validateBackup(payload)) {
-            toast("Invalid CONFIT POS backup.");
+        if (!isOwner() || !validateBackup(payload)) {
+            toast("Invalid FEU Canteen POS backup.");
             return;
         }
 
-        if (!confirm("Restore this CONFIT POS backup?\n\nCurrent POS data may be replaced by the backup.")) return;
+        if (!confirm("Restore this FEU Canteen POS backup?\n\nCurrent POS data may be replaced by the backup.")) return;
 
-        downloadBackup("CONFIT-POS-Before-Restore-Backup.json", true);
+        downloadBackup("FEU CANTEEN-POS-Before-Restore-Backup.json", true);
         const data = payload.data;
 
         BACKUP_KEYS.forEach(function(key) {
@@ -259,13 +260,13 @@ loadSettings();
                 localStorage.removeItem(key);
                 return;
             }
-            if (key === "gonzcoreClothingUsers") value = mergeUsersWithoutPasswords(value);
+            if (key === "feuCanteenUsers") value = mergeUsersWithoutPasswords(value);
             localStorage.setItem(key, JSON.stringify(value));
         });
 
-        const session = localStorage.getItem("gonzcoreClothingSession");
-        if (session) localStorage.setItem("gonzcoreClothingSession", session);
-        toast("CONFIT POS backup restored.");
+        const session = localStorage.getItem("feuCanteenSession");
+        if (session) localStorage.setItem("feuCanteenSession", session);
+        toast("FEU Canteen POS backup restored.");
         setTimeout(function() { window.location.reload(); }, 500);
     }
 
@@ -281,7 +282,7 @@ loadSettings();
     }
 
     function guardDataManagement() {
-        if (isAdministrator()) return;
+        if (isOwner()) return;
         ["exportData", "importButton", "resetProducts", "clearSales", "clearCustomers", "resetAll"].forEach(function(id) {
             const button = document.getElementById(id);
             if (button) button.disabled = true;
@@ -290,24 +291,24 @@ loadSettings();
 
     document.getElementById("exportData").onclick = function() {
         const date = new Date().toISOString().slice(0, 10);
-        downloadBackup("CONFIT-POS-Backup-" + date + ".json", false);
+        downloadBackup("FEU CANTEEN-POS-Backup-" + date + ".json", false);
     };
 
     document.getElementById("importButton").onclick = function() {
-        if (!isAdministrator()) return toast("Administrator access is required.");
+        if (!isOwner()) return toast("Owner access is required.");
         document.getElementById("importFile").click();
     };
 
     document.getElementById("importFile").onchange = function(event) {
         const file = event.target.files[0];
-        if (!file || !isAdministrator()) return;
+        if (!file || !isOwner()) return;
         const reader = new FileReader();
         reader.onload = function(loadEvent) {
             try {
                 const payload = JSON.parse(loadEvent.target.result);
                 restoreBackup(payload);
             } catch (error) {
-                toast("Invalid CONFIT POS backup JSON.");
+                toast("Invalid FEU Canteen POS backup JSON.");
             }
             event.target.value = "";
         };
@@ -315,28 +316,28 @@ loadSettings();
     };
 
     document.getElementById("clearSales").onclick = function() {
-        if (isAdministrator() && confirm("Clear all sales records?")) {
-            localStorage.removeItem("gonzcoreClothingSales");
+        if (isOwner() && confirm("Clear all sales records?")) {
+            localStorage.removeItem("feuCanteenSales");
             toast("Sales data cleared");
         }
     };
 
     document.getElementById("clearCustomers").onclick = function() {
-        if (isAdministrator() && confirm("Clear all customer records?")) {
-            localStorage.removeItem("gonzcoreClothingCustomers");
+        if (isOwner() && confirm("Clear all customer records?")) {
+            localStorage.removeItem("feuCanteenCustomers");
             toast("Customer data cleared");
         }
     };
 
     document.getElementById("resetProducts").onclick = function() {
-        if (isAdministrator() && originalResetProductsHandler) originalResetProductsHandler();
+        if (isOwner() && originalResetProductsHandler) originalResetProductsHandler();
     };
 
     document.getElementById("resetAll").onclick = function() {
-        if (!isAdministrator()) return;
-        if (confirm("Reset All Data?\n\nThis will permanently remove the current CONFIT POS data.")) {
+        if (!isOwner()) return;
+        if (confirm("Reset All Data?\n\nThis will permanently remove the current FEU Canteen POS data.")) {
             if (!confirm("Are you absolutely sure? This action cannot be undone.")) return;
-            ["gonzcoreClothingInventory", "gonzcoreClothingSales", "gonzcoreClothingCustomers", "gonzcoreClothingExpenses", "gonzcoreClothingCashDrawer", "gonzcoreClothingCashClosings", "gonzcoreClothingCategories", "gonzcoreClothingStockDiscrepancies", "gonzcoreClothingInventoryHistory", "gonzcoreClothingSettings"].forEach(function(key) { localStorage.removeItem(key); });
+            ["feuCanteenInventory", "feuCanteenSales", "feuCanteenCustomers", "feuCanteenExpenses", "feuCanteenCashDrawer", "feuCanteenCashClosings", "feuCanteenCategories", "feuCanteenStockDiscrepancies", "feuCanteenInventoryHistory", "feuCanteenSettings"].forEach(function(key) { localStorage.removeItem(key); });
             loadSettings();
             toast("All POS data has been reset");
         }

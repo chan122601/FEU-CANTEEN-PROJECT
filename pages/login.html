@@ -1,883 +1,670 @@
-<!DOCTYPE html> 
-<html lang="en"> 
-<head> 
-    <meta charset="UTF-8"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>CONFIT</title> 
+    <title>FEU CANTEEN</title>
 
-    <link rel="stylesheet" href="../css/style.css"> 
-    <link rel="stylesheet" href="../css/gonzcore_motion.css"> 
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/canteen_motion.css">
 
-    <style> 
-        body { 
-            min-height: 100vh; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            padding: 24px; 
-            overflow-x: hidden; 
-            background: #080b18; 
-        } 
-
-
-
-        #particles {
-            position: absolute;
-            inset: 0;
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            overflow-x: hidden;
+            background: #F5F7F6;
         }
 
-        .particle {
-            position: absolute;
-            width: 3px;
-            height: 3px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.45);
-            animation: particleFloat linear infinite;
-        }
 
-        @keyframes particleFloat {
-            from {
-                transform: translateY(110vh);
-                opacity: 0;
-            }
 
-            15% {
-                opacity: 1;
-            }
 
-            85% {
-                opacity: 1;
-            }
 
-            to {
-                transform: translateY(-20vh);
-                opacity: 0;
-            }
-        }
 
-        .glow {
-            position: absolute;
-            width: 420px;
-            height: 420px;
-            border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.3;
-        }
 
-        .glow-one {
-            top: -160px;
-            left: -120px;
-            background: #6366f1;
-            animation: floatOne 13s ease-in-out infinite;
-        }
 
-        .glow-two {
-            right: -150px;
-            top: 20%;
-            background: #ec4899;
-            animation: floatTwo 16s ease-in-out infinite;
-        }
 
-        .glow-three {
-            bottom: -180px;
-            left: 40%;
-            background: #8b5cf6;
-            animation: floatThree 18s ease-in-out infinite;
-        }
 
-        @keyframes floatOne {
-            0%, 100% {
-                transform: translate(0, 0);
-            }
 
-            50% {
-                transform: translate(100px, 80px);
-            }
-        }
 
-        @keyframes floatTwo {
-            0%, 100% {
-                transform: translate(0, 0);
-            }
 
-            50% {
-                transform: translate(-100px, 70px);
-            }
-        }
 
-        @keyframes floatThree {
-            0%, 100% {
-                transform: translate(0, 0);
-            }
 
-            50% {
-                transform: translate(80px, -90px);
-            }
-        }
 
-        .background {
-            position: fixed;
-            inset: 0;
+
+
+
+        .login-page {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 1120px;
+            min-height: 680px;
+            display: grid;
+            grid-template-columns: 1.05fr .95fr;
             overflow: hidden;
-            z-index: 0;
-            pointer-events: none;
-            background: #080b18;
+            border: 1px solid rgba(255,255,255,.1);
+            border-radius: 30px;
+            background: rgba(14,16,28,.66);
+
+            box-shadow: 0 40px 120px rgba(0,0,0,.50), 0 0 80px rgba(11,93,59,.08);
+            animation: loginShellIn .8s ease both;
         }
 
-        .background::after {
+        .login-showcase {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 680px;
+            padding: 48px;
+            overflow: hidden;
+            border-right: 1px solid rgba(255,255,255,.07);
+            background:
+                radial-gradient(circle at 20% 20%, rgba(212,175,55,.16), transparent 34%),
+                radial-gradient(circle at 85% 80%, rgba(255,255,255,.08), transparent 30%),
+                linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.015));
+        }
+
+
+
+
+
+        .showcase-top {
+            position: relative;
+            z-index: 2;
+        }
+
+        .brand-mark {
+            display: inline-flex;
+            align-items: center;
+            gap: 13px;
+        }
+
+        .brand-logo {
+            width: 52px;
+            height: 52px;
+            display: grid;
+            place-items: center;
+            border-radius: 16px;
+            background: linear-gradient(135deg,#ffffff,#D4AF37);
+            color: #0B5D3B;
+            font-size: 22px;
+            font-weight: 900;
+            box-shadow: 0 0 35px rgba(212,175,55,.24);
+            animation: logoPulse 4s ease-in-out infinite;
+        }
+
+        .brand-name strong {
+            display: block;
+            color: #ffffff;
+            font-size: 19px;
+            letter-spacing: -.3px;
+        }
+
+        .brand-name span {
+            display: block;
+            margin-top: 4px;
+            color: #8e96aa;
+            font-size: 9px;
+            letter-spacing: 2.2px;
+            text-transform: uppercase;
+        }
+
+        .showcase-copy {
+            position: relative;
+            z-index: 2;
+            max-width: 470px;
+            margin-top: auto;
+            margin-bottom: auto;
+            padding: 70px 0 50px;
+        }
+
+        .showcase-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 18px;
+            color: #D4AF37;
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: 2.2px;
+            text-transform: uppercase;
+        }
+
+        .showcase-eyebrow::before {
+            content: "";
+            width: 24px;
+            height: 1px;
+            background: #D4AF37;
+            box-shadow: 0 0 12px rgba(212,175,55,.5);
+        }
+
+        .showcase-copy h1 {
+            max-width: 500px;
+            font-family: "Playfair Display", Georgia, serif;
+            color: #ffffff;
+            font-size: clamp(42px, 5vw, 68px);
+            line-height: .98;
+            letter-spacing: -2.5px;
+        }
+
+        .showcase-copy h1 span {
+            color: #D4AF37;
+        }
+
+        .showcase-copy p {
+            max-width: 410px;
+            margin-top: 22px;
+            color: #8d96aa;
+            font-size: 12px;
+            line-height: 1.8;
+        }
+
+
+
+
+
+
+
+
+
+
+
+        .showcase-bottom {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #666f83;
+            font-size: 9px;
+            letter-spacing: .4px;
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #86efac;
+            box-shadow: 0 0 12px rgba(134,239,172,.55);
+        }
+
+        .login-panel {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 50px;
+            background: rgba(8,10,18,.3);
+        }
+
+        .login-content {
+            width: 100%;
+            max-width: 380px;
+            animation: formIn .9s .12s ease both;
+        }
+
+        .login-heading {
+            margin-bottom: 30px;
+        }
+
+        .login-heading .mini-label {
+            display: block;
+            margin-bottom: 12px;
+            color: #7d869a;
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .login-heading h2 {
+            font-family: "Playfair Display", Georgia, serif;
+            color: #ffffff;
+            font-size: 36px;
+            line-height: 1.1;
+        }
+
+        .login-heading p {
+            margin-top: 10px;
+            color: #727b90;
+            font-size: 11px;
+            line-height: 1.7;
+        }
+
+        .login-form {
+            margin-top: 28px;
+        }
+
+        .login-field {
+            margin-bottom: 18px;
+        }
+
+        .login-field label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            color: #8e97aa;
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: 1.1px;
+        }
+
+        .field-wrap {
+            position: relative;
+        }
+
+        .field-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #656e82;
+            font-size: 14px;
+            pointer-events: none;
+        }
+
+        .login-field input {
+            width: 100%;
+            height: 52px;
+            padding: 0 15px 0 43px;
+            border: 1px solid rgba(255,255,255,.08);
+            border-radius: 13px;
+            outline: none;
+            background: rgba(255,255,255,.035);
+            color: #ffffff;
+            font-size: 12px;
+            transition: .3s ease;
+        }
+
+        .login-field input::placeholder {
+            color: #50596d;
+        }
+
+        .login-field input:hover {
+            border-color: rgba(255,255,255,.14);
+            background: rgba(255,255,255,.05);
+        }
+
+        .login-field input:focus {
+            border-color: rgba(212,175,55,.48);
+            background: rgba(255,255,255,.055);
+            box-shadow: 0 0 0 4px rgba(212,175,55,.05), 0 0 25px rgba(212,175,55,.08);
+        }
+
+        .password-wrap input {
+            padding-right: 72px;
+        }
+
+        .show-password {
+            position: absolute;
+            right: 11px;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 7px 9px;
+            border: 0;
+            border-radius: 7px;
+            background: transparent;
+            color: #0B5D3B;
+            font-size: 9px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: .18s ease;
+        }
+
+        .show-password:hover {
+            color: #064E3B;
+            background: #EAF5EF;
+        }
+
+        .login-button {
+            position: relative;
+            width: 100%;
+            height: 52px;
+            margin-top: 7px;
+            overflow: hidden;
+            border: 0;
+            border-radius: 13px;
+            background: linear-gradient(135deg,#ffffff 0%,#F5E8B0 55%,#D4AF37 100%);
+            color: #0B5D3B;
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: 1.3px;
+            text-transform: uppercase;
+            cursor: pointer;
+            box-shadow: 0 14px 35px rgba(212,175,55,.12);
+            transition: .3s ease;
+        }
+
+        .login-button::before {
             content: "";
             position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at 50% 50%, rgba(99,102,241,.06), transparent 45%), linear-gradient(135deg, rgba(5,8,20,.72), rgba(8,11,24,.55));
+            top: 0;
+            left: -100%;
+            width: 70%;
+            height: 100%;
+            transform: skewX(-20deg);
+            background: rgba(255,255,255,.35);
+            transition: .6s ease;
         }
 
-        .login-page { 
-            position: relative; 
-            z-index: 2; 
-            width: 100%; 
-            max-width: 1120px; 
-            min-height: 680px; 
-            display: grid; 
-            grid-template-columns: 1.05fr .95fr; 
-            overflow: hidden; 
-            border: 1px solid rgba(255,255,255,.1); 
-            border-radius: 30px; 
-            background: rgba(14,16,28,.66); 
-            backdrop-filter: blur(28px); 
-            box-shadow: 0 40px 120px rgba(0,0,0,.50), 0 0 80px rgba(99,102,241,.08); 
-            animation: loginShellIn .8s ease both; 
-        } 
-
-        .login-showcase { 
-            position: relative; 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: space-between; 
-            min-height: 680px; 
-            padding: 48px; 
-            overflow: hidden; 
-            border-right: 1px solid rgba(255,255,255,.07); 
-            background: 
-                radial-gradient(circle at 20% 20%, rgba(196,181,253,.16), transparent 34%), 
-                radial-gradient(circle at 85% 80%, rgba(255,255,255,.08), transparent 30%), 
-                linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.015)); 
-        } 
-
-        .showcase-orb { 
-            position: absolute; 
-            width: 260px; 
-            height: 260px; 
-            right: -100px; 
-            top: -100px; 
-            border-radius: 50%; 
-            border: 1px solid rgba(255,255,255,.08); 
-            box-shadow: 0 0 80px rgba(196,181,253,.08); 
-            animation: orbFloat 7s ease-in-out infinite; 
-        } 
-
-        .showcase-orb-two { 
-            position: absolute; 
-            width: 190px; 
-            height: 190px; 
-            left: -90px; 
-            bottom: -80px; 
-            border-radius: 50%; 
-            border: 1px solid rgba(196,181,253,.1); 
-            animation: orbFloatTwo 8s ease-in-out infinite; 
-        } 
-
-        .showcase-top { 
-            position: relative; 
-            z-index: 2; 
-        } 
-
-        .brand-mark { 
-            display: inline-flex; 
-            align-items: center; 
-            gap: 13px; 
-        } 
-
-        .brand-logo { 
-            width: 52px; 
-            height: 52px; 
-            display: grid; 
-            place-items: center; 
-            border-radius: 16px; 
-            background: linear-gradient(135deg,#ffffff,#c4b5fd); 
-            color: #171323; 
-            font-size: 22px; 
-            font-weight: 900; 
-            box-shadow: 0 0 35px rgba(196,181,253,.24); 
-            animation: logoPulse 4s ease-in-out infinite; 
-        } 
-
-        .brand-name strong { 
-            display: block; 
-            color: #ffffff; 
-            font-size: 19px; 
-            letter-spacing: -.3px; 
-        } 
-
-        .brand-name span { 
-            display: block; 
-            margin-top: 4px; 
-            color: #8e96aa; 
-            font-size: 9px; 
-            letter-spacing: 2.2px; 
-            text-transform: uppercase; 
-        } 
-
-        .showcase-copy { 
-            position: relative; 
-            z-index: 2; 
-            max-width: 470px; 
-            margin-top: auto; 
-            margin-bottom: auto; 
-            padding: 70px 0 50px; 
-        } 
-
-        .showcase-eyebrow { 
-            display: inline-flex; 
-            align-items: center; 
-            gap: 8px; 
-            margin-bottom: 18px; 
-            color: #c4b5fd; 
-            font-size: 9px; 
-            font-weight: 800; 
-            letter-spacing: 2.2px; 
-            text-transform: uppercase; 
-        } 
-
-        .showcase-eyebrow::before { 
-            content: ""; 
-            width: 24px; 
-            height: 1px; 
-            background: #c4b5fd; 
-            box-shadow: 0 0 12px rgba(196,181,253,.5); 
-        } 
-
-        .showcase-copy h1 { 
-            max-width: 500px; 
-            font-family: "Playfair Display", Georgia, serif; 
-            color: #ffffff; 
-            font-size: clamp(42px, 5vw, 68px); 
-            line-height: .98; 
-            letter-spacing: -2.5px; 
-        } 
-
-        .showcase-copy h1 span { 
-            color: #c4b5fd; 
-        } 
-
-        .showcase-copy p { 
-            max-width: 410px; 
-            margin-top: 22px; 
-            color: #8d96aa; 
-            font-size: 12px; 
-            line-height: 1.8; 
-        } 
-
-        .fashion-elements { 
-            position: absolute; 
-            right: 35px; 
-            bottom: 45px; 
-            width: 260px; 
-            height: 230px; 
-            pointer-events: none; 
-        } 
-
-        .fashion-card { 
-            position: absolute; 
-            display: grid; 
-            place-items: center; 
-            width: 78px; 
-            height: 78px; 
-            border: 1px solid rgba(255,255,255,.1); 
-            border-radius: 22px; 
-            background: rgba(255,255,255,.045); 
-            backdrop-filter: blur(12px); 
-            font-size: 35px; 
-            box-shadow: 0 20px 50px rgba(0,0,0,.18); 
-        } 
-
-        .fashion-card-one { 
-            top: 5px; 
-            left: 70px; 
-            transform: rotate(-8deg); 
-            animation: fashionOne 5s ease-in-out infinite; 
-        } 
-
-        .fashion-card-two { 
-            top: 85px; 
-            left: 10px; 
-            transform: rotate(8deg); 
-            animation: fashionTwo 6s ease-in-out infinite; 
-        } 
-
-        .fashion-card-three { 
-            top: 115px; 
-            right: 5px; 
-            transform: rotate(-5deg); 
-            animation: fashionThree 5.5s ease-in-out infinite; 
-        } 
-
-        .showcase-bottom { 
-            position: relative; 
-            z-index: 2; 
-            display: flex; 
-            align-items: center; 
-            gap: 10px; 
-            color: #666f83; 
-            font-size: 9px; 
-            letter-spacing: .4px; 
-        } 
-
-        .status-dot { 
-            width: 7px; 
-            height: 7px; 
-            border-radius: 50%; 
-            background: #86efac; 
-            box-shadow: 0 0 12px rgba(134,239,172,.55); 
-        } 
-
-        .login-panel { 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            padding: 50px; 
-            background: rgba(8,10,18,.3); 
-        } 
-
-        .login-content { 
-            width: 100%; 
-            max-width: 380px; 
-            animation: formIn .9s .12s ease both; 
-        } 
-
-        .login-heading { 
-            margin-bottom: 30px; 
-        } 
-
-        .login-heading .mini-label { 
-            display: block; 
-            margin-bottom: 12px; 
-            color: #7d869a; 
-            font-size: 9px; 
-            font-weight: 800; 
-            letter-spacing: 2px; 
-            text-transform: uppercase; 
-        } 
-
-        .login-heading h2 { 
-            font-family: "Playfair Display", Georgia, serif; 
-            color: #ffffff; 
-            font-size: 36px; 
-            line-height: 1.1; 
-        } 
-
-        .login-heading p { 
-            margin-top: 10px; 
-            color: #727b90; 
-            font-size: 11px; 
-            line-height: 1.7; 
-        } 
-
-        .login-form { 
-            margin-top: 28px; 
-        } 
-
-        .login-field { 
-            margin-bottom: 18px; 
-        } 
-
-        .login-field label { 
-            display: flex; 
-            justify-content: space-between; 
-            margin-bottom: 8px; 
-            color: #8e97aa; 
-            font-size: 9px; 
-            font-weight: 800; 
-            letter-spacing: 1.1px; 
-        } 
-
-        .field-wrap { 
-            position: relative; 
-        } 
-
-        .field-icon { 
-            position: absolute; 
-            left: 15px; 
-            top: 50%; 
-            transform: translateY(-50%); 
-            color: #656e82; 
-            font-size: 14px; 
-            pointer-events: none; 
-        } 
-
-        .login-field input { 
-            width: 100%; 
-            height: 52px; 
-            padding: 0 15px 0 43px; 
-            border: 1px solid rgba(255,255,255,.08); 
-            border-radius: 13px; 
-            outline: none; 
-            background: rgba(255,255,255,.035); 
-            color: #ffffff; 
-            font-size: 12px; 
-            transition: .3s ease; 
-        } 
-
-        .login-field input::placeholder { 
-            color: #50596d; 
-        } 
-
-        .login-field input:hover { 
-            border-color: rgba(255,255,255,.14); 
-            background: rgba(255,255,255,.05); 
-        } 
-
-        .login-field input:focus { 
-            border-color: rgba(196,181,253,.48); 
-            background: rgba(255,255,255,.055); 
-            box-shadow: 0 0 0 4px rgba(196,181,253,.05), 0 0 25px rgba(196,181,253,.08); 
-        } 
-
-        .password-wrap input { 
-            padding-right: 72px; 
-        } 
-
-        .show-password { 
-            position: absolute; 
-            right: 11px; 
-            top: 50%; 
-            transform: translateY(-50%); 
-            padding: 7px 9px; 
-            border: 0; 
-            border-radius: 7px; 
-            background: transparent; 
-            color: #838ca0; 
-            font-size: 9px; 
-            font-weight: 800; 
-            cursor: pointer; 
-            transition: .25s ease; 
-        } 
-
-        .show-password:hover { 
-            color: #ffffff; 
-            background: rgba(255,255,255,.06); 
-        } 
-
-        .login-button { 
-            position: relative; 
-            width: 100%; 
-            height: 52px; 
-            margin-top: 7px; 
-            overflow: hidden; 
-            border: 0; 
-            border-radius: 13px; 
-            background: linear-gradient(135deg,#ffffff 0%,#ded7ff 55%,#c4b5fd 100%); 
-            color: #171323; 
-            font-size: 10px; 
-            font-weight: 900; 
-            letter-spacing: 1.3px; 
-            text-transform: uppercase; 
-            cursor: pointer; 
-            box-shadow: 0 14px 35px rgba(196,181,253,.12); 
-            transition: .3s ease; 
-        } 
-
-        .login-button::before { 
-            content: ""; 
-            position: absolute; 
-            top: 0; 
-            left: -100%; 
-            width: 70%; 
-            height: 100%; 
-            transform: skewX(-20deg); 
-            background: rgba(255,255,255,.35); 
-            transition: .6s ease; 
-        } 
-
-        .login-button:hover { 
-            transform: translateY(-3px); 
-            box-shadow: 0 20px 45px rgba(196,181,253,.2); 
-        } 
-
-        .login-button:hover::before { 
-            left: 140%; 
-        } 
-
-        .login-button:active { 
-            transform: translateY(-1px) scale(.99); 
-        } 
-
-        .login-error { 
-            display: none; 
-            margin-top: 15px; 
-            padding: 12px 14px; 
-            border: 1px solid rgba(248,113,113,.2); 
-            border-radius: 10px; 
-            background: rgba(248,113,113,.06); 
-            color: #fca5a5; 
-            font-size: 10px; 
-            line-height: 1.5; 
-        } 
-
-        .login-error.show { 
-            display: block; 
-            animation: errorIn .3s ease both; 
-        } 
-
-        .login-footer { 
-            margin-top: 28px; 
-            padding-top: 20px; 
-            border-top: 1px solid rgba(255,255,255,.06); 
-            text-align: center; 
-            color: #50596d; 
-            font-size: 9px; 
-        } 
-
-        .login-footer strong { 
-            color: #777f93; 
-        } 
-
-        @keyframes loginShellIn { 
-            from { 
-                opacity: 0; 
-                transform: translateY(25px) scale(.985); 
-            } 
-            to { 
-                opacity: 1; 
-                transform: translateY(0) scale(1); 
-            } 
-        } 
-
-        @keyframes formIn { 
-            from { 
-                opacity: 0; 
-                transform: translateX(18px); 
-            } 
-            to { 
-                opacity: 1; 
-                transform: translateX(0); 
-            } 
-        } 
-
-        @keyframes logoPulse { 
-            0%, 100% { 
-                transform: translateY(0); 
-                box-shadow: 0 0 35px rgba(196,181,253,.24); 
-            } 
-            50% { 
-                transform: translateY(-4px); 
-                box-shadow: 0 0 48px rgba(196,181,253,.34); 
-            } 
-        } 
-
-        @keyframes orbFloat { 
-            0%, 100% { 
-                transform: translate(0,0); 
-            } 
-            50% { 
-                transform: translate(-18px,18px); 
-            } 
-        } 
-
-        @keyframes orbFloatTwo { 
-            0%, 100% { 
-                transform: translate(0,0); 
-            } 
-            50% { 
-                transform: translate(18px,-12px); 
-            } 
-        } 
-
-        @keyframes fashionOne { 
-            0%, 100% { 
-                transform: translateY(0) rotate(-8deg); 
-            } 
-            50% { 
-                transform: translateY(-13px) rotate(-4deg); 
-            } 
-        } 
-
-        @keyframes fashionTwo { 
-            0%, 100% { 
-                transform: translateY(0) rotate(8deg); 
-            } 
-            50% { 
-                transform: translateY(12px) rotate(13deg); 
-            } 
-        } 
-
-        @keyframes fashionThree { 
-            0%, 100% { 
-                transform: translateY(0) rotate(-5deg); 
-            } 
-            50% { 
-                transform: translateY(-10px) rotate(1deg); 
-            } 
-        } 
-
-        @keyframes errorIn { 
-            from { 
-                opacity: 0; 
-                transform: translateY(-5px); 
-            } 
-            to { 
-                opacity: 1; 
-                transform: translateY(0); 
-            } 
-        } 
-
-        @media (max-width: 850px) { 
-            .login-page { 
-                max-width: 500px; 
-                min-height: auto; 
-                grid-template-columns: 1fr; 
-            } 
-
-            .login-showcase { 
-                min-height: 330px; 
-                padding: 32px; 
-                border-right: 0; 
-                border-bottom: 1px solid rgba(255,255,255,.07); 
-            } 
-
-            .showcase-copy { 
-                padding: 50px 0 25px; 
-            } 
-
-            .showcase-copy h1 { 
-                font-size: 46px; 
-            } 
-
-            .showcase-copy p { 
-                max-width: 330px; 
-            } 
-
-            .fashion-elements { 
-                right: 20px; 
-                bottom: 20px; 
-                transform: scale(.75); 
-                transform-origin: bottom right; 
-            } 
-
-            .login-panel { 
-                padding: 38px 30px; 
-            } 
-        } 
-
-        @media (max-width: 520px) { 
-            body { 
-                padding: 12px; 
-            } 
-
-            .login-page { 
-                border-radius: 22px; 
-            } 
-
-            .login-showcase { 
-                min-height: 300px; 
-                padding: 25px; 
-            } 
-
-            .showcase-copy h1 { 
-                font-size: 39px; 
-            } 
-
-            .showcase-copy p { 
-                font-size: 10px; 
-                max-width: 270px; 
-            } 
-
-            .fashion-elements { 
-                opacity: .5; 
-                right: -10px; 
-                bottom: 10px; 
-            } 
-
-            .login-panel { 
-                padding: 32px 22px; 
-            } 
-
-            .login-heading h2 { 
-                font-size: 31px; 
-            } 
-        } 
-
-        @media (prefers-reduced-motion: reduce) { 
-            .login-page, 
-            .login-content, 
-            .brand-logo, 
-            .showcase-orb, 
-            .showcase-orb-two, 
-            .fashion-card { 
-                animation: none; 
-            } 
-
-            * { 
-                scroll-behavior: auto !important; 
-            } 
-        } 
-    </style> 
-</head> 
-
-<body> 
-
-    <div class="background"> 
-        <div class="glow glow-one"></div> 
-        <div class="glow glow-two"></div> 
-        <div class="glow glow-three"></div> 
-        <div id="particles"></div> 
-    </div> 
-
-    <main class="login-page"> 
-
-        <section class="login-showcase"> 
-
-            <div class="showcase-orb"></div> 
-            <div class="showcase-orb-two"></div> 
-
-            <div class="showcase-top"> 
-
-                <div class="brand-mark"> 
-
-                    <div class="brand-logo"> 
-                        C 
-                    </div> 
-
-                    <div class="brand-name"> 
-                        <strong>CONFIT</strong> 
-                        <span>Store</span> 
-                    </div> 
-
-                </div> 
-
-            </div> 
-
-            <div class="showcase-copy"> 
-
-                <div class="showcase-eyebrow"> 
-                    Smart Retail Experience 
-                </div> 
-
-                <h1> 
-                    CONFIT <span>CREATIIVES.</span> 
-                </h1> 
-
-                <p> 
-                    A modern point-of-sale experience designed for clothing businesses. 
-                    Manage sales, customers, products, inventory and daily operations 
-                    from one place. 
-                </p> 
-
-            </div> 
-
-            <div class="fashion-elements"> 
-
-                <div class="fashion-card fashion-card-one"> 
-                    👕 
-                </div> 
-
-                <div class="fashion-card fashion-card-two"> 
-                    👖 
-                </div> 
-
-                <div class="fashion-card fashion-card-three"> 
-                    👟 
-                </div> 
-
-            </div> 
-
-            <div class="showcase-bottom"> 
-                <span class="status-dot"></span> 
-                <span>Offline System • Data stored locally</span> 
-            </div> 
-
-        </section> 
-
-        <section class="login-panel"> 
-
-            <div class="login-content"> 
-
-                <div class="login-heading"> 
-
-                    <span class="mini-label"> 
-                        CONFIT 
-                    </span> 
-
-                    <h2> 
-                        Welcome back. 
-                    </h2> 
-
-                    <p> 
-                        Sign in to continue to your POS dashboard. 
-                    </p> 
-
-                </div> 
-
-                <form 
-                    class="login-form" 
-                    id="loginForm" 
-                > 
-
-                    <div class="login-field"> 
-
-                        <label for="username"> 
-                            <span>USERNAME</span> 
-                        </label> 
-
-                        <div class="field-wrap"> 
-
-                            <span class="field-icon"> 
-                                ◉ 
-                            </span> 
-
-                            <input 
-                                id="username" 
-                                type="text" 
-                                placeholder="Enter username" 
-                                autocomplete="username" 
-                                required 
-                            > 
-
-                        </div> 
-
-                    </div> 
-
-                    <div class="login-field"> 
-
-                        <label for="password"> 
-                            <span>PASSWORD</span> 
-                        </label> 
+        .login-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 45px rgba(212,175,55,.2);
+        }
+
+        .login-button:hover::before {
+            left: 140%;
+        }
+
+        .login-button:active {
+            transform: translateY(-1px) scale(.99);
+        }
+
+        .login-error {
+            display: none;
+            margin-top: 15px;
+            padding: 12px 14px;
+            border: 1px solid rgba(248,113,113,.2);
+            border-radius: 10px;
+            background: rgba(248,113,113,.06);
+            color: #fca5a5;
+            font-size: 10px;
+            line-height: 1.5;
+        }
+
+        .login-error.show {
+            display: block;
+            animation: errorIn .3s ease both;
+        }
+
+        .login-footer {
+            margin-top: 28px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,.06);
+            text-align: center;
+            color: #50596d;
+            font-size: 9px;
+        }
+
+        .login-footer strong {
+            color: #777f93;
+        }
+
+        @keyframes loginShellIn {
+            from {
+                opacity: 0;
+                transform: translateY(25px) scale(.985);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes formIn {
+            from {
+                opacity: 0;
+                transform: translateX(18px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes logoPulse {
+            0%, 100% {
+                transform: translateY(0);
+                box-shadow: 0 0 35px rgba(212,175,55,.24);
+            }
+            50% {
+                transform: translateY(-4px);
+                box-shadow: 0 0 48px rgba(212,175,55,.34);
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+        @keyframes errorIn {
+            from {
+                opacity: 0;
+                transform: translateY(-5px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 850px) {
+            .login-page {
+                max-width: 500px;
+                min-height: auto;
+                grid-template-columns: 1fr;
+            }
+
+            .login-showcase {
+                min-height: 330px;
+                padding: 32px;
+                border-right: 0;
+                border-bottom: 1px solid rgba(255,255,255,.07);
+            }
+
+            .showcase-copy {
+                padding: 50px 0 25px;
+            }
+
+            .showcase-copy h1 {
+                font-size: 46px;
+            }
+
+            .showcase-copy p {
+                max-width: 330px;
+            }
+
+
+
+            .login-panel {
+                padding: 38px 30px;
+            }
+        }
+
+        @media (max-width: 520px) {
+            body {
+                padding: 12px;
+            }
+
+            .login-page {
+                border-radius: 22px;
+            }
+
+            .login-showcase {
+                min-height: 300px;
+                padding: 25px;
+            }
+
+            .showcase-copy h1 {
+                font-size: 39px;
+            }
+
+            .showcase-copy p {
+                font-size: 10px;
+                max-width: 270px;
+            }
+
+
+
+            .login-panel {
+                padding: 32px 22px;
+            }
+
+            .login-heading h2 {
+                font-size: 31px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .login-page,
+            .login-content,
+            .brand-logo,
+
+
+            * {
+                scroll-behavior: auto !important;
+            }
+        }
+
+        .login-page{background:#fff!important;border-color:#dfe9e2!important;box-shadow:0 24px 70px rgba(11,93,59,.12)!important}
+        .login-showcase{background:linear-gradient(145deg,#0B5D3B,#137A4B)!important}
+        .showcase-copy h1,.showcase-copy p,.showcase-eyebrow,.showcase-bottom{color:#fff!important}
+        .login-panel{background:#fff!important}
+</style>
+    <link rel="stylesheet" href="../css/canteen_theme.css">
+</head>
+
+<body>
+
+
+
+    <main class="login-page">
+
+        <section class="login-showcase">
+
+
+            <div class="showcase-top">
+
+                <div class="brand-mark">
+                    <div class="brand-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="7.7"/><circle cx="12" cy="12" r="5.2"/><path d="M3 3v5m-1.5-5v3M4.5 3v3M3 8v13M20 3c-2 2-2.5 5-2.5 8h3V3zm0 8v10"/></svg></div>
+
+                    <div class="brand-name">
+                        <strong>FEU CANTEEN</strong>
+                        <span>Point of Sale System</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="showcase-copy">
+
+                <div class="showcase-eyebrow">
+                    Campus Canteen
+                </div>
+
+                <h1>
+                    FEU <span>CANTEEN</span>
+                </h1>
+
+                <p>
+                    A clear point-of-sale system for meals, snacks, drinks and daily canteen sales.
+                    Manage sales, customers, products, inventory and daily operations
+                    from one place.
+                </p>
+
+            </div>
+
+            <div class="login-food-icons"><span>&#127828;</span><span>&#127869;</span><span>&#9749;</span></div>
+
+            <div class="showcase-bottom">
+                <span class="status-dot"></span>
+                <span>Offline System • Data stored locally</span>
+            </div>
+
+        </section>
+
+        <section class="login-panel">
+
+            <div class="login-content">
+
+                <div class="login-heading">
+
+                    <span class="mini-label">
+                        FEU CANTEEN
+                    </span>
+
+                    <h2>
+                        Welcome Back
+                    </h2>
+
+                    <p>
+                        Sign in to continue to FEU Canteen POS.
+                    </p>
+
+                </div>
+
+                <form
+                    class="login-form"
+                    id="loginForm"
+                >
+
+                    <div class="login-field">
+
+                        <label for="username">
+                            <span>USERNAME</span>
+                        </label>
+
+                        <div class="field-wrap">
+
+                            <span class="field-icon">
+                                ◉
+                            </span>
+
+                            <input
+                                id="username"
+                                type="text"
+                                placeholder="Enter your username"
+                                autocomplete="username"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+                    <div class="login-field">
+
+                        <label for="password">
+                            <span>PASSWORD</span>
+                        </label>
 
                         <div class="field-wrap password-wrap">
 
-                            <span class="field-icon"> 
-                                ◆ 
-                            </span> 
+                            <span class="field-icon">
+                                ◆
+                            </span>
 
-                            <input 
-                                id="password" 
-                                type="password" 
-                                placeholder="Enter password" 
-                                autocomplete="current-password" 
-                                required 
-                            > 
+                            <input
+                                id="password"
+                                type="password"
+                                placeholder="Enter your password"
+                                autocomplete="current-password"
+                                required
+                            >
 
-                            <button 
-                                type="button" 
-                                class="show-password" 
-                                id="showPassword" 
-                            > 
-                                Show 
-                            </button> 
+                            <button
+                                type="button"
+                                class="show-password"
+                                id="showPassword"
+                            >
+                                Show
+                            </button>
 
-                        </div> 
+                        </div>
 
-                    </div> 
+                    </div>
 
                     <div class="login-field" id="confirmPasswordField" hidden>
 
@@ -902,118 +689,112 @@
 
                     </div>
 
-                    <button 
-                        type="submit" 
-                        class="login-button" 
-                    > 
-                        Sign In 
-                    </button> 
+                    <button
+                        type="submit"
+                        class="login-button"
+                    >
+                        Sign In
+                    </button>
 
-                    <div 
-                        class="login-error" 
-                        id="loginError" 
-                    > 
-                        Invalid username or password. 
-                    </div> 
+                    <div
+                        class="login-error"
+                        id="loginError"
+                    >
+                        Invalid username or password.
+                    </div>
 
-                </form> 
+                </form>
 
-                <div class="login-footer"> 
-                    Powered by <strong>Opticore</strong> 
-                </div> 
+                <div class="login-footer">
+                    Powered by <strong>FEU Canteen</strong>
+                </div>
 
-            </div> 
+            </div>
 
-        </section> 
+        </section>
 
-    </main> 
+    </main>
 
-    <script> 
+    <script>
 
-        (function() { 
+        (function() {
 
-            const USERS_KEY = 
-                "gonzcoreClothingUsers"; 
+            const USERS_KEY =
+                "feuCanteenUsers";
 
-            const LOGIN_SESSION_KEY = 
-                "gonzcoreClothingSession"; 
+            const LOGIN_SESSION_KEY =
+                "feuCanteenSession";
 
             const ADMIN_USERNAME =
-                "confitcreatives@gmail.com";
+                "admin";
 
             const PASSWORD_HASH_ALGORITHM = "SHA-256";
 
             let administratorSetupRequired = false;
 
-            function getUsers() { 
+            function getUsers() {
 
-                let users = []; 
+                let users = [];
 
-                const saved = 
-                    localStorage.getItem( 
-                        USERS_KEY 
-                    ); 
+                const saved =
+                    localStorage.getItem(
+                        USERS_KEY
+                    );
 
-                if (saved) { 
+                if (saved) {
+                    try { users = JSON.parse(saved); } catch (error) { users = []; }
+                } else {
+                    users = [
+                        {id:"USR-ADMIN",name:"Canteen Owner",username:"admin",password:"admin123",role:"Administrator",status:"active"},
+                        {id:"USR-STAFF",name:"Canteen Staff",username:"staff",password:"staff123",role:"Staff",status:"active"}
+                    ];
+                    localStorage.setItem(USERS_KEY, JSON.stringify(users));
+                }
 
-                    try { 
+                if (
+                    !Array.isArray(users)
+                ) {
 
-                        users = 
-                            JSON.parse( 
-                                saved 
-                            ); 
+                    users = [];
 
-                    } catch (error) { 
+                }
 
-                        users = []; 
-
-                    } 
-                } 
-
-                if ( 
-                    !Array.isArray(users) 
-                ) { 
-
-                    users = []; 
-
-                } 
-
+                if (!users.length) {
+                    users = [{id:"USR-ADMIN",name:"Canteen Owner",username:"admin",password:"admin123",role:"Administrator",status:"active"},{id:"USR-STAFF",name:"Canteen Staff",username:"staff",password:"staff123",role:"Staff",status:"active"}];
+                    localStorage.setItem(USERS_KEY, JSON.stringify(users));
+                }
                 const administrators =
                     users.filter(
-                        function(user) { 
+                        function(user) {
 
-                            return ( 
+                            return (
                                 String(user.role || "").toLowerCase() ===
                                 "administrator"
-                            ); 
+                            );
 
-                        } 
+                        }
                     );
 
                 const administrator = administrators[0];
 
-                if (!administrator) { 
+                if (!administrator) {
                     administratorSetupRequired = true;
                     return users;
-                } 
+                }
 
-                administratorSetupRequired = administratorSetupRequired ||
-                    (!administrator.password && !administrator.passwordHash) ||
-                    String(administrator.username || "").toLowerCase() === "admin";
+                administratorSetupRequired = false;
 
                 if (String(administrator.username || "").toLowerCase() !== ADMIN_USERNAME) {
                     administrator.username = ADMIN_USERNAME;
                     localStorage.setItem(USERS_KEY, JSON.stringify(users));
                 }
 
-                return users; 
+                return users;
 
-            } 
+            }
 
             async function hashPassword(value) {
-                if (!window.crypto || !window.crypto.subtle || !window.TextEncoder) {
-                    throw new Error("Secure password hashing is not available.");
-                }
+                if (!window.crypto || !window.crypto.subtle || !window.TextEncoder) return "plain:" + String(value);
                 const bytes = new TextEncoder().encode(String(value));
                 const digest = await window.crypto.subtle.digest(PASSWORD_HASH_ALGORITHM, bytes);
                 return Array.from(new Uint8Array(digest)).map(function(byte) {
@@ -1023,51 +804,51 @@
 
             async function passwordMatches(user, value) {
                 if (user.passwordHash) {
-                    return user.passwordHash === await hashPassword(value);
+                    return user.passwordHash === "plain:" + String(value) || user.passwordHash === await hashPassword(value);
                 }
                 return String(user.password || "") === String(value);
             }
 
-            const existingSession = 
-                localStorage.getItem( 
-                    LOGIN_SESSION_KEY 
-                ); 
+            const existingSession =
+                localStorage.getItem(
+                    LOGIN_SESSION_KEY
+                );
 
-            if (existingSession) { 
+            if (existingSession) {
 
-                window.location.href = 
-                    "../index.html"; 
+                window.location.href =
+                    "../index.html";
 
-                return; 
+                return;
 
-            } 
+            }
 
-            getUsers(); 
+            getUsers();
 
-            const form = 
-                document.getElementById( 
-                    "loginForm" 
-                ); 
+            const form =
+                document.getElementById(
+                    "loginForm"
+                );
 
-            const username = 
-                document.getElementById( 
-                    "username" 
-                ); 
+            const username =
+                document.getElementById(
+                    "username"
+                );
 
-            const password = 
-                document.getElementById( 
-                    "password" 
-                ); 
+            const password =
+                document.getElementById(
+                    "password"
+                );
 
-            const error = 
-                document.getElementById( 
-                    "loginError" 
-                ); 
+            const error =
+                document.getElementById(
+                    "loginError"
+                );
 
-            const showPassword = 
-                document.getElementById( 
-                    "showPassword" 
-                ); 
+            const showPassword =
+                document.getElementById(
+                    "showPassword"
+                );
 
             const confirmPasswordField =
                 document.getElementById("confirmPasswordField");
@@ -1093,53 +874,53 @@
                 confirmPasswordField.hidden = false;
                 confirmPassword.required = true;
                 loginHeading.textContent = "Set up your administrator account.";
-                loginDescription.textContent = "Create a new administrator password to secure this CONFIT POS installation. Restored account details do not include passwords.";
+                loginDescription.textContent = "Create a new administrator password to secure this FEU Canteen POS installation. Restored account details do not include passwords.";
                 loginButton.textContent = "Create Password";
             }
 
-            showPassword.addEventListener( 
-                "click", 
-                function() { 
+            showPassword.addEventListener(
+                "click",
+                function() {
 
-                    if ( 
-                        password.type === 
-                        "password" 
-                    ) { 
+                    if (
+                        password.type ===
+                        "password"
+                    ) {
 
-                        password.type = 
-                            "text"; 
+                        password.type =
+                            "text";
 
-                        showPassword.textContent = 
-                            "Hide"; 
+                        showPassword.textContent =
+                            "Hide";
 
-                    } else { 
+                    } else {
 
-                        password.type = 
-                            "password"; 
+                        password.type =
+                            "password";
 
-                        showPassword.textContent = 
-                            "Show"; 
+                        showPassword.textContent =
+                            "Show";
 
-                    } 
+                    }
 
-                } 
-            ); 
+                }
+            );
 
-            form.addEventListener( 
-                "submit", 
+            form.addEventListener(
+                "submit",
                 async function(event) {
 
-                    event.preventDefault(); 
+                    event.preventDefault();
 
-                    const enteredUsername = 
-                        username.value 
-                            .trim(); 
+                    const enteredUsername =
+                        username.value
+                            .trim();
 
-                    const enteredPassword = 
-                        password.value; 
+                    const enteredPassword =
+                        password.value;
 
-                    const users = 
-                        getUsers(); 
+                    const users =
+                        getUsers();
 
                     if (administratorSetupRequired) {
                         if (enteredPassword.length < 4) {
@@ -1201,40 +982,40 @@
 
                     if (!user || !credentialsMatch) {
 
-                        error.textContent = 
-                            "Invalid username or password."; 
+                        error.textContent =
+                            "Invalid username or password.";
 
-                        error.classList.add( 
-                            "show" 
-                        ); 
+                        error.classList.add(
+                            "show"
+                        );
 
-                        password.value = 
-                            ""; 
+                        password.value =
+                            "";
 
-                        password.focus(); 
+                        password.focus();
 
-                        return; 
+                        return;
 
-                    } 
+                    }
 
-                    if ( 
-                        String( 
-                            user.status || 
-                            "active" 
-                        ).toLowerCase() === 
-                        "inactive" 
-                    ) { 
+                    if (
+                        String(
+                            user.status ||
+                            "active"
+                        ).toLowerCase() ===
+                        "inactive"
+                    ) {
 
-                        error.textContent = 
-                            "This account is disabled."; 
+                        error.textContent =
+                            "This account is disabled.";
 
-                        error.classList.add( 
-                            "show" 
-                        ); 
+                        error.classList.add(
+                            "show"
+                        );
 
-                        return; 
+                        return;
 
-                    } 
+                    }
 
                     if (!user.passwordHash) {
                         try {
@@ -1249,43 +1030,43 @@
                         }
                     }
 
-                    const session = { 
+                    const session = {
 
-                        id: 
-                            user.id, 
+                        id:
+                            user.id,
 
-                        name: 
-                            user.name || 
-                            user.username, 
+                        name:
+                            user.name ||
+                            user.username,
 
-                        username: 
-                            user.username, 
+                        username:
+                            user.username,
 
-                        role: 
-                            user.role, 
+                        role:
+                            user.role,
 
-                        loginTime: 
-                            new Date() 
-                                .toISOString() 
+                        loginTime:
+                            new Date()
+                                .toISOString()
 
-                    }; 
+                    };
 
-                    localStorage.setItem( 
-                        LOGIN_SESSION_KEY, 
-                        JSON.stringify( 
-                            session 
-                        ) 
-                    ); 
+                    localStorage.setItem(
+                        LOGIN_SESSION_KEY,
+                        JSON.stringify(
+                            session
+                        )
+                    );
 
-                    window.location.href = 
-                        "../index.html"; 
+                    window.location.href =
+                        "../index.html";
 
-                } 
-            ); 
+                }
+            );
 
-        })(); 
+        })();
 
-    </script> 
+    </script>
 
-</body> 
+</body>
 </html>

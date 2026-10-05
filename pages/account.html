@@ -9,7 +9,7 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Account Management - CONFIT</title>
+    <title>Account Management - FEU CANTEEN</title>
 
     <link
         rel="stylesheet"
@@ -18,7 +18,7 @@
 
     <link
         rel="stylesheet"
-        href="../css/gonzcore_motion.css"
+        href="../css/canteen_motion.css"
     >
 
     <style>
@@ -60,7 +60,7 @@
             border: 1px solid rgba(255,255,255,.08);
             border-radius: 18px;
             background: rgba(255,255,255,.045);
-            backdrop-filter: blur(18px);
+
         }
 
         .account-card h3 {
@@ -89,8 +89,8 @@
             display: grid;
             place-items: center;
             border-radius: 50%;
-            background: linear-gradient(135deg,#c4b5fd,#f9a8d4);
-            color: #171323;
+            background: linear-gradient(135deg,#D4AF37,#F5E8B0);
+            color: #0B5D3B;
             font-weight: 800;
             font-size: 17px;
         }
@@ -154,8 +154,8 @@
 
         .account-button.primary {
             border: none;
-            background: linear-gradient(135deg,#f8fafc,#c4b5fd);
-            color: #171323;
+            background: linear-gradient(135deg,#f8fafc,#D4AF37);
+            color: #0B5D3B;
         }
 
         .account-button.danger {
@@ -226,8 +226,8 @@
         }
 
         .role-badge {
-            background: rgba(196,181,253,.1);
-            color: #c4b5fd;
+            background: rgba(212,175,55,.1);
+            color: #D4AF37;
         }
 
         .status-badge.active {
@@ -268,7 +268,7 @@
             justify-content: center;
             padding: 20px;
             background: rgba(0,0,0,.72);
-            backdrop-filter: blur(10px);
+
             z-index: 100;
         }
 
@@ -369,33 +369,238 @@
 
     </style>
 
+    <link rel="stylesheet" href="../css/canteen_theme.css">
+    <style>
+        @keyframes accountPageEntrance {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .account-page {
+            max-width: 1500px !important;
+            padding: 28px 34px 36px !important;
+            animation: accountPageEntrance 360ms cubic-bezier(.2,.7,.2,1) both;
+        }
+
+        .account-heading { margin-bottom: 24px !important; }
+        .account-heading h2 { font-size: 36px !important; letter-spacing: -.025em !important; }
+        .account-heading p { margin-top: 8px !important; }
+        .account-heading #addStaffButton { align-self: center; }
+
+        .account-grid {
+            grid-template-columns: minmax(300px, .9fr) minmax(0, 1.45fr) !important;
+            gap: 18px !important;
+        }
+
+        .account-card {
+            padding: 22px !important;
+            border: 1px solid #DCE6E1 !important;
+            border-radius: 14px !important;
+            background: #fff !important;
+            box-shadow: 0 8px 24px rgba(31,41,55,.045) !important;
+            transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+        }
+
+        .account-card:hover {
+            border-color: #C8D9CF !important;
+            box-shadow: 0 12px 28px rgba(31,41,55,.07) !important;
+            transform: translateY(-1px);
+        }
+
+        .account-card h3 { font-size: 18px !important; }
+        .account-card-subtitle { margin-top: 5px !important; font-size: 13px !important; }
+        .profile-large {
+            gap: 15px;
+            margin-top: 20px;
+            padding: 16px;
+            border: 1px solid #E3ECE6;
+            border-radius: 12px;
+            background: #F7FAF8 !important;
+        }
+
+        .profile-large-avatar.profile-avatar {
+            flex: 0 0 58px;
+            width: 58px !important;
+            height: 58px !important;
+            min-width: 58px !important;
+            border: 0 !important;
+            background: #D4AF37 !important;
+            color: #0B5D3B !important;
+            font-size: 13px !important;
+            cursor: pointer;
+        }
+
+        .profile-large-avatar.profile-avatar:hover,
+        .topbar .profile-avatar:hover {
+            transform: translateY(-2px) scale(1.05);
+        }
+
+        .profile-large-avatar.profile-avatar,
+        .topbar .profile-avatar {
+            transition: transform .2s ease;
+        }
+
+        .profile-large strong { font-size: 16px !important; }
+        .profile-large span { margin-top: 3px !important; font-size: 13px !important; color: #64748B !important; }
+        .account-info { margin-top: 18px !important; }
+        .info-row { padding: 12px 2px !important; border-bottom-color: #E8EEEA !important; }
+        .info-row span { font-size: 13px !important; color: #64748B !important; }
+        .info-row strong { font-size: 14px !important; color: #1F2937 !important; }
+
+        .account-actions { gap: 9px !important; margin-top: 18px !important; }
+        .account-page .account-button {
+            min-height: 39px !important;
+            height: 39px !important;
+            padding: 0 13px !important;
+            border-radius: 8px !important;
+            font-size: 13px !important;
+            font-weight: 650 !important;
+            transition: background-color .18s ease, border-color .18s ease, color .18s ease, transform .18s ease, box-shadow .18s ease;
+        }
+
+        .account-page .account-button:not(.primary):not(.danger) {
+            border: 1px solid #137A4B !important;
+            background: #fff !important;
+            color: #0B5D3B !important;
+        }
+
+        .account-page .account-button:not(.primary):not(.danger):hover {
+            background: #EAF5EF !important;
+            color: #08472F !important;
+            transform: translateY(-1px);
+        }
+
+        .account-page .account-button.primary {
+            border: 1px solid #0B5D3B !important;
+            background: #0B5D3B !important;
+            color: #fff !important;
+        }
+
+        .account-page .account-button.primary:hover {
+            border-color: #08472F !important;
+            background: #08472F !important;
+            transform: translateY(-2px);
+        }
+
+        .account-page .account-button.danger {
+            border: 1px solid #E4B6B6 !important;
+            background: #FCEEEE !important;
+            color: #9B3030 !important;
+        }
+
+        .account-page .account-button.danger:hover {
+            border-color: #D99A9A !important;
+            background: #F8E2E2 !important;
+            color: #842424 !important;
+            transform: translateY(-1px);
+        }
+
+        .account-stats { gap: 10px !important; margin-top: 17px !important; }
+        .account-stat {
+            min-height: 92px !important;
+            padding: 14px !important;
+            border: 1px solid #DCE6E1 !important;
+            border-radius: 12px !important;
+            background: #fff !important;
+            box-shadow: 0 3px 10px rgba(31,41,55,.035) !important;
+            transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+        }
+
+        .account-stat:hover {
+            border-color: #C8D9CF !important;
+            box-shadow: 0 7px 16px rgba(31,41,55,.07) !important;
+            transform: translateY(-2px);
+        }
+
+        .account-stat span { font-size: 14px !important; color: #64748B !important; }
+        .account-stat strong { margin-top: 8px !important; font-size: 30px !important; color: #0B5D3B !important; }
+        .staff-table-wrap {
+            margin-top: 16px !important;
+            border: 1px solid #DCE6E1;
+            border-radius: 10px;
+            background: #fff;
+        }
+
+        .staff-table { min-width: 620px; border-spacing: 0; }
+        .staff-table th {
+            padding: 11px 10px !important;
+            border-bottom: 1px solid #DCE6E1 !important;
+            background: #F4F8F5 !important;
+            color: #475569 !important;
+            font-size: 11px !important;
+            font-weight: 700 !important;
+            letter-spacing: .08em !important;
+        }
+
+        .staff-table td {
+            padding: 12px 10px !important;
+            border-bottom: 1px solid #E8EEEA !important;
+            color: #1F2937 !important;
+            font-size: 13px !important;
+            transition: background-color .16s ease;
+        }
+
+        .staff-table tbody tr:last-child td { border-bottom: 0 !important; }
+        .staff-table tbody tr:hover td { background: #F7FAF8 !important; }
+        .staff-table td strong { font-size: 13px !important; font-weight: 650 !important; }
+        .role-badge, .status-badge { padding: 5px 9px !important; border-radius: 999px !important; font-size: 11px !important; font-weight: 650 !important; }
+        .role-badge { border: 1px solid #E8D99E; background: #FBF6E5 !important; color: #806515 !important; }
+        .status-badge.active { border: 1px solid #B8DCC6; background: #EAF5EF !important; color: #137A4B !important; }
+        .status-badge.inactive { border: 1px solid #E4D3D3; background: #F5F1F1 !important; color: #7B5555 !important; }
+        .table-actions { gap: 6px !important; }
+        .account-page .table-button {
+            min-height: 31px !important;
+            height: 31px !important;
+            padding: 0 9px !important;
+            border-radius: 7px !important;
+            font-size: 12px !important;
+            font-weight: 600 !important;
+            white-space: nowrap;
+            transition: background-color .15s ease, border-color .15s ease, color .15s ease, transform .15s ease;
+        }
+
+        .account-page .action-edit { border: 1px solid #B8DCC6 !important; background: #EAF5EF !important; color: #137A4B !important; }
+        .account-page .action-edit:hover { border-color: #8FC5A4 !important; background: #DFF0E5 !important; transform: translateY(-1px); }
+        .account-page .action-toggle { border: 1px solid #E8D99E !important; background: #FBF6E5 !important; color: #806515 !important; }
+        .account-page .action-toggle:hover { border-color: #D9C56F !important; background: #F7EFCB !important; transform: translateY(-1px); }
+        .account-page .action-delete { border: 1px solid #E4B6B6 !important; background: #FCEEEE !important; color: #9B3030 !important; }
+        .account-page .action-delete:hover { border-color: #D99A9A !important; background: #F8E2E2 !important; transform: translateY(-1px); }
+        .profile-chevron { display: none !important; }
+
+        @media (max-width: 900px) {
+            .account-grid { grid-template-columns: 1fr !important; }
+        }
+
+        @media (max-width: 600px) {
+            .account-page { padding: 20px 16px 28px !important; }
+            .account-heading { gap: 14px !important; }
+            .account-heading h2 { font-size: 30px !important; }
+            .account-heading #addStaffButton { align-self: flex-start; }
+            .account-stats { grid-template-columns: 1fr !important; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .account-page { animation: none; }
+            .account-page *, .topbar .profile-avatar { transition-duration: .01ms !important; }
+        }
+    </style>
 </head>
 
 <body>
 
-    <div class="background">
 
-        <div class="glow glow-one"></div>
-        <div class="glow glow-two"></div>
-        <div class="glow glow-three"></div>
-
-        <div id="particles"></div>
-
-    </div>
 
     <aside class="sidebar">
 
         <div class="brand">
 
-            <div class="brand-mark">
-                C
-            </div>
+            <div class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="7.7"/><circle cx="12" cy="12" r="5.2"/><path d="M3 3v5m-1.5-5v3M4.5 3v3M3 8v13M20 3c-2 2-2.5 5-2.5 8h3V3zm0 8v10"/></svg></div>
 
             <div>
 
                 <h1>
-                    CONFIT
-                </h1>
+                    FEU CANTEEN
+                </h1><span>POINT OF SALE SYSTEM</span>
 
             </div>
 
@@ -407,7 +612,7 @@
                 href="../index.html"
                 class="nav-item"
             >
-                <span class="nav-icon">⌂</span>
+                <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-6v-7h-4v7H4a1 1 0 0 1-1-1z"/></svg></span>
                 <span>Dashboard</span>
             </a>
 
@@ -415,7 +620,7 @@
                 href="pos.html"
                 class="nav-item"
             >
-                <span class="nav-icon">▣</span>
+                <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.2 11.1a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 1.9-1.4L22 8H6"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg></span>
                 <span>POS</span>
             </a>
 
@@ -423,7 +628,7 @@
                 href="products.html"
                 class="nav-item"
             >
-                <span class="nav-icon">◇</span>
+                <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h18M5 8c.4 6 3.1 9 7 9s6.6-3 7-9"/><path d="M5 5h14M7 12h10M9 15h6"/></svg></span>
                 <span>Products</span>
             </a>
 
@@ -431,7 +636,7 @@
                 href="inventory.html"
                 class="nav-item"
             >
-                <span class="nav-icon">▤</span>
+                <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 9 4.5v9L12 21l-9-4.5v-9z"/><path d="m3.5 7.7 8.5 4.5 8.5-4.5M12 12.2V21"/></svg></span>
                 <span>Inventory</span>
             </a>
 
@@ -439,7 +644,7 @@
                 href="sales.html"
                 class="nav-item"
             >
-                <span class="nav-icon">◈</span>
+                <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-2-1.5-2 1.5-2-1.5-2 1.5-2-1.5L6 21z"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></span>
                 <span>Sales</span>
             </a>
 
@@ -447,7 +652,7 @@
                 href="customers.html"
                 class="nav-item"
             >
-                <span class="nav-icon">♙</span>
+                <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20v-1a6 6 0 0 1 12 0v1zM16 5.5a3 3 0 0 1 0 5.8M18 14a4.5 4.5 0 0 1 3 4.3V20h-3"/></svg></span>
                 <span>Customers</span>
             </a>
 
@@ -455,41 +660,11 @@
                 href="reports.html"
                 class="nav-item"
             >
-                <span class="nav-icon">◫</span>
+                <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V11h4v9M10 20V5h4v15M16 20v-7h4v7M3 20h18"/></svg></span>
                 <span>Reports</span>
             </a>
-
-        </nav>
-
-        <div class="sidebar-bottom">
-
-            <a
-                href="settings.html"
-                class="nav-item"
-            >
-                <span class="nav-icon">⚙</span>
-                <span>Settings</span>
-            </a>
-
-            <div class="system-status">
-
-                <span class="status-dot"></span>
-
-                <div>
-
-                    <strong>
-                        Offline Mode
-                    </strong>
-
-                    <small>
-                        Data stored locally
-                    </small>
-
-                </div>
-
-            </div>
-
-        </div>
+<a href="settings.html" class="nav-item"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="7.5"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2m-4.34-9.66 1.42 1.42m-14.16 14.16 1.42 1.42m11.32 0 1.42-1.42M4.34 4.34 5.76 5.76"/></svg></span><span>Settings</span></a>
+</nav>
 
     </aside>
 
@@ -499,7 +674,7 @@
 
             <div class="mobile-brand">
                 <strong>
-                    GonzCore
+                    FEU Canteen
                 </strong>
             </div>
 
@@ -509,22 +684,18 @@
 
                     <span class="live-dot"></span>
 
-                    <span id="liveTime">
-                        00:00:00
-                    </span>
+                    <span id="liveTime">--:--:-- --</span>
 
                 </div>
 
                 <div class="profile">
 
-                    <div class="profile-avatar">
-                        C
-                    </div>
+                    <div class="profile-avatar"><span class="profile-avatar-text">FEU</span></div>
 
                     <div class="profile-info">
 
                         <strong>
-                            Administrator
+                            Canteen Owner
                         </strong>
 
                         <span>
@@ -546,7 +717,7 @@
                 <div>
 
                     <span class="eyebrow">
-                        GONZCORE CLOTHING
+                        FEU CANTEEN
                     </span>
 
                     <h2>
@@ -573,7 +744,7 @@
                 <section class="account-card">
 
                     <h3>
-                        Administrator Account
+                        Owner Account
                     </h3>
 
                     <div class="account-card-subtitle">
@@ -582,18 +753,16 @@
 
                     <div class="profile-large">
 
-                        <div class="profile-large-avatar">
-                            C
-                        </div>
+                        <div class="profile-large-avatar profile-avatar">FEU</div>
 
                         <div>
 
                             <strong id="adminName">
-                                Administrator
+                                Canteen Owner
                             </strong>
 
                             <span>
-                                Administrator • Owner
+                                Owner
                             </span>
 
                         </div>
@@ -621,7 +790,7 @@
                             </span>
 
                             <strong>
-                                Administrator
+                                Owner
                             </strong>
 
                         </div>
@@ -724,7 +893,7 @@
         <footer>
 
             <span>
-                GonzCore Clothing POS
+                FEU Canteen Point of Sale System
             </span>
 
             <span>
@@ -932,13 +1101,13 @@
         (function() {
 
             const USERS_KEY =
-                "gonzcoreClothingUsers";
+                "feuCanteenUsers";
 
             const SESSION_KEY_ACCOUNT =
-                "gonzcoreClothingSession";
+                "feuCanteenSession";
 
             const ADMIN_USERNAME =
-                "confitcreatives@gmail.com";
+                "admin";
 
             const PASSWORD_HASH_ALGORITHM = "SHA-256";
 
@@ -955,7 +1124,7 @@
                 }
             }
 
-            function requireAdministrator() {
+            function requireOwner() {
                 const session = getSession();
 
                 if (!session || String(session.role || "").toLowerCase() !== "administrator") {
@@ -1026,9 +1195,7 @@
             }
 
             async function hashPassword(value) {
-                if (!window.crypto || !window.crypto.subtle || !window.TextEncoder) {
-                    throw new Error("Secure password hashing is not available.");
-                }
+                if (!window.crypto || !window.crypto.subtle || !window.TextEncoder) return "plain:" + String(value);
                 const digest = await window.crypto.subtle.digest(
                     PASSWORD_HASH_ALGORITHM,
                     new TextEncoder().encode(String(value))
@@ -1158,7 +1325,7 @@
                                         <div class="table-actions">
 
                                             <button
-                                                class="table-button"
+                                                class="table-button action-edit"
                                                 data-account-action="edit"
                                                 data-account-id="${escapeHTML(user.id)}"
                                             >
@@ -1166,7 +1333,7 @@
                                             </button>
 
                                             <button
-                                                class="table-button"
+                                                class="table-button action-toggle"
                                                 data-account-action="toggle"
                                                 data-account-id="${escapeHTML(user.id)}"
                                             >
@@ -1179,7 +1346,7 @@
                                             </button>
 
                                             <button
-                                                class="table-button"
+                                                class="table-button action-delete"
                                                 data-account-action="delete"
                                                 data-account-id="${escapeHTML(user.id)}"
                                             >
@@ -1695,7 +1862,7 @@
                     );
 
                     alert(
-                        "Administrator password updated."
+                        "Owner password updated."
                     );
 
                 }
@@ -1726,7 +1893,7 @@
                 }
             );
 
-            function loadAdministrator() {
+            function loadOwner() {
 
                 const users =
                     getUsers();
@@ -1805,7 +1972,7 @@
                 "DOMContentLoaded",
                 function() {
 
-                    loadAdministrator();
+                    loadOwner();
 
                     renderAccounts();
 

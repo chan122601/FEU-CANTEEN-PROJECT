@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sales | CONFIT STORE</title>
+    <title>Sales | FEU CANTEEN</title>
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/gonzcore_motion.css">
+    <link rel="stylesheet" href="../css/canteen_motion.css">
 
     <style>
         .sales-page {
@@ -42,7 +42,7 @@
             border: 1px solid rgba(255,255,255,0.09);
             border-radius: 10px;
             background: rgba(255,255,255,0.045);
-            color: #c4b5fd;
+            color: #D4AF37;
             font-size: 10px;
             font-weight: 700;
             cursor: pointer;
@@ -66,7 +66,7 @@
             border: 1px solid rgba(255,255,255,0.08);
             border-radius: 15px;
             background: rgba(255,255,255,0.045);
-            backdrop-filter: blur(18px);
+
         }
 
         .sales-stat-label {
@@ -89,11 +89,12 @@
         }
 
         .sales-panel {
+            min-width: 0;
             padding: 22px;
             border: 1px solid rgba(255,255,255,0.08);
             border-radius: 18px;
             background: rgba(255,255,255,0.045);
-            backdrop-filter: blur(18px);
+
         }
 
         .sales-toolbar {
@@ -157,7 +158,15 @@
 
         .sales-table {
             width: 100%;
+            min-width: 1020px;
             border-collapse: collapse;
+        }
+
+        .sales-table-wrap {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
         }
 
         .sales-table th {
@@ -190,38 +199,39 @@
         }
 
         .transaction-id {
-            color: #c4b5fd;
+            color: #0B5D3B;
             font-weight: 700;
-            font-size: 10px;
+            font-size: 13px;
         }
 
         .sale-date {
-            color: #d3d7e0;
-            font-size: 10px;
+            color: #1F2937;
+            font-size: 13px;
         }
 
         .sale-time {
             margin-top: 4px;
-            color: #626b7f;
-            font-size: 9px;
+            color: #475569;
+            font-size: 12px;
         }
 
         .sale-staff {
-            color: #d6dae3;
-            font-size: 10px;
-            font-weight: 700;
+            color: #1F2937;
+            font-size: 13px;
+            font-weight: 600;
         }
 
         .sale-staff-role {
             margin-top: 4px;
-            color: #626b7f;
-            font-size: 9px;
+            color: #475569;
+            font-size: 12px;
         }
 
         .sale-items {
-            max-width: 300px;
-            color: #d6dae3;
-            line-height: 1.5;
+            max-width: 280px;
+            color: #1F2937;
+            font-size: 14px;
+            line-height: 1.45;
         }
 
         .sale-item-line {
@@ -229,13 +239,14 @@
         }
 
         .item-more {
-            color: #6d7588;
-            font-size: 9px;
+            color: #475569;
+            font-size: 12px;
         }
 
         .sale-total {
-            color: #ffffff;
-            font-weight: 800;
+            color: #0B5D3B;
+            font-size: 14px;
+            font-weight: 700;
         }
 
         .sale-cash {
@@ -254,23 +265,23 @@
             justify-content: center;
             min-width: 76px;
             padding: 6px 9px;
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 8px;
-            background: rgba(255,255,255,0.04);
-            color: #d6dae3;
-            font-size: 9px;
-            font-weight: 700;
+            border: 1px solid #C8D9CF;
+            border-radius: 999px;
+            background: #EAF5EF;
+            color: #0B5D3B;
+            font-size: 12px;
+            font-weight: 600;
             white-space: nowrap;
         }
 
         .payment-badge.gcash {
-            border-color: rgba(196,181,253,0.18);
-            background: rgba(196,181,253,0.08);
-            color: #c4b5fd;
+            border-color: #E5D8A8;
+            background: #FBF6E5;
+            color: #705A13;
         }
 
         .payment-badge.cash {
-            color: #9da5b6;
+            color: #0B5D3B;
         }
 
         .sale-reference {
@@ -279,31 +290,40 @@
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
-            color: #aeb6c7;
-            font-size: 9px;
+            color: #475569;
+            font-size: 12px;
         }
 
         .sale-actions {
             display: flex;
-            gap: 6px;
+            align-items: center;
+            gap: 7px;
         }
 
         .sale-action {
-            width: 32px;
+            min-width: 36px;
             height: 32px;
-            display: grid;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 9px;
             place-items: center;
-            border: 1px solid rgba(255,255,255,0.08);
+            border: 1px solid #BFD5C7;
             border-radius: 8px;
-            background: rgba(255,255,255,0.04);
-            color: #aab2c2;
+            background: #FFFFFF;
+            color: #0B5D3B;
+            font-size: 12px;
+            font-weight: 600;
+            white-space: nowrap;
             cursor: pointer;
-            transition: 0.25s ease;
+            transition: transform .18s ease, background-color .18s ease, border-color .18s ease, color .18s ease;
         }
 
         .sale-action:hover {
-            background: rgba(255,255,255,0.09);
-            color: #ffffff;
+            transform: translateY(-1px);
+            background: #EAF5EF;
+            border-color: #137A4B;
+            color: #064E3B;
         }
 
         .empty-sales {
@@ -338,7 +358,7 @@
             justify-content: center;
             padding: 20px;
             background: rgba(2,4,10,0.72);
-            backdrop-filter: blur(12px);
+
             z-index: 1000;
         }
 
@@ -348,18 +368,14 @@
 
         .sale-modal {
             width: min(520px, 100%);
-            max-height: 90vh;
+            max-height: calc(100vh - 32px);
             overflow-y: auto;
             padding: 26px;
-            border: 1px solid rgba(255,255,255,0.10);
-            border-radius: 20px;
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(25,28,45,0.98),
-                    rgba(14,17,30,0.98)
-                );
-            box-shadow: 0 30px 80px rgba(0,0,0,0.45);
+            border: 1px solid #DCE6E1;
+            border-radius: 16px;
+            background: #FFFFFF;
+            color: #1F2937;
+            box-shadow: 0 20px 60px rgba(15,55,37,.18);
         }
 
         .modal-header {
@@ -378,8 +394,8 @@
 
         .modal-header p {
             margin-top: 5px;
-            color: #70798d;
-            font-size: 10px;
+            color: #64748B;
+            font-size: 13px;
         }
 
         .close-modal {
@@ -388,18 +404,18 @@
             display: grid;
             place-items: center;
             flex-shrink: 0;
-            border: 1px solid rgba(255,255,255,0.08);
+            border: 1px solid #C8D9CF;
             border-radius: 8px;
-            background: rgba(255,255,255,0.04);
-            color: #8d96aa;
+            background: #FFFFFF;
+            color: #0B5D3B;
             cursor: pointer;
             font-size: 20px;
         }
 
         .sale-details {
-            border: 1px solid rgba(255,255,255,0.07);
-            border-radius: 12px;
-            background: rgba(255,255,255,0.025);
+            border: 1px solid #DCE6E1;
+            border-radius: 10px;
+            background: #FFFFFF;
             overflow: hidden;
         }
 
@@ -408,9 +424,9 @@
             justify-content: space-between;
             gap: 15px;
             padding: 11px 13px;
-            border-bottom: 1px solid rgba(255,255,255,0.055);
-            color: #8d96aa;
-            font-size: 10px;
+            border-bottom: 1px solid #E8EFEB;
+            color: #475569;
+            font-size: 13px;
         }
 
         .sale-detail-row:last-child {
@@ -418,7 +434,9 @@
         }
 
         .sale-detail-row strong {
-            color: #ffffff;
+            color: #1F2937;
+            font-size: 13px;
+            font-weight: 600;
             text-align: right;
         }
 
@@ -428,8 +446,8 @@
 
         .modal-items-title {
             margin-bottom: 9px;
-            color: #8992a6;
-            font-size: 9px;
+            color: #0B5D3B;
+            font-size: 12px;
             font-weight: 700;
             letter-spacing: 0.8px;
             text-transform: uppercase;
@@ -440,9 +458,9 @@
             justify-content: space-between;
             gap: 15px;
             padding: 10px 0;
-            border-bottom: 1px dashed rgba(255,255,255,0.07);
-            color: #d5d9e2;
-            font-size: 10px;
+            border-bottom: 1px dashed #DCE6E1;
+            color: #1F2937;
+            font-size: 14px;
         }
 
         .modal-item:last-child {
@@ -451,8 +469,8 @@
 
         .modal-item-meta {
             margin-top: 3px;
-            color: #626b7f;
-            font-size: 8px;
+            color: #475569;
+            font-size: 12px;
         }
 
         .modal-total {
@@ -460,10 +478,16 @@
             justify-content: space-between;
             margin-top: 12px;
             padding-top: 13px;
-            border-top: 1px solid rgba(255,255,255,0.08);
-            color: #ffffff;
+            border-top: 1px solid #DCE6E1;
+            color: #475569;
             font-size: 14px;
             font-weight: 800;
+        }
+
+        .modal-total strong {
+            color: #0B5D3B;
+            font-size: 16px;
+            font-weight: 700;
         }
 
         .modal-actions {
@@ -474,23 +498,39 @@
 
         .modal-button {
             flex: 1;
-            height: 42px;
+            height: 44px;
             border-radius: 9px;
-            font-size: 10px;
-            font-weight: 700;
+            font-size: 14px;
+            font-weight: 650;
             cursor: pointer;
         }
 
         .modal-close-button {
-            border: 1px solid rgba(255,255,255,0.09);
-            background: rgba(255,255,255,0.04);
-            color: #aeb6c7;
+            border: 1px solid #BFD5C7;
+            background: #FFFFFF;
+            color: #0B5D3B;
         }
 
         .modal-print-button {
             border: none;
-            background: linear-gradient(135deg, #ffffff, #c4b5fd);
-            color: #171323;
+            background: #0B5D3B;
+            color: #FFFFFF;
+        }
+
+        .modal-positive-amount {
+            color: #0B5D3B !important;
+        }
+
+        .modal-button:hover {
+            transform: translateY(-1px);
+        }
+
+        .modal-close-button:hover {
+            background: #EAF5EF;
+        }
+
+        .modal-print-button:hover {
+            background: #064E3B;
         }
 
         .print-receipt-area {
@@ -671,84 +711,62 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="../css/canteen_theme.css">
 </head>
 
 <body>
 
-    <div class="background">
-        <div class="glow glow-one"></div>
-        <div class="glow glow-two"></div>
-        <div class="glow glow-three"></div>
-        <div id="particles"></div>
-    </div>
+
 
     <aside class="sidebar">
 
         <div class="brand">
-            <div class="brand-mark">C</div>
+            <div class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="7.7"/><circle cx="12" cy="12" r="5.2"/><path d="M3 3v5m-1.5-5v3M4.5 3v3M3 8v13M20 3c-2 2-2.5 5-2.5 8h3V3zm0 8v10"/></svg></div>
 
             <div>
-                <h1>CONFIT</h1>
-                
+                <h1>FEU CANTEEN</h1><span>POINT OF SALE SYSTEM</span>
+
             </div>
         </div>
 
         <nav class="navigation">
 
             <a href="../index.html" class="nav-item">
-                <span class="nav-icon">⌂</span>
+                <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-6v-7h-4v7H4a1 1 0 0 1-1-1z"/></svg></span>
                 <span>Dashboard</span>
             </a>
 
             <a href="pos.html" class="nav-item">
-                <span class="nav-icon">▣</span>
+                <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.2 11.1a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 1.9-1.4L22 8H6"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg></span>
                 <span>POS</span>
             </a>
 
             <a href="products.html" class="nav-item">
-                <span class="nav-icon">◇</span>
+                <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h18M5 8c.4 6 3.1 9 7 9s6.6-3 7-9"/><path d="M5 5h14M7 12h10M9 15h6"/></svg></span>
                 <span>Products</span>
             </a>
 
             <a href="inventory.html" class="nav-item">
-                <span class="nav-icon">▤</span>
+                <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 9 4.5v9L12 21l-9-4.5v-9z"/><path d="m3.5 7.7 8.5 4.5 8.5-4.5M12 12.2V21"/></svg></span>
                 <span>Inventory</span>
             </a>
 
             <a href="sales.html" class="nav-item active">
-                <span class="nav-icon">◈</span>
+                <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-2-1.5-2 1.5-2-1.5-2 1.5-2-1.5L6 21z"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></span>
                 <span>Sales</span>
             </a>
 
             <a href="customers.html" class="nav-item">
-                <span class="nav-icon">♙</span>
+                <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20v-1a6 6 0 0 1 12 0v1zM16 5.5a3 3 0 0 1 0 5.8M18 14a4.5 4.5 0 0 1 3 4.3V20h-3"/></svg></span>
                 <span>Customers</span>
             </a>
 
             <a href="reports.html" class="nav-item">
-                <span class="nav-icon">◫</span>
+                <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V11h4v9M10 20V5h4v15M16 20v-7h4v7M3 20h18"/></svg></span>
                 <span>Reports</span>
             </a>
-
-        </nav>
-
-        <div class="sidebar-bottom">
-
-            <a href="settings.html" class="nav-item">
-                <span class="nav-icon">⚙</span>
-                <span>Settings</span>
-            </a>
-
-            <div class="system-status">
-                <span class="status-dot"></span>
-
-                <div>
-                    <strong>Offline Mode</strong>
-                    <small>Data stored locally</small>
-                </div>
-            </div>
-
-        </div>
+<a href="settings.html" class="nav-item"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="7.5"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2m-4.34-9.66 1.42 1.42m-14.16 14.16 1.42 1.42m11.32 0 1.42-1.42M4.34 4.34 5.76 5.76"/></svg></span><span>Settings</span></a>
+</nav>
 
     </aside>
 
@@ -757,26 +775,24 @@
         <header class="topbar">
 
             <div class="mobile-brand">
-                <strong>CONFIT</strong>
+                <strong>FEU CANTEEN</strong>
             </div>
 
             <div class="topbar-right">
 
                 <div class="live-time">
                     <span class="live-dot"></span>
-                    <span id="liveTime">00:00:00</span>
+                    <span id="liveTime">--:--:-- --</span>
                 </div>
 
                 <div class="profile">
 
-                    <div class="profile-avatar">
-                        C
-                    </div>
+                    <div class="profile-avatar"><span class="profile-avatar-text">FEU</span></div>
 
                     <div class="profile-info">
-                        <strong>Administrator</strong>
+                        <strong>Canteen Owner</strong>
                         <span>Owner</span>
-                    </div>
+                    </div><span class="profile-chevron" aria-hidden="true">&#8964;</span>
 
                 </div>
 
@@ -791,7 +807,7 @@
                 <div>
 
                     <span class="eyebrow">
-                        CONFIT STORE
+                        FEU CANTEEN
                     </span>
 
                     <h2>
@@ -931,14 +947,14 @@
 
                 </div>
 
-                <div id="salesTableContainer"></div>
+                <div id="salesTableContainer" class="sales-table-wrap"></div>
 
             </div>
 
         </section>
 
         <footer>
-            <span>Powered by Opticore</span>
+            <span>Powered by FEU Canteen</span>
             <span>POS SYSTEM</span>
         </footer>
 
@@ -1013,8 +1029,8 @@
     <script src="../js/app.js"></script>
 
     <script>
-        const SALES_STORAGE_KEY = "gonzcoreClothingSales";
-        const SETTINGS_STORAGE_KEY = "gonzcoreClothingSettings";
+        const SALES_STORAGE_KEY = "feuCanteenSales";
+        const SETTINGS_STORAGE_KEY = "feuCanteenSettings";
 
         let sales = [];
         let selectedSale = null;
@@ -1279,7 +1295,7 @@
                     <div class="empty-sales">
 
                         <div class="empty-sales-icon">
-                            ◈
+                            🧾
                         </div>
 
                         <strong>
@@ -1394,7 +1410,7 @@
 
                         <td>
                             <span class="payment-badge ${String(sale.paymentMethod || "Cash").toLowerCase() === "gcash" ? "gcash" : "cash"}">
-                                ${String(sale.paymentMethod || "Cash").toLowerCase() === "gcash" ? "📱 GCash" : "💵 Cash"}
+                                ${String(sale.paymentMethod || "Cash").toLowerCase() === "gcash" ? "GCash" : "Cash"}
                             </span>
                         </td>
 
@@ -1413,10 +1429,11 @@
                                 <button
                                     class="sale-action"
                                     type="button"
-                                    title="View Sale"
+                                    title="View Transaction"
+                                    aria-label="View Transaction"
                                     onclick="viewSale(${index})"
                                 >
-                                    ◉
+                                    View
                                 </button>
 
                                 <button
@@ -1690,7 +1707,7 @@
 
                     <div class="sale-detail-row">
                         <span>Change</span>
-                        <strong style="color:#6ee7b7;">
+                        <strong class="modal-positive-amount">
                             ${formatMoney(
                                 sale.change
                             )}
@@ -1740,7 +1757,7 @@
 
             let receiptSettings = {};
             try { receiptSettings = JSON.parse(localStorage.getItem(SETTINGS_STORAGE_KEY) || "{}"); } catch (error) { receiptSettings = {}; }
-            const storeName = escapeHTML(receiptSettings.storeName || "CONFIT STORE");
+            const storeName = escapeHTML(receiptSettings.storeName || "FEU CANTEEN");
             const storeDetails = [receiptSettings.storeAddress, receiptSettings.storePhone, receiptSettings.storeEmail].filter(Boolean).map(escapeHTML).join("<br>");
             const customerLine = receiptSettings.showCustomer !== false ? `<div class="print-info-row"><span>Customer</span><strong>${escapeHTML(sale.customerName || "Walk-in Customer")}</strong></div>` : "";
             const paymentLine = receiptSettings.showPaymentMethod !== false ? `<div class="print-summary-row"><span>Payment Method</span><strong>${sale.paymentMethod === "GCash" ? "GCash" : "Cash"}</strong></div>` : "";
@@ -1929,12 +1946,12 @@
                     <div class="print-footer">
 
                         <strong>
-                            ${escapeHTML(receiptSettings.receiptFooter || "Thank you for shopping with CONFIT Store!")}
+                            ${escapeHTML(receiptSettings.receiptFooter || "Thank you for shopping with FEU CANTEEN Store!")}
                         </strong>
 
                         <br>
 
-                        CONFIT POS
+                        FEU Canteen POS
 
                     </div>
 
