@@ -735,7 +735,8 @@
                 } else {
                     users = [
                         {id:"USR-ADMIN",name:"Canteen Owner",username:"admin",password:"admin123",role:"Administrator",status:"active"},
-                        {id:"USR-STAFF",name:"Canteen Staff",username:"staff",password:"staff123",role:"Staff",status:"active"}
+                        {id:"USR-STAFF",name:"Canteen Staff",username:"staff",password:"staff123",role:"Staff",status:"active"},
+                        {id:"USR-SUPERADMIN",name:"School Administrator",username:"superadmin",password:"superadmin123",role:"Superadmin",status:"active"}
                     ];
                     localStorage.setItem(USERS_KEY, JSON.stringify(users));
                 }
@@ -749,9 +750,26 @@
                 }
 
                 if (!users.length) {
-                    users = [{id:"USR-ADMIN",name:"Canteen Owner",username:"admin",password:"admin123",role:"Administrator",status:"active"},{id:"USR-STAFF",name:"Canteen Staff",username:"staff",password:"staff123",role:"Staff",status:"active"}];
+                    users = [{id:"USR-ADMIN",name:"Canteen Owner",username:"admin",password:"admin123",role:"Administrator",status:"active"},{id:"USR-STAFF",name:"Canteen Staff",username:"staff",password:"staff123",role:"Staff",status:"active"},{id:"USR-SUPERADMIN",name:"School Administrator",username:"superadmin",password:"superadmin123",role:"Superadmin",status:"active"}];
                     localStorage.setItem(USERS_KEY, JSON.stringify(users));
                 }
+
+                const superadministrator = users.find(function(user) {
+                    return String(user.role || "").toLowerCase() === "superadmin";
+                });
+
+                if (!superadministrator) {
+                    users.push({
+                        id: "USR-SUPERADMIN",
+                        name: "School Administrator",
+                        username: "superadmin",
+                        password: "superadmin123",
+                        role: "Superadmin",
+                        status: "active"
+                    });
+                    localStorage.setItem(USERS_KEY, JSON.stringify(users));
+                }
+
                 const administrators =
                     users.filter(
                         function(user) {
@@ -796,6 +814,37 @@
                     return user.passwordHash === "plain:" + String(value) || user.passwordHash === await hashPassword(value);
                 }
                 return String(user.password || "") === String(value);
+            }
+
+            function applyRentalAccountStatus(user, users) {
+                if (String(user.role || "").toLowerCase() !== "administrator") return;
+                const rentals = JSON.parse(localStorage.getItem("feuCanteenRentals") || "{}");
+                const rental = rentals && rentals[user.id];
+                if (!rental || !/^\d{4}-\d{2}$/.test(String(rental.startMonth || ""))) return;
+
+                const [startYear, startMonth] = rental.startMonth.split("-").map(Number);
+                const now = new Date();
+                const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+                const dueDay = Math.min(31, Math.max(1, Number(rental.dueDay) || 1));
+                let unpaidMonths = 0;
+                for (let month = new Date(startYear, startMonth - 1, 1); month <= new Date(now.getFullYear(), now.getMonth(), 1); month.setMonth(month.getMonth() + 1)) {
+                    const dueDate = new Date(month.getFullYear(), month.getMonth(), Math.min(dueDay, new Date(month.getFullYear(), month.getMonth() + 1, 0).getDate()));
+                    const key = [month.getFullYear(), String(month.getMonth() + 1).padStart(2, "0")].join("-");
+                    if (dueDate <= today && !(rental.paymentHistory && rental.paymentHistory[key])) unpaidMonths += 1;
+                }
+
+                if (unpaidMonths >= 3) {
+                    if (String(user.status || "").toLowerCase() !== "inactive") {
+                        user.status = "inactive";
+                        user.disabledReason = "rental";
+                    } else if (!user.disabledReason) {
+                        user.disabledReason = "manual";
+                    }
+                } else if (user.disabledReason === "rental") {
+                    user.status = "active";
+                    delete user.disabledReason;
+                }
+                localStorage.setItem(USERS_KEY, JSON.stringify(users));
             }
 
             const existingSession =
@@ -964,6 +1013,16 @@
                             credentialsMatch = await passwordMatches(user, enteredPassword);
                         } catch (hashError) {
                             error.textContent = "Secure password verification is unavailable in this browser.";
+                            error.classList.add("show");
+                            return;
+                        }
+                    }
+
+                    if (user && credentialsMatch) {
+                        try {
+                            applyRentalAccountStatus(user, users);
+                        } catch (rentalError) {
+                            error.textContent = "Rental account status could not be verified.";
                             error.classList.add("show");
                             return;
                         }
