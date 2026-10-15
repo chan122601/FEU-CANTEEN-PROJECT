@@ -697,6 +697,9 @@
         }
     </style>
     <link rel="stylesheet" href="../css/canteen_theme.css">
+<script src="../js/config.js"></script>
+<script src="../js/api-client.js"></script>
+<script src="../js/data-tools.js"></script>
 </head>
 
 <body>
@@ -750,7 +753,7 @@
                 <span>Reports</span>
             </a>
 <a href="settings.html" class="nav-item"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="7.5"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2m-4.34-9.66 1.42 1.42m-14.16 14.16 1.42 1.42m11.32 0 1.42-1.42M4.34 4.34 5.76 5.76"/></svg></span><span>Settings</span></a>
-</nav>
+<a class="nav-item" href="discounts.html"><span class="nav-icon" aria-hidden="true">%</span><span>Discounts</span></a></nav>
 
     </aside>
 
@@ -1169,7 +1172,7 @@
         });
 
         function loadProducts() {
-            const saved = localStorage.getItem(STORAGE_KEY);
+            const saved = POSStore.getItem(STORAGE_KEY);
 
             if (saved) {
                 try {
@@ -1185,7 +1188,7 @@
         }
 
         function loadCategories() {
-            const saved = localStorage.getItem(CATEGORIES_KEY);
+            const saved = POSStore.getItem(CATEGORIES_KEY);
             let storedCategories = [];
 
             if (saved) {
@@ -1221,12 +1224,12 @@
         }
 
         function saveCategories() {
-            localStorage.setItem(CATEGORIES_KEY, JSON.stringify(categories));
+            POSStore.setItem(CATEGORIES_KEY, JSON.stringify(categories));
         }
 
         function getCurrentSession() {
             try {
-                return JSON.parse(localStorage.getItem("feuCanteenSession") || "null");
+                return JSON.parse(POSStore.getItem("feuCanteenSession") || "null");
             } catch (error) {
                 return null;
             }
@@ -1294,7 +1297,7 @@
         }
 
         function saveProducts() {
-            localStorage.setItem(
+            POSStore.setItem(
                 STORAGE_KEY,
                 JSON.stringify(products)
             );
@@ -1490,7 +1493,7 @@
             const totalPages = Math.max(1, Math.ceil(filtered.length / PRODUCTS_PER_PAGE));
             currentProductPage = Math.min(currentProductPage, totalPages);
             const pageStart = (currentProductPage - 1) * PRODUCTS_PER_PAGE;
-            const visibleProducts = filtered.slice(pageStart, pageStart + PRODUCTS_PER_PAGE);
+            const visibleProducts = filtered;
 
             updateStats();
             document.getElementById("productResultsCount").textContent =
@@ -1628,28 +1631,7 @@
             renderPagination(totalPages);
         }
 
-        function renderPagination(totalPages) {
-            const container = document.getElementById("productPagination");
-
-            if (totalPages <= 1) {
-                container.innerHTML = "";
-                return;
-            }
-
-            const buttons = [];
-            buttons.push('<button class="product-page-button" type="button" onclick="changeProductPage(' +
-                (currentProductPage - 1) + ')"' + (currentProductPage === 1 ? " disabled" : "") + '>Previous</button>');
-
-            for (let page = 1; page <= totalPages; page += 1) {
-                buttons.push('<button class="product-page-button ' +
-                    (page === currentProductPage ? "active" : "") +
-                    '" type="button" onclick="changeProductPage(' + page + ')">' + page + '</button>');
-            }
-
-            buttons.push('<button class="product-page-button" type="button" onclick="changeProductPage(' +
-                (currentProductPage + 1) + ')"' + (currentProductPage === totalPages ? " disabled" : "") + '>Next</button>');
-            container.innerHTML = buttons.join("");
-        }
+        function renderPagination(totalPages) { document.getElementById("productPagination").replaceChildren(); }
 
         function changeProductPage(page) {
             const filteredCount = getFilteredProducts().length;
@@ -1942,6 +1924,8 @@
             });
     </script>
 
+<script src="../js/auth.js"></script>
+<script src="../js/enhancements.js"></script>
 </body>
 
 </html>

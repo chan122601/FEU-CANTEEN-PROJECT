@@ -77,6 +77,9 @@
         @media(max-width:700px){.inventory-page{padding:25px 20px}.inventory-heading{flex-direction:column;align-items:flex-start}.inventory-refresh{width:100%}.inventory-stats{grid-template-columns:1fr}.inventory-toolbar{flex-direction:column}.inventory-filter,.history-button{width:100%}.history-item{grid-template-columns:75px 1fr auto}}
     </style>
     <link rel="stylesheet" href="../css/canteen_theme.css">
+<script src="../js/config.js"></script>
+<script src="../js/api-client.js"></script>
+<script src="../js/data-tools.js"></script>
 </head>
 <body>
 
@@ -95,7 +98,7 @@
             <a href="customers.html" class="nav-item"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20v-1a6 6 0 0 1 12 0v1zM16 5.5a3 3 0 0 1 0 5.8M18 14a4.5 4.5 0 0 1 3 4.3V20h-3"/></svg></span><span>Customers</span></a>
             <a href="reports.html" class="nav-item"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V11h4v9M10 20V5h4v15M16 20v-7h4v7M3 20h18"/></svg></span><span>Reports</span></a>
 <a href="settings.html" class="nav-item"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="7.5"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2m-4.34-9.66 1.42 1.42m-14.16 14.16 1.42 1.42m11.32 0 1.42-1.42M4.34 4.34 5.76 5.76"/></svg></span><span>Settings</span></a>
-</nav>
+<a class="nav-item" href="discounts.html"><span class="nav-icon" aria-hidden="true">%</span><span>Discounts</span></a></nav>
     </aside>
 
     <main class="main-content">
@@ -221,7 +224,7 @@
 
         function readArray(key) {
             try {
-                const value = JSON.parse(localStorage.getItem(key) || "[]");
+                const value = JSON.parse(POSStore.getItem(key) || "[]");
                 return Array.isArray(value) ? value : [];
             } catch (error) {
                 return [];
@@ -230,7 +233,7 @@
 
         function readObject(key) {
             try {
-                const value = JSON.parse(localStorage.getItem(key) || "{}");
+                const value = JSON.parse(POSStore.getItem(key) || "{}");
                 return value && typeof value === "object" && !Array.isArray(value) ? value : {};
             } catch (error) {
                 return {};
@@ -238,16 +241,16 @@
         }
 
         function saveInventory() {
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(products));
+            POSStore.setItem(STORAGE_KEY, JSON.stringify(products));
         }
 
         function saveHistory() {
-            localStorage.setItem(HISTORY_KEY, JSON.stringify(history.slice(0, 500)));
+            POSStore.setItem(HISTORY_KEY, JSON.stringify(history.slice(0, 500)));
         }
 
         function getSession() {
             try {
-                return JSON.parse(localStorage.getItem("feuCanteenSession") || "null");
+                return JSON.parse(POSStore.getItem("feuCanteenSession") || "null");
             } catch (error) {
                 return null;
             }
@@ -442,6 +445,7 @@
         }
 
         function syncSaleHistory() {
+            if (FEU.secure) return; // Server checkout already saves complete movement records atomically.
             const sales = readArray(SALES_KEY);
             const existingSaleIds = new Set(history.filter(item => item.action === "Sold").map(item => item.saleId));
             let changed = false;
@@ -545,5 +549,7 @@
                 .replace(/'/g, "&#039;");
         }
     </script>
+<script src="../js/auth.js"></script>
+<script src="../js/enhancements.js"></script>
 </body>
 </html>

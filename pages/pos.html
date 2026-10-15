@@ -1462,6 +1462,9 @@
         }
 
     </style>
+<script src="../js/config.js"></script>
+<script src="../js/api-client.js"></script>
+<script src="../js/data-tools.js"></script>
 </head>
 
 <body>
@@ -1515,7 +1518,7 @@
                 <span>Reports</span>
             </a>
 <a href="settings.html" class="nav-item"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="7.5"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2m-4.34-9.66 1.42 1.42m-14.16 14.16 1.42 1.42m11.32 0 1.42-1.42M4.34 4.34 5.76 5.76"/></svg></span><span>Settings</span></a>
-</nav>
+<a class="nav-item" href="discounts.html"><span class="nav-icon" aria-hidden="true">%</span><span>Discounts</span></a></nav>
 
     </aside>
 
@@ -1876,7 +1879,7 @@
         document.addEventListener("DOMContentLoaded", function() {
 
             loadProducts();
-            try { cart = JSON.parse(localStorage.getItem("feuCanteenCart") || "[]"); if (!Array.isArray(cart)) cart = []; } catch (error) { cart = []; }
+            try { cart = JSON.parse(POSStore.getItem("feuCanteenCart") || "[]"); if (!Array.isArray(cart)) cart = []; } catch (error) { cart = []; }
             loadCustomers();
             loadSettings();
 
@@ -2009,7 +2012,7 @@
                 showGcashReference: true
             };
 
-            const saved = localStorage.getItem(SETTINGS_STORAGE_KEY);
+            const saved = POSStore.getItem(SETTINGS_STORAGE_KEY);
 
             if (!saved) {
                 posSettings = defaults;
@@ -2061,7 +2064,7 @@
 
         function loadCustomers() {
 
-            const saved = localStorage.getItem(
+            const saved = POSStore.getItem(
                 CUSTOMER_STORAGE_KEY
             );
 
@@ -2163,7 +2166,7 @@
 
         function loadProducts() {
 
-            const saved = localStorage.getItem(
+            const saved = POSStore.getItem(
                 PRODUCT_STORAGE_KEY
             );
 
@@ -2437,8 +2440,8 @@
 
         function displayCart() {
             if (currentProducts.length) displayProducts(currentProducts);
-            localStorage.setItem("feuCanteenCart", JSON.stringify(cart));
-            localStorage.setItem("feuCanteenCurrentOrder", JSON.stringify(cart.map(function(item) { return {name:item.name, quantity:item.quantity, price:Number(item.price), subtotal:Number(item.price)*Number(item.quantity)}; })));
+            POSStore.setItem("feuCanteenCart", JSON.stringify(cart));
+            POSStore.setItem("feuCanteenCurrentOrder", JSON.stringify(cart.map(function(item) { return {name:item.name, quantity:item.quantity, price:Number(item.price), subtotal:Number(item.price)*Number(item.quantity)}; })));
             const container =
                 document.getElementById("cartItems");
 
@@ -2721,7 +2724,7 @@
         function getCurrentStaffSession() {
             try {
                 return JSON.parse(
-                    localStorage.getItem("feuCanteenSession") || "null"
+                    POSStore.getItem("feuCanteenSession") || "null"
                 ) || {};
             } catch (error) {
                 return {};
@@ -2871,7 +2874,7 @@
 
             const latestProducts =
                 JSON.parse(
-                    localStorage.getItem(
+                    POSStore.getItem(
                         PRODUCT_STORAGE_KEY
                     ) || "[]"
                 );
@@ -2923,7 +2926,7 @@
 
             canteenProducts = latestProducts;
 
-            localStorage.setItem(
+            POSStore.setItem(
                 PRODUCT_STORAGE_KEY,
                 JSON.stringify(latestProducts)
             );
@@ -2978,7 +2981,7 @@
                 return;
             }
 
-            const saved = localStorage.getItem(
+            const saved = POSStore.getItem(
                 CUSTOMER_STORAGE_KEY
             );
 
@@ -3010,7 +3013,7 @@
             customer.totalSpent = Number(customer.totalSpent || 0) + Number(sale.total || 0);
             customer.lastPurchase = sale.date + " " + sale.time;
 
-            localStorage.setItem(
+            POSStore.setItem(
                 CUSTOMER_STORAGE_KEY,
                 JSON.stringify(customerList)
             );
@@ -3023,7 +3026,7 @@
             let sales = [];
 
             const saved =
-                localStorage.getItem(
+                POSStore.getItem(
                     SALES_STORAGE_KEY
                 );
 
@@ -3047,7 +3050,7 @@
 
             sales.unshift(sale);
 
-            localStorage.setItem(
+            POSStore.setItem(
                 SALES_STORAGE_KEY,
                 JSON.stringify(sales)
             );
@@ -3321,6 +3324,8 @@
         }
     </script>
 
+<script src="../js/auth.js"></script>
+<script src="../js/enhancements.js"></script>
 </body>
 
 </html>

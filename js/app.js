@@ -2,9 +2,9 @@
 
     const CANTEEN_PRODUCTS_KEY = "feuCanteenInventory";
     let existingCanteenProducts = [];
-    try { existingCanteenProducts = JSON.parse(localStorage.getItem(CANTEEN_PRODUCTS_KEY) || "[]"); } catch (error) { existingCanteenProducts = []; }
-    if (!Array.isArray(existingCanteenProducts) || existingCanteenProducts.length === 0) {
-        localStorage.setItem(CANTEEN_PRODUCTS_KEY, JSON.stringify([
+    try { existingCanteenProducts = JSON.parse(POSStore.getItem(CANTEEN_PRODUCTS_KEY) || "[]"); } catch (error) { existingCanteenProducts = []; }
+    if (!FEU.secure && (!Array.isArray(existingCanteenProducts) || existingCanteenProducts.length === 0)) {
+        POSStore.setItem(CANTEEN_PRODUCTS_KEY, JSON.stringify([
             {id:1,name:"Chicken Rice Meal",category:"Meals",price:85,stock:18,size:"Regular",color:"Fresh",image: "\u{1F35B}"},
             {id:2,name:"Pork Adobo Rice",category:"Meals",price:75,stock:16,size:"Regular",color:"Fresh",image: "\u{1F372}"},
             {id:3,name:"Fried Chicken Rice",category:"Meals",price:80,stock:12,size:"Regular",color:"Fresh",image: "\u{1F357}"},
@@ -32,7 +32,7 @@
     let currentSession = null;
 
     const savedSession =
-        localStorage.getItem(
+        POSStore.getItem(
             SESSION_KEY
         );
 
@@ -54,7 +54,7 @@
         "customers.html"
     ];
 
-    const adminOnlyPages = ["products.html", "inventory.html", "reports.html", "customers.html", "settings.html", "account.html"];
+    const adminOnlyPages = ["products.html", "inventory.html", "reports.html", "customers.html", "settings.html", "account.html", "discounts.html"];
 
     if (
         currentPage !== "login.html"
@@ -178,7 +178,7 @@
     function setupUserSession() {
 
         const session =
-            localStorage.getItem(
+            POSStore.getItem(
                 SESSION_KEY
             );
 
@@ -380,7 +380,7 @@
                     return;
                 }
 
-                localStorage.removeItem(
+                POSStore.removeItem(
                     SESSION_KEY
                 );
 
@@ -409,7 +409,7 @@
                 role || ""
             ).toLowerCase();
 
-        const restrictedPages = ["products.html", "inventory.html", "reports.html", "customers.html", "settings.html", "account.html"];
+        const restrictedPages = ["products.html", "inventory.html", "reports.html", "customers.html", "settings.html", "account.html", "discounts.html"];
 
         if (
             normalizedRole !== "staff"
@@ -557,14 +557,14 @@
 
         const sales =
             JSON.parse(
-                localStorage.getItem(
+                POSStore.getItem(
                     "feuCanteenSales"
                 )
             ) || [];
 
         const inventory =
             JSON.parse(
-                localStorage.getItem(
+                POSStore.getItem(
                     "feuCanteenInventory"
                 )
             ) || {};
