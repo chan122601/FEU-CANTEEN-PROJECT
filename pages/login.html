@@ -533,6 +533,9 @@
         .login-panel{background:#fff!important}
 </style>
     <link rel="stylesheet" href="../css/canteen_theme.css">
+<script src="../js/config.js"></script>
+<script src="../js/api-client.js"></script>
+<script src="../js/data-tools.js"></script>
 </head>
 
 <body>
@@ -704,7 +707,8 @@
 
     </main>
 
-    <script>
+    <script>if (!FEU.secure) {
+
 
         (function() {
 
@@ -726,7 +730,7 @@
                 let users = [];
 
                 const saved =
-                    localStorage.getItem(
+                    POSStore.getItem(
                         USERS_KEY
                     );
 
@@ -737,7 +741,7 @@
                         {id:"USR-ADMIN",name:"Canteen Owner",username:"admin",password:"admin123",role:"Administrator",status:"active"},
                         {id:"USR-STAFF",name:"Canteen Staff",username:"staff",password:"staff123",role:"Staff",status:"active"}
                     ];
-                    localStorage.setItem(USERS_KEY, JSON.stringify(users));
+                    POSStore.setItem(USERS_KEY, JSON.stringify(users));
                 }
 
                 if (
@@ -750,7 +754,7 @@
 
                 if (!users.length) {
                     users = [{id:"USR-ADMIN",name:"Canteen Owner",username:"admin",password:"admin123",role:"Administrator",status:"active"},{id:"USR-STAFF",name:"Canteen Staff",username:"staff",password:"staff123",role:"Staff",status:"active"}];
-                    localStorage.setItem(USERS_KEY, JSON.stringify(users));
+                    POSStore.setItem(USERS_KEY, JSON.stringify(users));
                 }
                 const administrators =
                     users.filter(
@@ -775,7 +779,7 @@
 
                 if (String(administrator.username || "").toLowerCase() !== ADMIN_USERNAME) {
                     administrator.username = ADMIN_USERNAME;
-                    localStorage.setItem(USERS_KEY, JSON.stringify(users));
+                    POSStore.setItem(USERS_KEY, JSON.stringify(users));
                 }
 
                 return users;
@@ -799,7 +803,7 @@
             }
 
             const existingSession =
-                localStorage.getItem(
+                POSStore.getItem(
                     LOGIN_SESSION_KEY
                 );
 
@@ -950,7 +954,7 @@
                         }
                         administrator.role = "Administrator";
                         administrator.status = "active";
-                        localStorage.setItem(USERS_KEY, JSON.stringify(users));
+                        POSStore.setItem(USERS_KEY, JSON.stringify(users));
                         administratorSetupRequired = false;
                     }
 
@@ -1011,7 +1015,7 @@
                             user.passwordHash = await hashPassword(enteredPassword);
                             user.passwordHashAlgorithm = PASSWORD_HASH_ALGORITHM;
                             delete user.password;
-                            localStorage.setItem(USERS_KEY, JSON.stringify(users));
+                            POSStore.setItem(USERS_KEY, JSON.stringify(users));
                         } catch (hashError) {
                             error.textContent = "Secure password migration is unavailable in this browser.";
                             error.classList.add("show");
@@ -1040,7 +1044,7 @@
 
                     };
 
-                    localStorage.setItem(
+                    POSStore.setItem(
                         LOGIN_SESSION_KEY,
                         JSON.stringify(
                             session
@@ -1055,7 +1059,10 @@
 
         })();
 
-    </script>
 
+}</script>
+
+<script src="../js/auth.js"></script>
+<script src="../js/enhancements.js"></script>
 </body>
 </html>

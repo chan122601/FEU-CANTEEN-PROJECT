@@ -473,6 +473,9 @@
         }
     </style>
     <link rel="stylesheet" href="../css/canteen_theme.css">
+<script src="../js/config.js"></script>
+<script src="../js/api-client.js"></script>
+<script src="../js/data-tools.js"></script>
 </head>
 
 <body>
@@ -516,7 +519,7 @@
                 <span>Reports</span>
             </a>
 <a href="settings.html" class="nav-item"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="7.5"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2m-4.34-9.66 1.42 1.42m-14.16 14.16 1.42 1.42m11.32 0 1.42-1.42M4.34 4.34 5.76 5.76"/></svg></span><span>Settings</span></a>
-</nav>
+<a class="nav-item" href="discounts.html"><span class="nav-icon" aria-hidden="true">%</span><span>Discounts</span></a></nav>
     </aside>
 
     <main class="main-content">
@@ -724,7 +727,7 @@
         });
 
         function loadCustomers() {
-            const saved = localStorage.getItem(CUSTOMER_STORAGE_KEY);
+            const saved = POSStore.getItem(CUSTOMER_STORAGE_KEY);
 
             if (!saved) {
                 customers = [];
@@ -743,7 +746,7 @@
         }
 
         function loadSales() {
-            const saved = localStorage.getItem(SALES_STORAGE_KEY);
+            const saved = POSStore.getItem(SALES_STORAGE_KEY);
 
             if (!saved) {
                 sales = [];
@@ -762,7 +765,7 @@
         }
 
         function saveCustomers() {
-            localStorage.setItem(
+            POSStore.setItem(
                 CUSTOMER_STORAGE_KEY,
                 JSON.stringify(customers)
             );
@@ -1130,5 +1133,7 @@
                 .replace(/'/g, "&#039;");
         }
     </script>
+<script src="../js/auth.js"></script>
+<script src="../js/enhancements.js"></script>
 </body>
 </html>

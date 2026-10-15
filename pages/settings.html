@@ -38,6 +38,9 @@
 }
 </style>
     <link rel="stylesheet" href="../css/canteen_theme.css">
+<script src="../js/config.js"></script>
+<script src="../js/api-client.js"></script>
+<script src="../js/data-tools.js"></script>
 </head>
 <body>
 
@@ -52,7 +55,7 @@
 <a href="customers.html" class="nav-item"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20v-1a6 6 0 0 1 12 0v1zM16 5.5a3 3 0 0 1 0 5.8M18 14a4.5 4.5 0 0 1 3 4.3V20h-3"/></svg></span><span>Customers</span></a>
 <a href="reports.html" class="nav-item"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V11h4v9M10 20V5h4v15M16 20v-7h4v7M3 20h18"/></svg></span><span>Reports</span></a>
 <a href="settings.html" class="nav-item active"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="7.5"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2m-4.34-9.66 1.42 1.42m-14.16 14.16 1.42 1.42m11.32 0 1.42-1.42M4.34 4.34 5.76 5.76"/></svg></span><span>Settings</span></a>
-</nav>
+<a class="nav-item" href="discounts.html"><span class="nav-icon" aria-hidden="true">%</span><span>Discounts</span></a></nav>
 </aside>
 <main class="main-content">
 <header class="topbar"><div class="mobile-brand"><strong>FEU CANTEEN</strong></div><div class="topbar-right"><div class="live-time"><span class="live-dot"></span><span id="liveTime">--:--:-- --</span></div><div class="profile"><div class="profile-avatar"><span class="profile-avatar-text">FEU</span></div><div class="profile-info"><strong>Canteen Owner</strong><span>Owner</span></div><span class="profile-chevron" aria-hidden="true">&#8964;</span></div></div></header>
@@ -77,21 +80,21 @@
 const SETTINGS_KEY="feuCanteenSettings",INVENTORY_KEY="feuCanteenInventory",SALES_KEY="feuCanteenSales",CUSTOMERS_KEY="feuCanteenCustomers";
 const defaults={storeName:"FEU CANTEEN",storePhone:"",storeEmail:"",storeAddress:"",receiptFooter:"Thank you for shopping with FEU CANTEEN!",cashEnabled:true,gcashEnabled:true,gcashName:"",gcashNumber:"",gcashQR:"",showCustomer:true,showPaymentMethod:true,showGcashReference:true,taxRate:0,defaultDiscount:0,taxEnabled:false,confirmSale:false,allowOutOfStock:false,lowStockWarning:true,lowStockThreshold:5};
 let settings={};
-function loadSettings(){try{settings={...defaults,...JSON.parse(localStorage.getItem(SETTINGS_KEY)||"{}")}}catch{settings={...defaults}};const ids=["storeName","storePhone","storeEmail","storeAddress","receiptFooter","gcashName","gcashNumber"];ids.forEach(id=>document.getElementById(id).value=settings[id]);document.getElementById("cashEnabled").checked=settings.cashEnabled;document.getElementById("gcashEnabled").checked=settings.gcashEnabled;document.getElementById("showCustomer").checked=settings.showCustomer;document.getElementById("showPaymentMethod").checked=settings.showPaymentMethod;document.getElementById("showGcashReference").checked=settings.showGcashReference;document.getElementById("confirmSale").checked=settings.confirmSale;document.getElementById("allowOutOfStock").checked=settings.allowOutOfStock;document.getElementById("lowStockWarning").checked=settings.lowStockWarning;document.getElementById("lowStockThreshold").value=settings.lowStockThreshold;document.getElementById("taxRate").value=settings.taxRate;document.getElementById("defaultDiscount").value=settings.defaultDiscount;document.getElementById("taxEnabled").value=String(settings.taxEnabled);if(settings.gcashQR)showQR(settings.gcashQR)}
-function saveSettings(){settings={storeName:document.getElementById("storeName").value.trim(),storePhone:document.getElementById("storePhone").value.trim(),storeEmail:document.getElementById("storeEmail").value.trim(),storeAddress:document.getElementById("storeAddress").value.trim(),receiptFooter:document.getElementById("receiptFooter").value.trim(),cashEnabled:document.getElementById("cashEnabled").checked,gcashEnabled:document.getElementById("gcashEnabled").checked,gcashName:document.getElementById("gcashName").value.trim(),gcashNumber:document.getElementById("gcashNumber").value.trim(),gcashQR:settings.gcashQR||"",showCustomer:document.getElementById("showCustomer").checked,showPaymentMethod:document.getElementById("showPaymentMethod").checked,showGcashReference:document.getElementById("showGcashReference").checked,taxRate:Number(document.getElementById("taxRate").value)||0,defaultDiscount:Number(document.getElementById("defaultDiscount").value)||0,taxEnabled:document.getElementById("taxEnabled").value==="true",confirmSale:document.getElementById("confirmSale").checked,allowOutOfStock:document.getElementById("allowOutOfStock").checked,lowStockWarning:document.getElementById("lowStockWarning").checked,lowStockThreshold:Number(document.getElementById("lowStockThreshold").value)||0};localStorage.setItem(SETTINGS_KEY,JSON.stringify(settings));toast("Settings saved successfully")}
+function loadSettings(){try{settings={...defaults,...JSON.parse(POSStore.getItem(SETTINGS_KEY)||"{}")}}catch{settings={...defaults}};const ids=["storeName","storePhone","storeEmail","storeAddress","receiptFooter","gcashName","gcashNumber"];ids.forEach(id=>document.getElementById(id).value=settings[id]);document.getElementById("cashEnabled").checked=settings.cashEnabled;document.getElementById("gcashEnabled").checked=settings.gcashEnabled;document.getElementById("showCustomer").checked=settings.showCustomer;document.getElementById("showPaymentMethod").checked=settings.showPaymentMethod;document.getElementById("showGcashReference").checked=settings.showGcashReference;document.getElementById("confirmSale").checked=settings.confirmSale;document.getElementById("allowOutOfStock").checked=settings.allowOutOfStock;document.getElementById("lowStockWarning").checked=settings.lowStockWarning;document.getElementById("lowStockThreshold").value=settings.lowStockThreshold;document.getElementById("taxRate").value=settings.taxRate;document.getElementById("defaultDiscount").value=settings.defaultDiscount;document.getElementById("taxEnabled").value=String(settings.taxEnabled);if(settings.gcashQR)showQR(settings.gcashQR)}
+function saveSettings(){settings={storeName:document.getElementById("storeName").value.trim(),storePhone:document.getElementById("storePhone").value.trim(),storeEmail:document.getElementById("storeEmail").value.trim(),storeAddress:document.getElementById("storeAddress").value.trim(),receiptFooter:document.getElementById("receiptFooter").value.trim(),cashEnabled:document.getElementById("cashEnabled").checked,gcashEnabled:document.getElementById("gcashEnabled").checked,gcashName:document.getElementById("gcashName").value.trim(),gcashNumber:document.getElementById("gcashNumber").value.trim(),gcashQR:settings.gcashQR||"",showCustomer:document.getElementById("showCustomer").checked,showPaymentMethod:document.getElementById("showPaymentMethod").checked,showGcashReference:document.getElementById("showGcashReference").checked,taxRate:Number(document.getElementById("taxRate").value)||0,defaultDiscount:Number(document.getElementById("defaultDiscount").value)||0,taxEnabled:document.getElementById("taxEnabled").value==="true",confirmSale:document.getElementById("confirmSale").checked,allowOutOfStock:document.getElementById("allowOutOfStock").checked,lowStockWarning:document.getElementById("lowStockWarning").checked,lowStockThreshold:Number(document.getElementById("lowStockThreshold").value)||0};POSStore.setItem(SETTINGS_KEY,JSON.stringify(settings));toast("Settings saved successfully")}
 function toast(message){const t=document.getElementById("toast");t.textContent=message;t.classList.add("show");clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>t.classList.remove("show"),2500)}
 function showQR(src){document.getElementById("qrPreview").src=src;document.getElementById("qrPreview").style.display="block";document.getElementById("qrText").textContent="GCash QR Code"}
 document.getElementById("saveSettings").onclick=saveSettings;
 document.getElementById("refreshSettings").onclick=()=>{loadSettings();toast("Settings refreshed")};
-document.getElementById("resetSettings").onclick=()=>{if(confirm("Reset settings to their default values?")){settings={...defaults};localStorage.setItem(SETTINGS_KEY,JSON.stringify(settings));loadSettings();toast("Settings reset")}};
+document.getElementById("resetSettings").onclick=()=>{if(confirm("Reset settings to their default values?")){settings={...defaults};POSStore.setItem(SETTINGS_KEY,JSON.stringify(settings));loadSettings();toast("Settings reset")}};
 document.getElementById("qrUpload").onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=e=>{settings.gcashQR=e.target.result;showQR(settings.gcashQR);toast("GCash QR loaded")};r.readAsDataURL(f)};
-document.getElementById("exportData").onclick=()=>{saveSettings();const data={settings:JSON.parse(localStorage.getItem(SETTINGS_KEY)||"{}"),products:JSON.parse(localStorage.getItem(INVENTORY_KEY)||"[]"),sales:JSON.parse(localStorage.getItem(SALES_KEY)||"[]"),customers:JSON.parse(localStorage.getItem(CUSTOMERS_KEY)||"[]")};const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="feu-canteen-pos-backup.json";a.click();URL.revokeObjectURL(url);toast("POS data exported")};
+document.getElementById("exportData").onclick=()=>{saveSettings();const data={settings:JSON.parse(POSStore.getItem(SETTINGS_KEY)||"{}"),products:JSON.parse(POSStore.getItem(INVENTORY_KEY)||"[]"),sales:JSON.parse(POSStore.getItem(SALES_KEY)||"[]"),customers:JSON.parse(POSStore.getItem(CUSTOMERS_KEY)||"[]")};const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="feu-canteen-pos-backup.json";a.click();URL.revokeObjectURL(url);toast("POS data exported")};
 document.getElementById("importButton").onclick=()=>document.getElementById("importFile").click();
-document.getElementById("importFile").onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=e=>{try{const d=JSON.parse(e.target.result);if(d.settings)localStorage.setItem(SETTINGS_KEY,JSON.stringify(d.settings));if(d.products)localStorage.setItem(INVENTORY_KEY,JSON.stringify(d.products));if(d.sales)localStorage.setItem(SALES_KEY,JSON.stringify(d.sales));if(d.customers)localStorage.setItem(CUSTOMERS_KEY,JSON.stringify(d.customers));loadSettings();toast("POS data imported")}catch{toast("Invalid backup file")}e.target.value=""};r.readAsText(f)};
-document.getElementById("clearSales").onclick=()=>{if(confirm("Delete all sales records?")){localStorage.removeItem(SALES_KEY);toast("Sales data cleared")}};
-document.getElementById("clearCustomers").onclick=()=>{if(confirm("Delete all customer records?")){localStorage.removeItem(CUSTOMERS_KEY);toast("Customer data cleared")}};
-document.getElementById("resetProducts").onclick=()=>{if(confirm("Reset products to the default FEU Canteen products?")){const p=[{id:1,name:"Chicken Rice Meal",category:"Meals",price:85,stock:18,image:"\u{1F35B}"},{id:2,name:"Pork Adobo Rice",category:"Meals",price:75,stock:16,image:"\u{1F372}"},{id:3,name:"Fried Chicken Rice",category:"Meals",price:80,stock:12,image:"\u{1F357}"},{id:4,name:"Siomai Rice",category:"Meals",price:65,stock:20,image:"\u{1F95F}"},{id:5,name:"French Fries",category:"Snacks",price:45,stock:20,image:"\u{1F35F}"},{id:6,name:"Siomai",category:"Snacks",price:40,stock:24,image:"\u{1F95F}"},{id:7,name:"Sandwich",category:"Snacks",price:50,stock:15,image:"\u{1F96A}"},{id:8,name:"Burger",category:"Snacks",price:55,stock:10,image:"\u{1F354}"},{id:9,name:"Bottled Water",category:"Drinks",price:20,stock:35,image:"\u{1F4A7}"},{id:10,name:"Soft Drink",category:"Drinks",price:30,stock:24,image:"\u{1F964}"},{id:11,name:"Iced Tea",category:"Drinks",price:35,stock:18,image:"\u{1F9CB}"},{id:12,name:"Iced Coffee",category:"Coffee",price:55,stock:7,image:"\u{2615}"},{id:13,name:"Chocolate Cake",category:"Desserts",price:60,stock:9,image:"\u{1F370}"},{id:14,name:"Banana Bread",category:"Desserts",price:45,stock:12,image:"\u{1F35E}"},{id:15,name:"Donut",category:"Desserts",price:35,stock:16,image:"\u{1F369}"}];localStorage.setItem(INVENTORY_KEY,JSON.stringify(p));localStorage.setItem("feuCanteenCategories",JSON.stringify(["Meals","Snacks","Drinks","Coffee","Desserts"]));toast("Canteen products reset successfully")}};
-document.getElementById("resetAll").onclick=()=>{if(confirm("This will delete products, sales, customers and settings. Continue?")){localStorage.removeItem(INVENTORY_KEY);localStorage.removeItem(SALES_KEY);localStorage.removeItem(CUSTOMERS_KEY);localStorage.removeItem(SETTINGS_KEY);loadSettings();toast("All POS data has been reset")}};
+document.getElementById("importFile").onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=e=>{try{const d=JSON.parse(e.target.result);if(d.settings)POSStore.setItem(SETTINGS_KEY,JSON.stringify(d.settings));if(d.products)POSStore.setItem(INVENTORY_KEY,JSON.stringify(d.products));if(d.sales)POSStore.setItem(SALES_KEY,JSON.stringify(d.sales));if(d.customers)POSStore.setItem(CUSTOMERS_KEY,JSON.stringify(d.customers));loadSettings();toast("POS data imported")}catch{toast("Invalid backup file")}e.target.value=""};r.readAsText(f)};
+document.getElementById("clearSales").onclick=()=>{if(confirm("Delete all sales records?")){POSStore.removeItem(SALES_KEY);toast("Sales data cleared")}};
+document.getElementById("clearCustomers").onclick=()=>{if(confirm("Delete all customer records?")){POSStore.removeItem(CUSTOMERS_KEY);toast("Customer data cleared")}};
+document.getElementById("resetProducts").onclick=()=>{if(confirm("Reset products to the default FEU Canteen products?")){const p=[{id:1,name:"Chicken Rice Meal",category:"Meals",price:85,stock:18,image:"\u{1F35B}"},{id:2,name:"Pork Adobo Rice",category:"Meals",price:75,stock:16,image:"\u{1F372}"},{id:3,name:"Fried Chicken Rice",category:"Meals",price:80,stock:12,image:"\u{1F357}"},{id:4,name:"Siomai Rice",category:"Meals",price:65,stock:20,image:"\u{1F95F}"},{id:5,name:"French Fries",category:"Snacks",price:45,stock:20,image:"\u{1F35F}"},{id:6,name:"Siomai",category:"Snacks",price:40,stock:24,image:"\u{1F95F}"},{id:7,name:"Sandwich",category:"Snacks",price:50,stock:15,image:"\u{1F96A}"},{id:8,name:"Burger",category:"Snacks",price:55,stock:10,image:"\u{1F354}"},{id:9,name:"Bottled Water",category:"Drinks",price:20,stock:35,image:"\u{1F4A7}"},{id:10,name:"Soft Drink",category:"Drinks",price:30,stock:24,image:"\u{1F964}"},{id:11,name:"Iced Tea",category:"Drinks",price:35,stock:18,image:"\u{1F9CB}"},{id:12,name:"Iced Coffee",category:"Coffee",price:55,stock:7,image:"\u{2615}"},{id:13,name:"Chocolate Cake",category:"Desserts",price:60,stock:9,image:"\u{1F370}"},{id:14,name:"Banana Bread",category:"Desserts",price:45,stock:12,image:"\u{1F35E}"},{id:15,name:"Donut",category:"Desserts",price:35,stock:16,image:"\u{1F369}"}];POSStore.setItem(INVENTORY_KEY,JSON.stringify(p));POSStore.setItem("feuCanteenCategories",JSON.stringify(["Meals","Snacks","Drinks","Coffee","Desserts"]));toast("Canteen products reset successfully")}};
+document.getElementById("resetAll").onclick=()=>{if(confirm("This will delete products, sales, customers and settings. Continue?")){POSStore.removeItem(INVENTORY_KEY);POSStore.removeItem(SALES_KEY);POSStore.removeItem(CUSTOMERS_KEY);POSStore.removeItem(SETTINGS_KEY);loadSettings();toast("All POS data has been reset")}};
 loadSettings();
 </script>
 <script>
@@ -114,7 +117,7 @@ loadSettings();
 
     function isOwner() {
         try {
-            const session = JSON.parse(localStorage.getItem("feuCanteenSession") || "null");
+            const session = JSON.parse(POSStore.getItem("feuCanteenSession") || "null");
             return !!session && String(session.role || "").toLowerCase() === "administrator";
         } catch (error) {
             return false;
@@ -122,7 +125,7 @@ loadSettings();
     }
 
     function readStorageValue(key) {
-        const raw = localStorage.getItem(key);
+        const raw = POSStore.getItem(key);
         if (raw === null) return null;
         try {
             return JSON.parse(raw);
@@ -173,7 +176,7 @@ loadSettings();
         URL.revokeObjectURL(url);
 
         if (!isSafetyBackup) {
-            localStorage.setItem(BACKUP_META_KEY, JSON.stringify({ exportedAt: payload.exportedAt, filename: filename }));
+            POSStore.setItem(BACKUP_META_KEY, JSON.stringify({ exportedAt: payload.exportedAt, filename: filename }));
             updateLastBackupInfo();
         }
         return true;
@@ -216,7 +219,7 @@ loadSettings();
         if (!Array.isArray(backupUsers)) return null;
         let currentUsers = [];
         try {
-            currentUsers = JSON.parse(localStorage.getItem("feuCanteenUsers") || "[]");
+            currentUsers = JSON.parse(POSStore.getItem("feuCanteenUsers") || "[]");
         } catch (error) {
             currentUsers = [];
         }
@@ -257,15 +260,15 @@ loadSettings();
             if (!Object.prototype.hasOwnProperty.call(data, key)) return;
             let value = data[key];
             if (value === null) {
-                localStorage.removeItem(key);
+                POSStore.removeItem(key);
                 return;
             }
             if (key === "feuCanteenUsers") value = mergeUsersWithoutPasswords(value);
-            localStorage.setItem(key, JSON.stringify(value));
+            POSStore.setItem(key, JSON.stringify(value));
         });
 
-        const session = localStorage.getItem("feuCanteenSession");
-        if (session) localStorage.setItem("feuCanteenSession", session);
+        const session = POSStore.getItem("feuCanteenSession");
+        if (session) POSStore.setItem("feuCanteenSession", session);
         toast("FEU Canteen POS backup restored.");
         setTimeout(function() { window.location.reload(); }, 500);
     }
@@ -274,7 +277,7 @@ loadSettings();
         const element = document.getElementById("lastBackupInfo");
         if (!element) return;
         try {
-            const meta = JSON.parse(localStorage.getItem(BACKUP_META_KEY) || "null");
+            const meta = JSON.parse(POSStore.getItem(BACKUP_META_KEY) || "null");
             element.textContent = meta && meta.exportedAt ? new Date(meta.exportedAt).toLocaleString("en-PH") : "No backup yet";
         } catch (error) {
             element.textContent = "No backup yet";
@@ -317,14 +320,14 @@ loadSettings();
 
     document.getElementById("clearSales").onclick = function() {
         if (isOwner() && confirm("Clear all sales records?")) {
-            localStorage.removeItem("feuCanteenSales");
+            POSStore.removeItem("feuCanteenSales");
             toast("Sales data cleared");
         }
     };
 
     document.getElementById("clearCustomers").onclick = function() {
         if (isOwner() && confirm("Clear all customer records?")) {
-            localStorage.removeItem("feuCanteenCustomers");
+            POSStore.removeItem("feuCanteenCustomers");
             toast("Customer data cleared");
         }
     };
@@ -337,7 +340,7 @@ loadSettings();
         if (!isOwner()) return;
         if (confirm("Reset All Data?\n\nThis will permanently remove the current FEU Canteen POS data.")) {
             if (!confirm("Are you absolutely sure? This action cannot be undone.")) return;
-            ["feuCanteenInventory", "feuCanteenSales", "feuCanteenCustomers", "feuCanteenExpenses", "feuCanteenCashDrawer", "feuCanteenCashClosings", "feuCanteenCategories", "feuCanteenStockDiscrepancies", "feuCanteenInventoryHistory", "feuCanteenSettings"].forEach(function(key) { localStorage.removeItem(key); });
+            ["feuCanteenInventory", "feuCanteenSales", "feuCanteenCustomers", "feuCanteenExpenses", "feuCanteenCashDrawer", "feuCanteenCashClosings", "feuCanteenCategories", "feuCanteenStockDiscrepancies", "feuCanteenInventoryHistory", "feuCanteenSettings"].forEach(function(key) { POSStore.removeItem(key); });
             loadSettings();
             toast("All POS data has been reset");
         }
@@ -347,5 +350,7 @@ loadSettings();
     guardDataManagement();
 })();
 </script>
+<script src="../js/auth.js"></script>
+<script src="../js/enhancements.js"></script>
 </body>
 </html>
