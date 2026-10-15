@@ -2,6 +2,14 @@
 
 Branch: `feature/feu-pos-security-reporting`.
 
+Implementation commit: `3da7c9e8bdff59503b4d568557b2c0e6681d3342` (followed by a documentation-only status update).
+
+Draft PR: https://github.com/chan122601/FEU-CANTEEN-PROJECT/pull/1 — open, not merged. GitHub reports it mergeable with no conflicts against the current `main`.
+
+GitHub CI status: **blocked before execution**. [Verify POS run](https://github.com/chan122601/FEU-CANTEEN-PROJECT/actions/runs/38695018725) failed without starting any steps. GitHub's check annotation states: “The job was not started because your account is locked due to a billing issue.” The account owner must resolve that issue before CI or Actions-based Pages deployment can run. Local checks passed; this is not a successful GitHub CI run.
+
+Merge status: awaiting review and approval. Latest frontend deployment/live verification: pending merge, account unlock and successful deployment; no live update is claimed.
+
 This is a reviewable enhancement, **not a fully verified production release**. Merge requires the user's review and approval. Backend hosting, browser visual QA, physical printing and live deployment remain release gates.
 
 ## Implemented
