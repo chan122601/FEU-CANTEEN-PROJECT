@@ -1127,7 +1127,7 @@
             function requireOwner() {
                 const session = getSession();
 
-                if (!session || String(session.role || "").toLowerCase() !== "administrator") {
+                if (!session || !["administrator", "superadmin"].includes(String(session.role || "").toLowerCase())) {
                     window.location.href = "../index.html";
                     return false;
                 }
