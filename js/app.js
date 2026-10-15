@@ -47,6 +47,69 @@
         }
     }
 
+    function reconcileCurrentOwnerRental() {
+        if (!currentSession || String(currentSession.role || "").toLowerCase() !== "administrator") {
+            return false;
+        }
+
+        try {
+            const users = JSON.parse(localStorage.getItem("feuCanteenUsers") || "[]");
+            const owner = Array.isArray(users) && users.find(function(user) {
+                return String(user.id) === String(currentSession.id) ||
+                    String(user.username || "").toLowerCase() === String(currentSession.username || "").toLowerCase();
+            });
+            if (!owner) return true;
+
+            const allRentals = JSON.parse(localStorage.getItem("feuCanteenRentals") || "{}");
+            const rental = allRentals && allRentals[owner.id];
+            if (!rental || !/^\d{4}-\d{2}$/.test(String(rental.startMonth || ""))) {
+                return String(owner.status || "active").toLowerCase() === "inactive";
+            }
+
+            const [startYear, startMonth] = rental.startMonth.split("-").map(Number);
+            const now = new Date();
+            const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+            const firstMonth = new Date(startYear, startMonth - 1, 1);
+            const dueDay = Math.min(31, Math.max(1, Number(rental.dueDay) || 1));
+            let outstanding = 0;
+            for (let month = new Date(firstMonth); month <= new Date(now.getFullYear(), now.getMonth(), 1); month.setMonth(month.getMonth() + 1)) {
+                const dueDate = new Date(month.getFullYear(), month.getMonth(), Math.min(dueDay, new Date(month.getFullYear(), month.getMonth() + 1, 0).getDate()));
+                const key = [month.getFullYear(), String(month.getMonth() + 1).padStart(2, "0")].join("-");
+                if (dueDate <= today && !(rental.paymentHistory && rental.paymentHistory[key])) outstanding += 1;
+            }
+
+            let changed = false;
+            if (outstanding >= 3) {
+                if (owner.status !== "inactive") {
+                    owner.status = "inactive";
+                    owner.disabledReason = "rental";
+                    changed = true;
+                } else if (!owner.disabledReason) {
+                    owner.disabledReason = "manual";
+                    changed = true;
+                }
+            } else if (owner.disabledReason === "rental") {
+                owner.status = "active";
+                delete owner.disabledReason;
+                changed = true;
+            }
+            if (changed) localStorage.setItem("feuCanteenUsers", JSON.stringify(users));
+            return String(owner.status || "active").toLowerCase() === "inactive";
+        } catch (error) {
+            console.error("Could not verify store rental access.", error);
+            return true;
+        }
+    }
+
+    if (currentSession && currentPage !== "login.html" && reconcileCurrentOwnerRental()) {
+        localStorage.removeItem(SESSION_KEY);
+        currentSession = null;
+        const loginPath = window.location.pathname.includes("/pages/")
+            ? "login.html"
+            : "pages/login.html";
+        window.location.href = loginPath;
+    }
+
     const staffAllowedPages = [
         "index.html",
         "pos.html",
